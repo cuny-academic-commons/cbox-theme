@@ -1,0 +1,482 @@
+/*
+----------------------------------------------------------------
+//LAYOUT
++ Global & Wraps
++ Header
++ Navigation Menus
++ Content
++ Sidebar
++ Footer
++ Activity Stream
++ Groups Directory
++ Member Directory
++ Misc.
+
+You can disable the css in this file by adding the following code to your child theme config/infinity.ini file.
+
+cbox-design = off
+
+This allows you to quickly create a custom style for your theme. When you're developing always make sure to turn on Infinity
+developer mode by addding the following to your wp-config or functions.php
+
+define( 'INFINITY_DEV_MODE', true );
+
+Infinity combines all the stylesheets into one file called dynamic.css. You can also write CSS using LESS. To learn all about this visit
+http://infinity.presscrew.com/learn
+--------------------------------------------------------------*/
+body {
+    background: url("../images/bg-body.gif") repeat transparent;
+    border-top: 5px solid #4B4A47;
+    font: 14px/140% "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+h2.pagetitle a,
+h2.posttitle a,
+h1.pagetitle a,
+h1.posttitle a {
+    color: #545454;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+a {
+    color: #628FAA;
+    text-decoration: none;
+    -webkit-transition: color 0.1s linear;
+    -moz-transition: color 0.1s linear;
+    -o-transition: color 0.1s linear;
+    -ms-transition: color 0.1s linear;
+    transition: color 0.1s linear;
+}
+a:hover {
+    color: #666;
+    text-decoration: none;
+}
+#wrapper {
+    margin: 30px auto;
+    max-width: 1150px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.main-wrap { box-shadow: 0 0 15px #747272 }
+#header {
+    background: transparent -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+/* Also add a border radius to our pseudo element for header background */
+#header:before {
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+h1#site-title,
+div#site-title {
+    border-bottom: 2px solid #DDDDDD;
+    -webkit-border-radius: 0 12px 12px 0;
+    -moz-border-radius: 0 12px 12px 0;
+    border-radius: 0 12px 12px 0;
+    border-right: 1px solid #C1C1C1;
+    border-top: 1px solid #D0CECE;
+    padding: 10px 30px 6px;
+}
+.main-wrap {
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #FFF;
+}
+/* Global CSS3 Stuff */
+.top-menu,
+.top-wrap .sub-menu,
+.item-list-tabs,
+.footer-wrap,
+thead:first-child tr th,
+thead:first-child tr td,
+.base-menu ul ul,
+.sidebar-activity-tabs ul li.current,
+.sidebar-activity-tabs ul li.selected,
+.docs .toggle-switch {
+    /* IE10 Consumer Preview */
+    background-image: -ms-linear-gradient(top, #333333 0%, #222222 100%);
+    background-image: -o-linear-gradient(top, #333333 0%, #222222 100%);
+    background-image: -webkit-linear-gradient(top, #333333 0%, #222222 100%);
+    background-image: -moz-linear-gradient(top, #333333 0%, #222222 100%);
+    background-repeat: repeat-x;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 2px solid #628FAA;
+    border-top: 2px solid #525151;
+}
+.footer-wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#footer .widget h4 {
+    border-bottom: 1px solid #3E3C3C;
+    color: #E0E0E0;
+}
+.author-box,
+.category-box,
+.tag-box,
+.info-box,
+#inner-sidebar,
+.activity-inner,
+div.activity-comments form.ac-form,
+.postthumb img,
+span.activity,
+h1#site-title,
+div#site-title,
+#inner-sidebar,
+.sidebar-activity-tabs ul li,
+div#subnav.item-list-tabs,
+#top-homepage-wrap {
+    background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+    background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+    background-image: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+    background-image: -webkit-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 1px 0 #FFFFFF;
+    border: 0px;
+}
+div#subnav.item-list-tabs {
+    border-top: 1px solid #EAEAEA;
+    margin-left: -28px;
+    margin-right: -34px;
+}
+/* Menus */
+.base-menu ul a,
+div.item-list-tabs ul li a,
+div.item-list-tabs ul li span {
+    color: #EFEFEF;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.main-menu {
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    font-size: 115%;
+    padding: 5px;
+}
+.main-menu ul a {
+    font-weight: 500;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    margin-right: 10px;
+}
+.base-menu ul li.current-cat a span,
+.base-menu ul li.current_page_item a span,
+.base-menu ul li.current-menu-item a span {
+    font-weight: bold;
+    background: #000;
+}
+#main-menu-wrap .sub-menu { margin: 8px 0 0 }
+.base-menu .sub-menu { padding-left: 0px !important }
+/* Setup the inner sidebar. This contains some negative margins and padding which can't be applied it the #sidebar class
+because of the Flexible Grid class it needs.*/
+#sidebar img {
+	max-width: 100%;
+	height: auto;
+}
+#inner-sidebar {
+    margin-left: 20px;
+    margin-right: -40px;
+    margin-top: -40px;
+    padding: 30px;
+}
+.widget { margin: 0 0 20px }
+.widget h4 {
+    border-bottom: 1px solid #EDEDED;
+    padding-bottom: 10px;
+}
+/* Footer */
+#footer .widget {
+    color: #EFEFEF;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    padding: 20px;
+}
+#footer-widget-right .widget { padding-right: 10px }
+/* WordPress */
+h1#category-title,
+h1#tag-title {
+    background: url("../../../infinity/assets/images/icons/black.png") no-repeat scroll -3px -36px transparent;
+    color: #999;
+    font-size: 125%;
+    padding-left: 22px;
+}
+h1#category-title span,
+h1#tag-title span { color: #555 }
+.authorbox h3 {
+    background: url("../../../infinity/assets/images/icons/black.png") no-repeat scroll -724px -1228px transparent;
+    padding-left: 25px;
+}
+.comment-container { padding: 10px }
+.children .comment-container {
+    background: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+/* BuddyPress */
+img.avatar,
+ul.item-list li img.avatar {
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    margin-left: 0;
+    padding: 0;
+}
+.activity-list .activity-content .activity-inner,
+.activity-list .activity-content blockquote { padding: 20px }
+div.item-options {
+    font-size: 80%;
+    margin-bottom: -16px;
+    margin-top: -16px;
+}
+#vertical-activity-tabs { background: none repeat scroll 0 0 #FFFFFF }
+#vertical-activity-tabs,
+#group-navigation,
+#profile-navigation {
+    border: 0 none;
+    box-shadow: none;
+    margin: -30px -30px 30px -25px;
+    padding: 30px 25px;
+}
+#vertical-activity-tabs ul li {
+    float: none !important;
+    padding: 5px 5px 5px 20px;
+}
+#vertical-activity-tabs ul li a {
+    background-color: transparent;
+    color: #222222;
+    font-weight: bold;
+    text-shadow: none;
+}
+#vertical-activity-tabs ul li.selected a { color: #EFEFEF }
+#vertical-activity-tabs ul { overflow: inherit }
+div.item-list-tabs {
+    clear: both;
+    margin-left: -30px;
+    margin-right: -35px;
+    min-height: 37px;
+    position: relative;
+}
+div.item-list-tabs ul li a span {
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    color: #999;
+}
+#subnav ul {
+    background: none;
+    border-bottom: 1px solid #FFFFFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-top: 0px;
+}
+#subnav.item-list-tabs ul li a {
+    color: #787676;
+    font-weight: bold;
+    text-shadow: none;
+}
+div#subnav.item-list-tabs {
+    border-bottom: 1px solid #E8E8E8;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+#sidebar .item-list-tabs li.loading a {
+    background: transparent !important;
+    background-image: url("../../../infinity/assets/images/design/ajax-loader.gif" ) !important;
+    padding-right: 30px !important;
+    background-repeat: no-repeat !important;
+    background-position: 4px 12px !important;
+}
+span.activity {
+    border: 1px solid #EDEDED;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: -6px;
+    padding: 0 5px;
+}
+#powered-by {
+    background: none repeat scroll 0 0 #2F2F2F;
+    border-top: 1px solid #454545;
+    color: #DDDDDD;
+    font-weight: bold;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#copyright-info { text-align: right }
+/* Members */
+#profile-nav-menu ul { list-style: none outside none }
+#profile-nav-menu ul li a:before {
+    content: "+";
+    padding-right: 5px;
+}
+.sidebar-activity-tabs ul {
+    list-style: none outside none;
+    margin: 30px 0 0;
+}
+.sidebar-activity-tabs ul li {
+    border-bottom: 1px solid #FFFEFE;
+    border-top: 1px solid #E4E2E2;
+    margin-left: -25px;
+    margin-right: -25px;
+    padding: 12px 10px 10px 20px;
+}
+.sidebar-activity-tabs ul li a:hover { opacity: 1 }
+.sidebar-activity-tabs ul li a {
+    padding: 10px 0 5px 25px;
+    color: #222;
+    font-weight: bold;
+    opacity: 0.7;
+}
+.sidebar-activity-tabs ul li span,
+.sidebar-activity-tabs ul li.current span,
+.sidebar-activity-tabs ul li.selected span {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px 4px 4px 4px;
+    color: #A6A4A3;
+    display: inline;
+    font-size: 75%;
+    font-weight: bold;
+    margin-left: 2px;
+    padding: 2px 5px;
+}
+.sidebar-activity-tabs ul li.current span,
+.sidebar-activity-tabs ul li.selected span {
+    background: none repeat scroll 0 0 #333333;
+    color: #999999;
+    border: 1px solid #282828;
+}
+#vertical-activity-tabs ul li span { background: transparent }
+.sidebar-activity-tabs ul li.current,
+.sidebar-activity-tabs ul li.selected {
+    padding: 10px 0 12px 20px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.sidebar-activity-tabs ul li.current a,
+.sidebar-activity-tabs ul li.selected a {
+    background-image: url("../../../infinity/assets/images/icons/white.png") !important;
+    color: #EFEFEF;
+    font-weight: bold;
+    opacity: 1;
+}
+.sidebar-activity-tabs ul li:hover a { font-weight: bold }
+/* FIX: hide the horizontal navigation on settings pages using CSS */
+.settings #item-nav { display: none }
+/* widgets */
+div.item-options {
+    float: right;
+    margin-right: 0px;
+    margin-top: -45px;
+    font-size: 70%;
+}
+/* ======== */
+/* ! Misc    */
+/* ======== */
+div#item-header div#item-header-content { margin-left: 0 }
+#item-header-avatar img { float: none }
+thead:first-child tr th,
+thead:first-child tr td {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #DDD;
+}
+form#send-invite-form .main-column { margin-left: 190px }
+div#invite-list {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #E4E4E4;
+    height: 400px;
+    overflow: scroll;
+    padding: 5px;
+    width: 160px;
+    float: left;
+}
+/* ======== */
+/* ! HomePage    */
+/* ======== */
+#center-homepage-widget { padding: 30px 0 }
+#top-homepage-wrap {
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: -40px;
+    overflow: hidden;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+}
+#top-homepage-wrap #inner-sidebar {
+    background: none repeat scroll 0 0 transparent;
+    box-shadow: none;
+    margin-left: 0;
+}
+#top-homepage-wrap .flexslider {
+    border: 0px;
+    border-radius: 0px;
+    margin: 0 0 60px;
+    position: relative;
+}
+.flexslider .slides img { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) }
+.flex-caption {
+    background-image: url("../../base/feature-slider/assets/images/slides-bg.png");
+    bottom: 0;
+    position: absolute;
+    width: 94.5%;
+    padding: 20px;
+    color: #FFF;
+    text-shadow: 0 1px 0 #000000;
+}
+.flex-caption h2 { color: #EFEFEF }
+/* ======== */
+/* ! Docs    */
+/* ======== */
+.docs div.doc-content {
+    border: 0px;
+    padding: 0px;
+}
+.doc-tabs li { list-style: none outside none }
+thead:first-child tr th a,
+thead:first-child tr td a { color: #EFEFEF }
+.docs .doc-tabs {
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin-right: 20px;
+    margin-top: -20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.docs .doc-tabs li a { border-radius: 5px 5px 5px 5px }
+.docs .toggle-switch { padding: 8px 12px }
+.docs .toggle-content {
+    border: 1px solid #DDD;
+    -webkit-border-radius: 0px 0px 3px 3px;
+    -moz-border-radius: 0px 0px 3px 3px;
+    border-radius: 0px 0px 3px 3px;
+}
+.docs div.docs-info-header {
+    background: transparent;
+    padding: 0px;
+}
+.docs label { margin-top: 20px }
+

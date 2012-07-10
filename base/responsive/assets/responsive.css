@@ -1,0 +1,512 @@
+/*
+Theme Name: Infinity Responsive Theme
+Parent styles */
+
+/* This stylesheet contains a bunch of extra stuff like buttons and Menu Icons you can use across your theme.*/
+/*
+ /* Columns Shortcodes*/
+/*--------------------------------------------------------------
+1.1 - iPad Landscape
+--------------------------------------------------------------*/
+body {
+min-width: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+	#wpadminbar,.twipsy {
+		display: none !important;
+	}
+	html.js {
+    margin-top: 0 !important;
+	}
+	div#content {
+		margin-right: 0;
+		width: auto;
+		float: none;
+		border: none;
+		margin-right: 0 !important;
+    	width: auto !important;
+	}
+	.main-wrap {
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+	}
+	img, fieldset { max-width: 100%; height: auto}
+	ul.sf-menu, div.menu ul  {
+	display: none;
+	}
+	div.item-list-tabs select {
+    margin-left: 20px;
+    margin-top: 10px;
+	}
+	#subnav select {
+	margin-top: 5px;
+	}
+	.mobileMenu {
+	margin-top: 5px;
+	}
+	.post-category,.time-posted {
+	display: none;
+	}
+	div#sidebar {
+		width: auto !important;
+		float: none;
+		margin: 2em 0 0 0;
+		border: none;
+	}
+	#inner-sidebar {
+	    border-left: 0 solid #E6E6E6;
+	    padding-left: 0;
+	}
+	#footer-widget-left,#footer-widget-middle, #footer-widget-right,#footer-menu ul {
+		width: 100% !important;
+		float: none;
+		border: none;
+	}
+}
+
+
+/*--------------------------------------------------------------
+1.2 - iPad Portrait
+--------------------------------------------------------------*/
+@media only screen and (max-width: 640px) {
+	div.dir-search {
+		float: none;
+		margin: 1.25em 0 0;
+	}
+    #main-menu-wrap {
+    background: none repeat scroll 0 0 transparent !important;
+    border: 0 none !important;
+    border-radius: 0 0 0 0 !important;
+    margin-top: 21px;
+    right: 38px;
+    z-index: 100;
+    	}
+    div#item-header img.avatar {
+    height: 80px !important;
+    width: 80px !important;
+	}
+	div#item-header div#item-header-content {
+    margin-left: 15% !important;
+	}
+	div#item-header ul img.avatar, div#item-header ul.avatars img.avatar {
+	    height: 30px !important;
+	    margin: 2px;
+	    width: 30px !important;
+	}
+	#inner-sidebar {
+    border: 0px;
+    height: auto !important;
+	margin: 0px;
+    padding-right: 0px;
+    padding-top: 30px;
+	}
+	.widget h4 {
+    padding: 0 0 10px 20px;
+	}
+	.activity-header p {
+	line-height: 280% !important;
+	}
+	.activity-list .activity-content .activity-header img.avatar {
+    display: none;
+	}
+	select {
+    width: 110px !important;
+	}
+	.pie-easy-exts-features-header-logo img {
+    margin-top: 8px;
+    width: 224px;
+	}
+	.grid_6 { width: 100% !important; }
+	.grid_7 { width: 100%!important; }
+	.grid_8 { width: 100%!important; }
+	.grid_9 { width: 100%!important; }
+	.grid_10 { width: 100%!important; }
+	.grid_11 { width: 100%!important; }
+	.grid_12 { width: 100%!important; }
+	.grid_13 { width: 100%!important; }
+	.grid_14 { width: 100%!important; }
+	.grid_15 { width: 100%!important; }
+	.grid_16 { width: 100%!important; }
+	.grid_17 { width: 100%!important; }
+	.grid_18 { width: 100%!important; }
+	.grid_19 { width: 100%!important; }
+	.grid_20 { width: 100%!important; }
+	.grid_21 { width: 100%!important; }
+	.grid_22 { width: 100%!important; }
+	.grid_23 { width: 100%!important; }
+	.grid_24 { width: 100%!important; }
+}
+
+
+/*--------------------------------------------------------------
+2.0 - Smartphone (any)
+--------------------------------------------------------------*/
+@media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) {
+	-webkit-text-size-adjust: none;
+	}
+
+@media only screen and (max-width: 480px) {
+	body {
+		width: 100%;
+		margin: 0;
+		
+	}
+	#wrapper {
+		border: none;
+	}
+	
+	#powered-by {
+    float: none;
+    margin-top: 10px;
+	}
+	#copyright-info {
+    text-align: center;
+	}	
+	#header {
+	height: 110px;
+	}
+	#site-title {
+	top: 10% !important;
+	}
+	.activity-list li.mini .activity-content p {
+    width: 440% !important;
+	}
+}
+
+
+/*--------------------------------------------------------------
+3.0 - iPhone
+--------------------------------------------------------------*/
+@media only screen and (max-width: 320px) {
+	#sidebar {
+	width: 100% !important;
+	}
+	#inner-sidebar {
+    border-left: 0 solid #E6E6E6;
+    padding-left: 0;
+	}
+}
+
+
+/*--------------------------------------------------------------
+Slighty Modified Repo
+
+----------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - iPad
+	1.1 - Landscape
+	1.2 - Portrait
+2.0 - Smartphone
+3.0 - iPhone
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+1.2 - iPad Portrait
+--------------------------------------------------------------*/
+@media only screen and (max-width: 640px) {
+	div.dir-search {
+		float: none;
+		margin: 1.25em 0 0;
+	}
+	ul.item-list li div.action {
+		padding-left: 64px;
+		position: relative;
+		right: auto;
+		text-align: left;
+		top: 1em;
+		margin-bottom: 1.25em;
+	}
+	.activity-list li.mini {
+	display: none;
+	}
+}
+
+
+/*--------------------------------------------------------------
+2.0 - Smartphone (any)
+--------------------------------------------------------------*/
+@media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) {
+	-webkit-text-size-adjust: none;
+}
+
+@media only screen and (max-width: 480px) {
+	div.item-list-tabs ul li {
+		float: none;
+		margin: 0.3em 0.6em;
+		background:none;
+	}
+	div.item-list-tabs ul li.last {
+		float: none;
+		margin: 0.3em 0.6em;
+	}
+	div#subnav.item-list-tabs ul li.last {
+		margin-top: 1em;
+	}
+	div.item-list-tabs ul li.selected,
+	div.item-list-tabs ul li.current {
+		margin: 0.3em 0.6em;
+	}
+	div.item-list-tabs ul li:first-child {
+		margin: 0.6em 0.6em 0.5em 0.6em;
+	}
+	div.item-list-tabs ul li a,
+	div.item-list-tabs ul li span {
+		padding: 0.3em;
+	}
+	div#subnav ul {
+		padding-top: 0.6em;
+	}
+	div.pagination {
+		padding: 0.6em;
+	}
+	div.item-list-tabs ul {
+		padding-top: 0;
+	}
+	div.item-list-tabs ul li {
+		margin-top: 0;
+	}
+	form.standard-form #basic-details-section,
+	form.standard-form #blog-details-section,
+	form.standard-form #profile-details-section {
+		float: none;
+		width: 100%;
+	}
+}
+
+
+/*--------------------------------------------------------------
+3.0 - iPhone
+--------------------------------------------------------------*/
+@media only screen and (max-width: 320px) {
+	form#groups-directory-form h3 a {
+		display: block;
+		margin-top: 0.6em;
+	}
+	form#whats-new-form div#whats-new-avatar {
+		display:none;
+	}
+	form#whats-new-form h5 {
+		margin: 0 0 0 0px;
+	}
+	form#whats-new-form #whats-new-content {
+		margin-left: 0px;
+		padding-left: 0px;
+	}
+	body.activity-permalink .activity-list li .activity-content {
+		margin-left: 0;
+	}
+	body.activity-permalink .activity-list li.mini .activity-meta {
+		left: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+Hello, this is the BuddyPress Responsive theme stylesheet
+
+----------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - iPad
+	1.1 - Landscape
+	1.2 - Portrait
+2.0 - Smartphone
+3.0 - iPhone
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 - iPad Landscape
+--------------------------------------------------------------*/
+@media only screen and (max-width: 768px) {
+	#wpadminbar {
+		display: none;
+	}
+	div#content .padder {
+		margin-right: 0;
+		width: auto;
+		float: none;
+		border: none;
+	}
+	div#sidebar {
+		width: auto;
+		float: none;
+		margin: 2em 0 0 0;
+		border: none;
+	}
+	ul#nav {
+		padding-bottom: 1em;
+	}
+	ul#nav li {
+		width: 46%;
+		margin-bottom: 1em;
+		margin-right: 0;
+	}
+	ul#nav li:nth-child(even) {
+		margin-left: 3%;
+		margin-right: 0;
+	}
+	ul#nav li a {
+		-moz-border-radius: 0.25em;
+		-webkit-border-radius: 0.25em;
+		border-radius: 0.25em;
+		margin-bottom: 0;
+	}
+}
+
+
+/*--------------------------------------------------------------
+1.2 - iPad Portrait
+--------------------------------------------------------------*/
+@media only screen and (max-width: 640px) {
+	div.dir-search {
+		float: none;
+		margin: 1.25em 0 0;
+	}
+	ul.item-list li div.action {
+		padding-left: 64px;
+		position: relative;
+		right: auto;
+		text-align: left;
+		top: 1em;
+		margin-bottom: 1.25em;
+	}
+}
+
+
+/*--------------------------------------------------------------
+2.0 - Smartphone (any)
+--------------------------------------------------------------*/
+@media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) {
+	-webkit-text-size-adjust: none;
+}
+
+@media only screen and (max-width: 480px) {
+	div.item-list-tabs {
+    height: auto !important;
+    padding-left: 20px;
+    padding-bottom: 5px;
+	}
+	div.item-list-tabs ul li {
+    display: inline-block;
+    float: none;
+    width: auto;
+	}
+	form.standard-form #basic-details-section,
+	form.standard-form #blog-details-section,
+	form.standard-form #profile-details-section {
+		float: none;
+		width: 100%;
+	}
+}
+
+
+/*--------------------------------------------------------------
+3.0 - iPhone
+--------------------------------------------------------------*/
+@media only screen and (max-width: 320px) {
+	form#groups-directory-form h3 a {
+		display: block;
+		margin-top: 0.6em;
+	}
+	form#whats-new-form div#whats-new-avatar {
+		display:none;
+	}
+	form#whats-new-form h5 {
+		margin: 0 0 0 0px;
+	}
+	form#whats-new-form #whats-new-content {
+		margin-left: 0px;
+		padding-left: 0px;
+	}
+	body.activity-permalink .activity-list li .activity-content {
+		margin-left: 0;
+	}
+	body.activity-permalink .activity-list li.mini .activity-meta {
+		left: 0;
+	}
+}
+
+
+/* -------------------------------------------------- 
+	:: Mobile Visibility Affordances
+---------------------------------------------------*/
+	
+	
+	.show-on-phones { display: none !important; }	
+	.show-on-tablets { display: none !important; }
+	.show-on-desktops { display: block; }
+	
+	.hide-on-phones { display: block !important; }	
+	.hide-on-tablets { display: block !important; }
+	.hide-on-desktops { display: none; }
+	
+	
+	@media only screen and (device-width: 768px), only screen and (device-width: 1280px), only screen and (device-width: 800px) {
+		.hide-on-phones { display: block !important; }
+		.hide-on-tablets { display: none !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: none !important; }
+		.show-on-tablets { display: block !important; }
+		.show-on-desktops { display: none !important; }
+	}
+	
+		
+	@media only screen and (max-width: 767px) {
+		.hide-on-phones { display: none !important; }
+		.hide-on-tablets { display: block !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: block !important; }
+		.show-on-tablets { display: none !important; }
+		.show-on-desktops { display: none !important; }
+	}
+
+/* -------------------------------------------------- 
+	:: Forms
+---------------------------------------------------*/	
+
+
+	@media only screen and (max-width: 767px) {
+		input.input-text, input.input-text.oversize, textarea,
+		form.nice input.input-text, form.nice input.input-text.oversize, form.nice textarea { display: block; width: 96%; padding: 6px 2% 4px; font-size: 18px; }
+		form.nice input.input-text, form.nice input.input-text.oversize, form.nice textarea { -webkit-border-radius: 2px; -moz-border-radius: 2px; }
+		form.nice small.error { padding: 6px 2%; display: block; }
+		form.nice .small + .error { width: auto; }
+		form.nice .medium + .error { width: auto; }
+		form.nice .large + .error { width: auto; }	
+	}
+	
+	
+/* -------------------------------------------------- 
+	:: UI
+---------------------------------------------------*/	
+	
+	/* Buttons */
+	@media only screen and (max-width: 767px) {
+		.button { display: block; }
+		button.button { width: 100%; padding-left: 0px; padding-right: 0px; }
+	}
+	
+	/* Tabs */
+	
+	@media only screen and (max-width: 767px) {
+		dl.tabs.mobile, dl.nice.tabs.mobile { width: auto; margin: 20px -20px 40px; height: auto; }
+		dl.tabs.mobile dt, dl.tabs.mobile dd, dl.nice.tabs.mobile dt, dl.nice.tabs.mobile dd { float: none; height: auto; }
+		
+	    dl.tabs.mobile dd a { display: block; width: auto; height: auto; padding: 18px 20px; line-height: 1; border: solid 0px #ccc; border-width: 1px 0px 0px; margin: 0; color: #555; background: #eee; font-size: 15px; font-size: 1.5rem; }
+		dl.tabs.mobile dd a.active { height: auto; margin: 0; border-width: 1px 0px 0px; }
+	
+		.nice.tabs.mobile { border-bottom: solid 1px #ccc; height: auto; }
+		.nice.tabs.mobile dd a { padding: 18px 20px; border: none; border-left: none; border-right: none; border-top: 1px solid #ccc; background: #fff; }
+		.nice.tabs.mobile dd a.active { border: none; background: #00a6fc; color: #fff; margin: 0; position: static; top: 0px; height: auto; }
+		.nice.tabs.mobile dd:first-child a.active { margin: 0; }
+		
+		dl.contained.mobile, dl.nice.contained.mobile { margin-bottom: 0px; }
+    	dl.contained.tabs.mobile dd a { padding: 18px 20px; }
+    	dl.nice.contained.tabs.mobile dd a { padding: 18px 20px; }
+	}
+	

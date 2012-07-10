@@ -1,0 +1,135 @@
+/* Artfully masterminded by ZURB */
+body {
+  position: relative;
+}
+
+#joyRideTipContent { display: none; }
+
+/* Default styles for the container */
+.joyride-tip-guide {
+  margin-top: -25px;
+  position: absolute;
+  background: #000;
+  font-size: 14px;
+  background: rgba(0,0,0,0.85);
+  padding: 10px 10px 10px 15px;
+  color: #fff;
+  width: 300px;
+  z-index: 10;
+  font-family: inherit;
+  font-weight: normal;
+     -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+/* Add a little css triangle pip, older browser just miss out on the fanciness of it */
+.joyride-tip-guide span.joyride-nub {
+  display: block;
+  position: absolute;
+  left: 22px;
+  width: 0; 
+  height: 0;
+  border: solid 14px;
+  border: solid 14px;
+}
+.joyride-tip-guide span.joyride-nub.top {
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: #000;
+  border-bottom-color: rgba(0,0,0,0.8);
+  top: -28px;
+  bottom: none;
+}
+.joyride-tip-guide span.joyride-nub.bottom {
+  border-bottom-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: #000;
+  border-top-color: rgba(0,0,0,0.8) !important;
+  bottom: -28px;
+  bottom: none;
+}
+
+/* Typography */
+.joyride-tip-guide h1,.joyride-tip-guide h2,.joyride-tip-guide h3,.joyride-tip-guide h4,.joyride-tip-guide h5,.joyride-tip-guide h6 {
+  line-height: 1.25;
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+}
+.joyride-tip-guide h1 { font-size: 30px; }
+.joyride-tip-guide h2 { font-size: 26px; }
+.joyride-tip-guide h3 { font-size: 22px; }
+.joyride-tip-guide h4 {
+    font-size: 18px;
+    margin-bottom: 9px;
+    margin-top: 10px;
+}
+.joyride-tip-guide h5 { font-size: 16px; }
+.joyride-tip-guide h6 { font-size: 14px; }
+.joyride-tip-guide p {
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  line-height: inherit;
+}
+
+/* Button Style */
+.joyride-tip-guide .joyride-next-tip:after {
+  clear: both;
+}
+.joyride-tip-guide .joyride-next-tip {
+    float: right;
+    font-size: 24px;
+    margin-top: 20px;
+    padding: 1px 15px;
+    background: #fecc5f;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feda71', endColorstr='#febb4a'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#feda71), to(#febb4a)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #feda71, #febb4a);
+    border-color: #f5b74e #e5a73e #d6982f;
+    color: #996633;
+    text-shadow: 0 1px 0 #fedd9b;
+    box-shadow: 0 1px 1px #1A1A1A, 0 1px 0 #FFFFFF inset;
+}
+.joyride-next-tip:hover {
+    background: #fecb5e;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fec354', endColorstr='#fecd61'); /*  IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#fec354), to(#fecd61)); /*  WebKit */
+    background: -moz-linear-gradient(top,  #fec354, #fecd61);
+    border-color: #d29a3a #cc9436 #c89133;
+    text-shadow: 0 1px 0 #fee1a0;
+    -webkit-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+    -moz-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+    box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+}
+
+.joyride-timer-indicator-wrap {
+  width: 50px;
+  height: 3px;
+  border: solid 1px rgba(255,255,255,0.1);
+  position: absolute;
+  right: 17px;
+  bottom: 16px;
+}
+.joyride-timer-indicator {
+  display: block;
+  width: 0;
+  height: inherit;
+  background: rgba(255,255,255,0.25);
+}
+
+.joyride-close-tip {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(255,255,255,0.4) !important;
+  text-decoration: none;
+  font-family: Verdana, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  border-bottom: none !important;
+}
+.joyride-close-tip:hover {
+  color: rgba(255,255,255,0.9) !important;
+}
