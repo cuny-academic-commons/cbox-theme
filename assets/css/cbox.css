@@ -237,7 +237,10 @@ ul.item-list li img.avatar {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     margin-left: 0;
     padding: 0;
-    width: 40px;
+}
+ul.item-list li img.avatar {
+	width: 40px;
+	height: 40px;
 }
 .activity-list .activity-content .activity-inner,
 .activity-list .activity-content blockquote { padding: 20px }
@@ -422,6 +425,8 @@ div#invite-list {
 /* ! HomePage    */
 /* ======== */
 #center-homepage-widget { padding: 30px 0 }
+#homepage-content .widget { padding-right: 30px;}
+#homepage-widget-right { padding-right: 0px;}
 #top-homepage-wrap {
     margin-left: -30px;
     margin-right: -30px;
@@ -483,4 +488,40 @@ thead:first-child tr td a { color: #EFEFEF }
     padding: 0px;
 }
 .docs label { margin-top: 20px }
+
+	
+/* TODO: Move this into Infinity Core icons.css */	
+div#message p:before {
+	background-image: url("../../../infinity/assets/images/icons/black.png");
+    background-position: -729px -343px;
+    background-repeat: no-repeat;
+    content: "";
+    display: inline;
+    font-weight: bold;
+    height: 0;
+    padding-bottom: 3px;
+    padding-left: 19px !important;
+    padding-top: 1px;
+}
+div#message p {
+    background-color: #FEFAEB;
+    border: 1px solid #F1F1F1;
+    border-radius: 4px 4px 4px 4px;
+    display: block;
+    font-size: 12px;
+    padding: 10px 15px;
+}  	
+li#nav-docs-groups-li a { 	
+	background-image: url("../../../infinity/assets/images/icons/black.png");  	
+	background-position: 0 -502px;  	
+	background-repeat: no-repeat; 	
+	padding-left: 25px; 	
+}
+
+li#nav-notifications-groups-li a {
+	background-image: url("../../../infinity/assets/images/icons/black.png");  	
+	background-position: 0 -910px;
+    background-repeat: no-repeat;
+    padding-left: 25px;	
+}
 
