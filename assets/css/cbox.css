@@ -452,10 +452,16 @@ div#invite-list {
     background-image: url("../../base/feature-slider/assets/images/slides-bg.png");
     bottom: 0;
     position: absolute;
-    width: 94.5%;
-    padding: 20px;
+    width: inherit;
+    padding-top: 20px;
+    padding-bottom: 20px;
     color: #FFF;
     text-shadow: 0 1px 0 #000000;
+}
+.flex-caption p,
+.flex-caption h3 {
+padding-left: 20px;
+padding-right: 20px;
 }
 .flex-caption h2 { color: #EFEFEF }
 /* ======== */
