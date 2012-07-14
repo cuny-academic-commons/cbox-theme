@@ -242,6 +242,12 @@ ul.item-list li img.avatar {
 	width: 40px;
 	height: 40px;
 }
+.activity-list .activity-content .activity-header img.avatar {
+    float: none !important;
+    height: 20px;
+    margin: 0 5px 0 0 !important;
+    width: 20px;
+}
 .activity-list .activity-content .activity-inner,
 .activity-list .activity-content blockquote { padding: 20px }
 div.item-options {
@@ -531,3 +537,18 @@ li#nav-notifications-groups-li a {
     padding-left: 25px;	
 }
 
+#nav-forums {
+	background-image: url("../../../infinity/assets/images/icons/black.png");  	
+	background-position: -725px -1114px;
+    background-repeat: no-repeat;
+    padding-left: 25px;	
+}
+
+/* BBPress Bleeding */
+.groups.forums #item-header {
+	display: none;
+}
+
+#bbpress-forums {
+    font-size: inherit;
+}
