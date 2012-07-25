@@ -551,7 +551,7 @@ div#message p:before {
     padding-top: 1px;
 }
 #user-settings {
-    background-image: url("/cuny/wp-content/themes/infinity/assets/images/icons/black.png");
+	background-image: url("../../../infinity/assets/images/icons/black.png");  
     background-position: -723px 8px;
     background-repeat: no-repeat;
     padding-left: 25px;
