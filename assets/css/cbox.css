@@ -107,7 +107,7 @@ thead:first-child tr td,
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
     padding-left: 20px;
     padding-right: 20px;
-    border-bottom: 2px solid #628FAA;
+    border-bottom: 1px solid #292525;
     border-top: 2px solid #525151;
 }
 .footer-wrap {
@@ -346,6 +346,9 @@ span.activity {
     content: "+";
     padding-right: 5px;
 }
+
+/* Profile Navigation and Groups Navigation */
+/* Firest Level */
 .sidebar-activity-tabs ul {
     list-style: none outside none;
     margin: 30px 0 0;
@@ -397,6 +400,37 @@ span.activity {
     opacity: 1;
 }
 .sidebar-activity-tabs ul li:hover a { font-weight: bold }
+
+/* Second Level */
+#subnav ul.profile-subnav {
+    border-bottom: 0 none;
+    border-top: 1px solid #1A1A1A;
+    margin-bottom: -11px;
+    margin-left: -20px;
+    margin-top: 13px;
+    padding-left: 20px;
+}
+ul.profile-subnav li {
+    box-shadow: none;
+    margin-right: 0px;
+    padding-left: 5px;
+    text-shadow: 0 1px 0 #111111;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #333;
+    box-shadow: none;
+    background: none repeat scroll 0 0 #363636;
+}
+
+.sidebar-activity-tabs ul li.current ul.profile-subnav li a {
+	background-image: none !important;
+    color: #AAAAAA;
+    font-weight: normal;
+}
+.sidebar-activity-tabs ul li.current ul.profile-subnav li a:hover {
+    color: #FFF;
+}
+
+
 /* FIX: hide the horizontal navigation on settings pages using CSS */
 .settings #item-nav { display: none }
 /* widgets */
@@ -463,6 +497,7 @@ div#invite-list {
     padding-bottom: 20px;
     color: #FFF;
     text-shadow: 0 1px 0 #000000;
+    border-top: 1px solid #545353;
 }
 .flex-caption p,
 .flex-caption h3 {
@@ -514,6 +549,12 @@ div#message p:before {
     padding-bottom: 3px;
     padding-left: 19px !important;
     padding-top: 1px;
+}
+#user-settings {
+    background-image: url("/cuny/wp-content/themes/infinity/assets/images/icons/black.png");
+    background-position: -723px 8px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
 }
 div#message p {
     background-color: #FEFAEB;
