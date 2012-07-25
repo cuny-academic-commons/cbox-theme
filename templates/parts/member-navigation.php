@@ -25,9 +25,40 @@
 		<?php endif; ?>
 		<!-- Profile Tabs -->
 		<div class="sidebar-activity-tabs no-ajax" id="subnav" role="navigation">
-
 			<ul>
-				<?php bp_get_displayed_user_nav(); ?>
+				<!-- <?php bp_get_displayed_user_nav(); ?> -->
+				<li id="activity-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/activity/" id="user-activity">Activity</a>
+				</li>
+				<li class="current selected" id="xprofile-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/profile/" id="user-xprofile">Profile</a>
+					<ul class="profile-subnav">
+						<li>
+							<a href="http://foksite.dev/cuny/members/bowe/messages/">Public</a>
+						</li>
+						<li>
+							<a href="http://foksite.dev/cuny/members/bowe/friends/">Edit</a>
+						</li>
+						<li>
+							<a href="http://foksite.dev/cuny/members/bowe/forums/">Change Avatar</a>
+						</li>			
+					</ul>
+				</li>
+				<li id="messages-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/messages/" id="user-messages">Messages <span>16</span></a>
+				</li>
+				<li id="friends-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/friends/" id="user-friends">Friends <span>18</span></a>
+				</li>
+				<li id="groups-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/groups/" id="user-groups">Groups <span>5</span></a>
+				</li>
+				<li id="forums-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/forums/" id="user-forums">Forums</a>
+				</li>
+				<li id="settings-personal-li">
+					<a href="http://foksite.dev/cuny/members/bowe/settings/" id="user-settings">Settings</a>
+				</li>					
 			</ul>
 		</div>	
     </div>

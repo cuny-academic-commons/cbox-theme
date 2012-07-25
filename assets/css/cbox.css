@@ -346,6 +346,9 @@ span.activity {
     content: "+";
     padding-right: 5px;
 }
+
+/* Profile Navigation and Groups Navigation */
+/* Firest Level */
 .sidebar-activity-tabs ul {
     list-style: none outside none;
     margin: 30px 0 0;
@@ -397,6 +400,37 @@ span.activity {
     opacity: 1;
 }
 .sidebar-activity-tabs ul li:hover a { font-weight: bold }
+
+/* Second Level */
+#subnav ul.profile-subnav {
+    border-bottom: 0 none;
+    border-top: 1px solid #1A1A1A;
+    margin-bottom: -11px;
+    margin-left: -20px;
+    margin-top: 13px;
+    padding-left: 20px;
+}
+ul.profile-subnav li {
+    box-shadow: none;
+    margin-right: 0px;
+    padding-left: 5px;
+    text-shadow: 0 1px 0 #111111;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #333;
+    box-shadow: none;
+    background: none repeat scroll 0 0 #363636;
+}
+
+.sidebar-activity-tabs ul li.current ul.profile-subnav li a {
+	background-image: none !important;
+    color: #AAAAAA;
+    font-weight: normal;
+}
+.sidebar-activity-tabs ul li.current ul.profile-subnav li a:hover {
+    color: #FFF;
+}
+
+
 /* FIX: hide the horizontal navigation on settings pages using CSS */
 .settings #item-nav { display: none }
 /* widgets */
