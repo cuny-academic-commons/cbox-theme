@@ -516,6 +516,12 @@ div#message p:before {
     padding-left: 19px !important;
     padding-top: 1px;
 }
+#user-settings {
+    background-image: url("/cuny/wp-content/themes/infinity/assets/images/icons/black.png");
+    background-position: -723px 8px;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
 div#message p {
     background-color: #FEFAEB;
     border: 1px solid #F1F1F1;
