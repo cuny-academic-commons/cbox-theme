@@ -29,12 +29,14 @@ body {
     border-top: 5px solid #4B4A47;
     font: 14px/140% "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+.row {
+	width: 1150px;
+}
 h2.page-title a,
 h2.post-title a,
 h1.page-title a,
 h1.post-title a {
     color: #545454;
-    margin-bottom: 0;
     margin-top: 0;
 }
 h2.page-title,
@@ -42,7 +44,6 @@ h2.post-title,
 h1.page-title,
 h1.post-title{
     color: #545454;
-    margin-bottom: 0;
     margin-top: 0;
 }
 a {
