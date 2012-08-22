@@ -96,6 +96,55 @@ function cbox_member_navigation()
 add_action('open_sidebar','cbox_member_navigation');
 
 /**
+ * Add a filter for every displayed user navigation item
+ */
+function cbox_member_navigation_filter_setup()
+{
+	global $bp;
+
+	// loop all nav components
+	foreach ( (array)$bp->bp_nav as $user_nav_item ) {
+		// add navigation filter
+		add_filter( 'bp_get_displayed_user_nav_' . $user_nav_item['css_id'], 'cbox_member_navigation_filter', 999, 2 );
+	}
+}
+add_action( 'bp_setup_nav', 'cbox_member_navigation_filter_setup', 999 );
+
+/**
+ * Inject options nav onto end of active displayed user nav component
+ *
+ * @param string $html
+ * @param array $user_nav_item
+ * @return string
+ */
+function cbox_member_navigation_filter( $html, $user_nav_item )
+{
+	// is slug the current component?
+	if ( bp_is_current_component( $user_nav_item['slug'] ) ) {
+
+		// yes, need to capture options nav output
+		ob_start();
+
+		// run options nav template tag
+		bp_get_options_nav();
+
+		// grab buffer and wipe it
+		$nav = ob_get_clean();
+
+		// inject nav onto end of list item wrapped in special <ul>
+		return preg_replace(
+			'/(<\/li>.*)$/',
+			'<ul class="profile-subnav">' . $nav . '</ul>' . '$1',
+			$html,
+			1
+		);
+	}
+
+	// no changes
+	return $html;
+}
+
+/**
  * Custom jQuery Buttons
  *
  * @package Infinity
