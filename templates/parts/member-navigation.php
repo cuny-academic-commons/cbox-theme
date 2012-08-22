@@ -24,7 +24,7 @@
         </div>  
 		<?php endif; ?>
 		<!-- Profile Tabs -->
-		<div class="sidebar-activity-tabs no-ajax" id="subnav" role="navigation">
+		<div class="sidebar-activity-tabs no-ajax" id="profile-subnav" role="navigation">
 			<ul>
 				<?php bp_get_displayed_user_nav(); ?>
 			</ul>

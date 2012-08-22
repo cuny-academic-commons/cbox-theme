@@ -11,6 +11,7 @@
 						<?php bp_get_options_nav(); ?>
 
 						<?php do_action( 'bp_group_options_nav' ); ?>
+						
 					
 					</ul>
 				</div>
