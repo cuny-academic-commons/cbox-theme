@@ -47,7 +47,7 @@ h1.post-title{
     margin-top: 0;
 }
 a {
-    color: #628FAA;
+    color: #4183C4;
     text-decoration: none;
     -webkit-transition: color 0.1s linear;
     -moz-transition: color 0.1s linear;
@@ -56,8 +56,12 @@ a {
     transition: color 0.1s linear;
 }
 a:hover {
-    color: #666;
-    text-decoration: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 1px;
+}
+ul a:hover {
+	border-bottom: none;
 }
 /* Global Padding */
 #content,
