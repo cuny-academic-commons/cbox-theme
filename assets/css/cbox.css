@@ -530,7 +530,7 @@ div#invite-list {
 }
 .flexslider .slides img { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) }
 .flex-caption {
-    background-image: url("../../base/feature-slider/assets/images/slides-bg.png");
+    background-image: url("../../engine/includes/feature-slider/assets/images/slides-bg.png");
     bottom: 0;
     position: absolute;
     width: inherit;

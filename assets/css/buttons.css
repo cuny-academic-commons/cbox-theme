@@ -214,7 +214,7 @@ a.button:active, button:active, input[type="submit"]:active, input[type="reset"]
     -moz-box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
     box-shadow: 0 1px 1px #afafaf, inset 0 1px 0 #868686;
 }
-.small, .post-tags a {
+.post-tags a {
     font-size: 10px;
     padding: 3px 5px;
     margin-left: 1px;
