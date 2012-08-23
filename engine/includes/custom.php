@@ -173,4 +173,43 @@ jQuery(document).ready(function() {
 <?php }} 
 // Hook into action
 add_action('close_body','infinity_buttons');
+
+/*
+ * Include custom functionality.
+ *
+ * These will eventually become extensions!
+ */
+
+// BuddyPress
+if ( function_exists('bp_is_member') )
+{
+	require_once( 'buddypress/bp-options.php' );
+}
+
+// bbPress
+if ( function_exists('is_bbpress()') )
+{
+	require_once( 'bbpress/setup.php' );
+}
+
+// Slider
+if ( is_main_site() )
+{
+	// load metaboxes class
+	function be_initialize_cmb_meta_boxes() {
+		if ( !class_exists( 'cmb_Meta_Box' ) ) {
+			require_once( 'metaboxes/init.php' );
+		}
+	}
+	add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+	// load slider setup
+	require_once( 'feature-slider/setup.php' );
+}
+
+// Responsive *turn this into a feature class*
+require_once( 'responsive/setup.php' );
+
+// Dashboard
+require_once( 'dashboard/setup.php' );
+
 ?>

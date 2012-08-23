@@ -1,1 +1,0 @@
-This directory is for screen extension packages.
