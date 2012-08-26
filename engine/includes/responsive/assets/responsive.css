@@ -102,7 +102,6 @@ body { min-width: inherit }
 	    padding-right: 0px;
 	    padding-top: 30px;
 	}
-	.activity-header p { line-height: 280% !important }
 	.activity-list .activity-content .activity-header img.avatar { display: none }
 	.pie-easy-exts-features-header-logo img {
 	    margin-top: 8px;
