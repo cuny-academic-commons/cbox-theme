@@ -1,15 +1,15 @@
 <?php
 //
-function balance_responsive_meta() { ?>
+function cbox_responsive_meta() { ?>
 <!-- html -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <!-- end -->
 <?php }
 // Hook into action
-add_action('open_meta','balance_responsive_meta');
+add_action('open_meta','cbox_responsive_meta');
 
 
-function balance_responsive_viewport_bug() { ?>
+function cbox_responsive_viewport_bug() { ?>
 <!-- html -->
 <script>
   var metas = document.getElementsByTagName('meta');
@@ -33,10 +33,10 @@ function balance_responsive_viewport_bug() { ?>
 <!-- end -->
 <?php }
 // Hook into action
-add_action('wp_head','balance_responsive_viewport_bug');
+add_action('wp_head','cbox_responsive_viewport_bug');
 
 //insert JS for the responsive Menu
-function balance_responsive_menu() { { ?>
+function cbox_responsive_menu() { { ?>
 <!-- html -->
 
 <script type="text/javascript">
@@ -66,5 +66,5 @@ jQuery(document).ready(function(){
 <!-- end -->
 <?php }} 
 // Hook into action
-add_action('open_body','balance_responsive_menu');
+add_action('open_body','cbox_responsive_menu');
 ?>

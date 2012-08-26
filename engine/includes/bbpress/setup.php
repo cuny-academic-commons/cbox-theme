@@ -1,6 +1,6 @@
 <?php
 // Intro text for BBPress
-function balance_bbpress_intro() { { ?>
+function cbox_bbpress_intro() { { ?>
 <!-- html -->
 	<div class="info-box bbpress-intro">
 		This is a BBPress Specific sidebar! It can be used to create an awesome forum homepage!
@@ -10,10 +10,10 @@ For instance you can show the most recent replies and most popular topics. You c
 <!-- end -->
 <?php }} 
 // Hook into action
-add_action('bbp_template_before_forums_loop','balance_bbpress_intro');
+add_action('bbp_template_before_forums_loop','cbox_bbpress_intro');
 
 // ! // Add Recent Topics to BBPress  
-function balance_recent_bbpress() { { ?>
+function cbox_recent_bbpress() { { ?>
 <!-- html -->
 	<h4>Recent Topics</h4>			
 	<?php
@@ -23,5 +23,5 @@ function balance_recent_bbpress() { { ?>
 <!-- end -->
 <?php }} 
 // Hook into action
-add_action('bbp_template_after_forums_loop','balance_recent_bbpress');
+add_action('bbp_template_after_forums_loop','cbox_recent_bbpress');
 ?>

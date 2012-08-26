@@ -3,7 +3,7 @@
  * Register custom "Features" post type
  *
  * @package Infinity
- * @subpackage balance
+ * @subpackage cbox
  */
 function cbox_feature_setup()
 {
@@ -43,7 +43,7 @@ add_action( 'init', 'cbox_feature_setup' );
  * Echo a post slug to give a unique CSS ID to Custom Post Types
  *
  * @package Infinity
- * @subpackage balance
+ * @subpackage cbox
  */
 function post_name() {
 global $post;
@@ -54,7 +54,7 @@ echo $title;
 /**
  * Enqueues Slider JS at the bottom of the homepage
  * @package Infinity
- * @subpackage balance
+ * @subpackage cbox
  */
 function cbox_flex_slider_script() { { ?>
 <?php if ( is_front_page() ) : ?>

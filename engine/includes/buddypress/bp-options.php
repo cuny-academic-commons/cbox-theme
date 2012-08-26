@@ -2,7 +2,7 @@
 /**
  * Disable the BuddyPress Widgets for Sub Blogs in MultiSite
  */
-function balance_hide_bp_widgets() {
+function cbox_hide_bp_widgets() {
 
   //ignore main site
   if (is_main_site())
@@ -45,11 +45,11 @@ function is_activity_page() {
 /**
  * Render tour feature markup
  */
-function balance_buddypress_tour()
+function cbox_buddypress_tour()
 {
 	if ( bp_is_activity_component() && !bp_is_user() && is_user_logged_in() ) {
-		infinity_feature( 'balance-buddypress-tour' );
+		infinity_feature( 'cbox-buddypress-tour' );
 	}
 }
-add_action( 'close_body', 'balance_buddypress_tour' );
+add_action( 'close_body', 'cbox_buddypress_tour' );
 ?>

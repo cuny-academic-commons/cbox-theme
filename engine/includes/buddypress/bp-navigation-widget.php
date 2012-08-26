@@ -10,7 +10,7 @@
 class BalanceBPWidget extends WP_Widget {
  
     function BalanceBPWidget() {
-          $widget_ops = array( 'classname' => 'balance_bp_profile_widget', 'description' => __( "Displays a basic member widget" ) );
+          $widget_ops = array( 'classname' => 'cbox_bp_profile_widget', 'description' => __( "Displays a basic member widget" ) );
           $this->WP_Widget('BalanceBPWidget', __('Balance BP Member Widget'), $widget_ops);
     }
  

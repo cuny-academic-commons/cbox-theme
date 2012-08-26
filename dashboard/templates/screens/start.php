@@ -36,7 +36,7 @@ Please submit your <strong>installation details</strong> when you create a suppo
 		include_once(ABSPATH . WPINC . '/feed.php');
 		
 		// Get a SimplePie feed object from the specified feed source.
-		$rss = fetch_feed('http://community.presscrew.com/discussion/premium-themes/balance/feed');
+		$rss = fetch_feed('http://community.presscrew.com/discussion/premium-themes/cbox/feed');
 		if (!is_wp_error( $rss ) ) : // Checks that the object is created correctly 
 		    // Figure out how many total items there are, but limit it to 10. 
 		    $maxitems = $rss->get_item_quantity(10); 
