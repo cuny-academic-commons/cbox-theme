@@ -61,7 +61,8 @@ a:hover {
 .base-menu a:hover,
 #object-nav a:hover,
 #subnav a:hover,
-#logo-menu-wrap a:hover {
+#logo-menu-wrap a:hover,
+.sidebar-activity-tabs a:hover {
  border: none;
 }
 
@@ -260,6 +261,9 @@ ul.item-list li img.avatar {
 .activity-item.mini:hover .activity-meta{
 	display: block;
 }
+.activity-list div.activity-meta a {
+	font-size: 70%;
+}
 .avatar-block,
 .activity-avatar {
     padding-left: 2px;
@@ -423,16 +427,17 @@ div.item-list-tabs ul li.last,
     padding-bottom: 3px;
     padding-top: 5px;
 }
-.sidebar-activity-tabs ul li a:hover { opacity: 1 }
+
 .sidebar-activity-tabs ul li a {
-    color: #222222;
+    color: #777;
     display: block;
     font-weight: bold;
-    margin-left: -10px;
-    opacity: 0.7;
     padding-bottom: 10px;
     padding-right: 0;
     padding-top: 10px;
+}
+.sidebar-activity-tabs ul li a:hover {
+    color: #222;
 }
 .sidebar-activity-tabs ul li span,
 .sidebar-activity-tabs ul li.current span,
@@ -474,7 +479,6 @@ div.item-list-tabs ul li.last,
 .sidebar-activity-tabs ul li.selected a {
     color: #EFEFEF;
     font-weight: bold;
-    opacity: 1;
     margin-bottom: -10px;
     margin-top: -5px;
 }
