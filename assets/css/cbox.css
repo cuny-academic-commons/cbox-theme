@@ -54,3 +54,7 @@ h1#site-title,div#site-title {
 /* Widgets */
 .widget { margin: 0 0 20px }
 
+#category-description, #tag-description {
+    padding: 10px 10px 10px 0;
+}
+
