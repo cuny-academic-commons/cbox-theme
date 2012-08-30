@@ -1,27 +1,6 @@
 <?php
-//BuddyPress
-if ( function_exists('bp_is_member') )
-{	
-	require_once( 'base/buddypress/bp-options.php' );
-	
-	//Templatetags that are useful
-	//require_once( 'engine/includes/templatetags.php' );
-	//require_once( 'base/buddypress/bp-navigation-widget.php' );
-	//Tour
-	require_once( 'base/tour/setup.php' );
-}
-
 //Custom functionality for Cbox
 require_once( 'engine/includes/custom.php' );
-
-//Responsive
-require_once( 'base/responsive/setup.php' );
-
-//Featured Slider
-require_once( 'base/feature-slider/setup.php' );
-
-//Dashboard
-//require_once( 'base/dashboard/setup.php' );
 
 /**
  * Set this to true to put Infinity into developer mode

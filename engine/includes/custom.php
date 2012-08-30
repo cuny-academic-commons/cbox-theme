@@ -96,6 +96,55 @@ function cbox_member_navigation()
 add_action('open_sidebar','cbox_member_navigation');
 
 /**
+ * Add a filter for every displayed user navigation item
+ */
+function cbox_member_navigation_filter_setup()
+{
+	global $bp;
+
+	// loop all nav components
+	foreach ( (array)$bp->bp_nav as $user_nav_item ) {
+		// add navigation filter
+		add_filter( 'bp_get_displayed_user_nav_' . $user_nav_item['css_id'], 'cbox_member_navigation_filter', 999, 2 );
+	}
+}
+add_action( 'bp_setup_nav', 'cbox_member_navigation_filter_setup', 999 );
+
+/**
+ * Inject options nav onto end of active displayed user nav component
+ *
+ * @param string $html
+ * @param array $user_nav_item
+ * @return string
+ */
+function cbox_member_navigation_filter( $html, $user_nav_item )
+{
+	// is slug the current component?
+	if ( bp_is_current_component( $user_nav_item['slug'] ) ) {
+
+		// yes, need to capture options nav output
+		ob_start();
+
+		// run options nav template tag
+		bp_get_options_nav();
+
+		// grab buffer and wipe it
+		$nav = ob_get_clean();
+
+		// inject nav onto end of list item wrapped in special <ul>
+		return preg_replace(
+			'/(<\/li>.*)$/',
+			'<ul class="profile-subnav">' . $nav . '</ul>' . '$1',
+			$html,
+			1
+		);
+	}
+
+	// no changes
+	return $html;
+}
+
+/**
  * Custom jQuery Buttons
  *
  * @package Infinity
@@ -113,7 +162,7 @@ jQuery(document).ready(function() {
 		jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
 		jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
 		jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button').addClass('<?php echo $cbox_button_color ?>');
-		jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit,#item-header-content .activity').addClass('button <?php echo $cbox_button_color ?>');
+		jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
 		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
 		jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
 		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
@@ -124,4 +173,43 @@ jQuery(document).ready(function() {
 <?php }} 
 // Hook into action
 add_action('close_body','infinity_buttons');
+
+/*
+ * Include custom functionality.
+ *
+ * These will eventually become extensions!
+ */
+
+// BuddyPress
+if ( function_exists('bp_is_member') )
+{
+	require_once( 'buddypress/bp-options.php' );
+}
+
+// bbPress
+if ( function_exists('is_bbpress()') )
+{
+	require_once( 'bbpress/setup.php' );
+}
+
+// Slider
+if ( is_main_site() )
+{
+	// load metaboxes class
+	function be_initialize_cmb_meta_boxes() {
+		if ( !class_exists( 'cmb_Meta_Box' ) ) {
+			require_once( 'metaboxes/init.php' );
+		}
+	}
+	add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+	// load slider setup
+	require_once( 'feature-slider/setup.php' );
+}
+
+// Responsive *turn this into a feature class*
+require_once( 'responsive/setup.php' );
+
+// Dashboard
+require_once( 'dashboard/setup.php' );
+
 ?>
