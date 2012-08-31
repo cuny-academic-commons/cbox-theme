@@ -62,6 +62,7 @@ a:hover {
 #header {
 	background: #111;
 	border-radius: 5px 5px 0px 0px;
+	min-height: 120px;
 }
 /* Also add a border radius to our pseudo element for header background */
 #header:before {
