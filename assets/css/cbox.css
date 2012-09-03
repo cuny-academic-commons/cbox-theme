@@ -1,7 +1,10 @@
 .row {
 	width: 1150px;
 }
-
+/* Global Padding */
+#content,#sidebar,#content-full,#footer,#header {
+	padding: 30px;
+}
 /* Global Negative Horizontal Padding */
 #bbpress-forums,
 div.bbp-breadcrumb,
@@ -51,10 +54,283 @@ h1#site-title,div#site-title {
 #main-menu-wrap .sub-menu { margin: 8px 0 0 }
 .base-menu .sub-menu { padding-left: 0px !important }
 
+.main-menu {
+	padding: 5px;
+}
+.main-menu ul a {
+	margin-right: 10px;
+}
+
 /* Widgets */
 .widget { margin: 0 0 20px }
 
 #category-description, #tag-description {
     padding: 10px 10px 10px 0;
 }
-
+.widget h4,#vertical-activity-tabs h4 {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.authorbox h3 {
+	padding-left: 25px;
+}
+.comment-container {
+	padding: 10px;
+}
+.children .comment-container {
+	background: transparent;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+#comments .reply {
+	left: inherit;
+	top: 45px;
+}
+/* ======== */
+/* ! HomePage    */
+/* ======== */
+#top-homepage {
+	margin: -30px -30px 30px;
+	overflow: hidden;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 30px;
+}
+#top-homepage .flexslider {
+	border: 0px;
+	border-radius: 0px;
+	margin: 0 0 60px;
+	position: relative;
+}
+.flex-caption {
+	bottom: 0;
+	position: absolute;
+	width: inherit;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.flex-caption p,.flex-caption h3 {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+/* Avatars */
+ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img {
+	margin-left: 0;
+	padding: 0;
+	width: 50px;
+	height: auto;
+}
+ul.item-list li img.avatar {
+	width: 40px;
+	height: 40px;
+}
+.avatar-block,.activity-avatar {
+	padding-left: 2px;
+}
+.activity-list .activity-content .activity-header img.avatar {
+	float: none !important;
+	height: 20px;
+	margin: 0 5px 0 0 !important;
+	width: 20px;
+}
+#whats-new-avatar img {
+	width: 60px;
+	height: 60px;
+}
+/* Activity Stream */
+#vertical-activity-tabs {
+	background: none repeat scroll 0 0 transparent;
+	margin-top: 0;
+}
+#vertical-activity-tabs,#group-navigation,#profile-navigation {
+	border: 0 none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+#vertical-activity-tabs ul li {
+	float: none !important;
+}
+#vertical-activity-tabs ul {
+	overflow: inherit;
+}
+#subnav ul {
+	border-top: 0px;
+	padding: 0;
+}
+#sidebar .item-list-tabs li.loading a {
+	padding-left: 30px !important;
+}
+div.item-list-tabs {
+	clear: both;
+	min-height: 37px;
+	position: relative;
+}
+.activity-list div.activity-meta a {
+	font-size: 70%;
+}
+.activity-list .activity-content .activity-inner,.activity-list .activity-content blockquote {
+	padding: 20px;
+	margin-right: 5px;
+}
+div.item-options {
+	font-size: 80%;
+	margin-bottom: -16px;
+	margin-top: -16px;
+}
+span.activity {
+	margin-bottom: 7px;
+	margin-top: 0;
+	padding: 0 5px;
+}
+/* Members */
+#profile-nav-menu ul {
+	list-style: none outside none;
+}
+.sidebar-activity-tabs ul {
+	list-style: none outside none;
+	margin: 30px 0 0;
+}
+.sidebar-activity-tabs ul li {
+	padding-bottom: 3px;
+	padding-top: 5px;
+}
+.sidebar-activity-tabs ul li a {
+	display: block;
+	padding-bottom: 10px;
+	padding-right: 0;
+	padding-top: 10px;
+}
+.sidebar-activity-tabs ul li.current,.sidebar-activity-tabs ul li.selected {
+	padding: 10px 0 12px 30px;
+}
+.sidebar-activity-tabs .profile-subnav li.selected {
+	padding-bottom: 3px;
+	padding-left: 30px;
+	padding-top: 5px;
+}
+#item-body form#whats-new-form {
+	margin-top: -20px;
+	padding-bottom: 10px;
+	padding-top: 30px;
+}
+.sidebar-activity-tabs ul li.current a,.sidebar-activity-tabs ul li.selected a {
+	margin-bottom: -10px;
+	margin-top: -5px;
+}
+/* Profile Action Buttons */
+.bp-user #item-buttons .generic-button {
+	background: none repeat scroll 0 0 transparent;
+	border: 0 none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	display: block;
+	margin-bottom: -18px;
+	padding: 3px 8px
+	text-align: center;
+}
+/* Use some CSS to hide horizontal navigation */
+div#subnav.item-list-tabs ul li {
+	display: none;
+}
+/* We still need to show some stuff though */
+div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,.docs .item-list-tabs ul li {
+	display: block !important;
+}
+/* Profile Navigation and Groups Navigation */
+/* First Level */
+.groups div#subnav.item-list-tabs .sidebar-activity-tabs {
+	margin-bottom: 30px;
+}
+.sidebar-activity-tabs ul li span,.sidebar-activity-tabs ul li.current span,.sidebar-activity-tabs ul li.selected span {
+	display: inline;
+	margin-left: 2px;
+	padding: 2px 5px;
+}
+/* Second Level */
+#object-nav ul.profile-subnav {
+	margin: 13px 30px -12px -20px;
+	padding-left: 20px;
+}
+ul.profile-subnav li {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	margin-right: 0px;
+	font-size: 90%;
+}
+ul.profile-subnav li a {
+	padding-left: 30px;
+}
+.sidebar-activity-tabs ul li.current ul.profile-subnav li a {
+	padding-bottom: 8px;
+	padding-top: 8px;
+	margin: inherit;
+}
+/* FIX:  hide the horizontal navigation on settings pages using CSS */
+.settings #item-nav {
+	display: none;
+}
+/* widgets */
+div.item-options {
+	float: right;
+	margin-right: 0px;
+	margin-top: -45px;
+	font-size: 70%;
+}
+/* ======== */
+/* ! Misc    */
+/* ======== */
+div#item-header div#item-header-content {
+	margin-left: 0;
+}
+#item-header-avatar img {
+	float: none;
+}
+thead:first-child tr th,thead:first-child tr td {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+form#send-invite-form .main-column {
+	margin-left: 190px;
+}
+div#invite-list {
+	height: 400px;
+	overflow: scroll;
+	padding: 5px;
+	width: 160px;
+	float: left;
+}
+/* ======== */
+/* ! Docs    */
+/* ======== */
+.docs div.doc-content {
+	border: 0px;
+	padding: 0px;
+}
+.docs .content-column {
+	float: none !important;
+}
+.doc-tabs li {
+	list-style: none outside none;
+}
+.docs .doc-tabs {
+	margin-right: 20px;
+	margin-top: -20px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.docs .toggle-switch {
+	padding: 8px 12px;
+}
+.docs div.docs-info-header {
+	padding: 0px;
+}
+.docs label {
+	margin-top: 20px;
+}
+/* BBPress Bleeding */
+.groups.forums #item-header {
+	display: none;
+}
+#bbpress-forums {
+	font-size: inherit;
+}
