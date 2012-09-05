@@ -46,11 +46,19 @@ body { min-width: inherit }
 	    padding-left: 0;
 	}
 	select.mobileMenu {
-	    background: none repeat scroll 0 0 transparent;
-	    border: 1px solid #777777;
-	    box-shadow: none;
-	    margin-top: 8px !important;
-	    width: 98%;
+   background: none repeat scroll 0 0 transparent;
+    border: 1px solid #555555;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: none;
+    color: #EFEFEF;
+    width: 98%;
+    padding: 5px;
+}
+	select.mobileMenu option {
+   background: #222;
+   padding: 3px 8px;
+   font-weight: normal;
+}
 	}
 	#wpadminbar { display: none }
 	div#content .padder {
