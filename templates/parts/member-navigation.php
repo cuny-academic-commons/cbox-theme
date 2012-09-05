@@ -15,16 +15,16 @@
         <?php $userLink = bp_get_loggedin_user_link();?>
         <ul>
             <li id="edit-profile">
-            	<a href="<?php echo $userLink; ?>profile/edit">Edit My Profile</a>
+            	<a class="button edit-profile-button" href="<?php echo $userLink; ?>profile/edit">Edit My Profile</a>
             </li>
             <li id="edit-avatar">
-            	<a href="<?php echo $userLink; ?>profile/change-avatar">Change Avatar</a>
+            	<a class="button edit-avatar-button" href="<?php echo $userLink; ?>profile/change-avatar">Change Avatar</a>
             </li>
             <li id="edit-password">
-            	<a href="<?php echo $userLink; ?>settings">Email/Password settings</a>
+            	<a class="button edit-password-button" href="<?php echo $userLink; ?>settings">Email/Password settings</a>
             </li>
-            <li id="become-premium">
-            	<a href="<?php echo $userLink; ?>settings/notifications/">Profile settings</a>
+            <li id="edit-notifications">
+            	<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/">Profile settings</a>
             </li>
         </ul>
     </div>  

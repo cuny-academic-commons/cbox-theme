@@ -218,7 +218,8 @@ span.activity {
 	margin-top: -5px;
 }
 /* Profile Action Buttons */
-.bp-user #item-buttons .generic-button {
+.bp-user #item-buttons .generic-button,
+#profile-nav-menu a {
 	background: none repeat scroll 0 0 transparent;
 	border: 0 none;
 	-webkit-box-shadow: none;
