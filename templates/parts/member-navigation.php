@@ -24,7 +24,7 @@
             	<a class="button edit-password-button" href="<?php echo $userLink; ?>settings">Email/Password settings</a>
             </li>
             <li id="edit-notifications">
-            	<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/">Profile settings</a>
+            	<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/">Notification Settings</a>
             </li>
         </ul>
     </div>  
