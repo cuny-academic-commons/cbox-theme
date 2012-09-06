@@ -59,13 +59,13 @@ body { min-width: inherit }
    padding: 3px 8px;
    font-weight: normal;
 }
-	}
 	#wpadminbar { display: none }
 	div#content .padder {
 	    margin-right: 0;
 	    width: auto;
 	    float: none;
 	    border: none;
+	}
 	}
 }
 /*--------------------------------------------------------------
