@@ -18,7 +18,8 @@ div.item-list-tabs,
 .sidebar-activity-tabs,
 #sidebar .widget h4,
 #vertical-activity-tabs,
-.sidebar-activity-tabs ul li {
+.sidebar-activity-tabs ul li,
+#content ul.item-list li {
 	margin-left: -30px;
     margin-right: -30px;
     padding-left: 30px;

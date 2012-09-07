@@ -340,6 +340,11 @@ div#invite-list {
 	background: none repeat scroll 0 0 #F5F5F5;
 	border: 1px solid #E4E4E4;
 }
+ul.item-list li {
+    border-bottom: 1px solid #F5F5F5;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
 /* ======== */
 /* ! HomePage    */
 /* ======== */
