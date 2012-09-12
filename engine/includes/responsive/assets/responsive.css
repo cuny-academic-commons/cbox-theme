@@ -20,7 +20,7 @@ body { min-width: inherit }
 	#sidebar { 
 		min-height: auto !important;
 	}
-	#wrapper { margin: 0 20px 20px }
+	#wrapper { margin: 0 0 20px}
 	.callout-box h2,
 	.flex-caption,
 	#feature-box h3 { display: none }
@@ -45,6 +45,14 @@ body { min-width: inherit }
 	    border-left: 0 solid #E6E6E6;
 	    padding-left: 0;
 	}
+	.activity-avatar {display: none !important}
+	.activity-list .activity-content {
+    margin-left: 0;
+    }
+    .activity-list li.mini {
+    min-height: 42px;
+    padding-top: 36px;
+    }
 	select.mobileMenu {
    background: none repeat scroll 0 0 transparent;
     border: 1px solid #555555;
@@ -53,12 +61,12 @@ body { min-width: inherit }
     color: #EFEFEF;
     width: 98%;
     padding: 5px;
-}
+    }
 	select.mobileMenu option {
    background: #222;
    padding: 3px 8px;
    font-weight: normal;
-}
+   }
 	#wpadminbar { display: none }
 	div#content .padder {
 	    margin-right: 0;
