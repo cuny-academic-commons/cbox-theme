@@ -22,6 +22,7 @@ developer mode by addding the following to your wp-config or functions.php
 define( 'INFINITY_DEV_MODE', true );
 	
 
+
 Infinity combines all the stylesheets into one file called dynamic.css. You can also write CSS using LESS. To learn all about this visit
 http://infinity.presscrew.com/learn
 --------------------------------------------------------------*/
@@ -122,9 +123,7 @@ h1#site-title,div#site-title {
 .main-menu ul a:hover {
 	background: url("../images/bg-body.gif") repeat transparent;
 }
-.base-menu ul li.current-cat a,
-.base-menu ul li.current_page_item a,
-.base-menu ul li.current-menu-item a{
+.base-menu ul li.current-cat a,.base-menu ul li.current_page_item a,.base-menu ul li.current-menu-item a {
 	font-weight: bold;
 	background: url("../images/bg-body.gif") repeat transparent;
 }
@@ -164,13 +163,12 @@ ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img {
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 }
 /* Activity Stream */
-.activity-item .activity-meta {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
-	opacity: 0;
-	height: 0px;
+div.activity-meta {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	opacity: 0.5;
 }
-.activity-item:hover .activity-meta {
+div.activity-meta:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
 	opacity: 1;
@@ -179,12 +177,11 @@ ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img {
 	-o-transition-property: opacity;
 	-ms-transition-property: opacity;
 	transition-property: opacity;
-	-webkit-transition-duration: 0.7s;
-	-moz-transition-duration: 0.7s;
-	-o-transition-duration: 0.7s;
-	-ms-transition-duration: 0.7s;
-	transition-duration: 0.7s;
-	height: auto;
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+	-o-transition-duration: 0.4s;
+	-ms-transition-duration: 0.4s;
+	transition-duration: 0.4s;
 }
 #vertical-activity-tabs ul li a {
 	background-color: transparent;
@@ -244,20 +241,19 @@ span.activity {
 	background: none repeat scroll 0 0 #F8F8F8;
 	border-bottom: 1px solid #DDDDDD;
 }
-.bp-user #item-buttons .generic-button a:hover,
-#profile-nav-menu a:hover {
+.bp-user #item-buttons .generic-button a:hover,#profile-nav-menu a:hover {
 	color: #4183C4;
 }
 .bp-user #item-buttons .generic-button a {
 	font-size: 120%;
 }
 #profile-nav-menu {
-    margin-bottom: -35px;
-    margin-top: -10px;
+	margin-bottom: -35px;
+	margin-top: -10px;
 }
 #profile-nav-menu a {
 	font-size: 90%;
-} 
+}
 .sidebar-activity-tabs ul li a {
 	color: #777;
 	font-weight: bold;
@@ -310,25 +306,36 @@ ul.profile-subnav li {
 	border-bottom: 1px solid #333;
 	background: none repeat scroll 0 0 #363636;
 }
+ul.profile-subnav li a:before {
+	color: #4D4D4D;
+	content: "+";
+	font-size: 100%;
+	margin-left: 0;
+	padding-right: 7px;
+	position: relative;
+	top: 1px;
+}
 .sidebar-activity-tabs ul li.current ul.profile-subnav li a {
-	background-image: none !important;
 	color: #AAAAAA;
 	font-weight: normal;
+}
+ul.profile-subnav li.current a:before {
+	color: inherit;
 }
 .sidebar-activity-tabs ul li.current ul.profile-subnav li a:hover {
 	color: #FFF;
 }
 .edit-notifications-button:before {
-	content: "_"
-} 
+	content: "_";
+}
 .edit-avatar-button:before {
-	content: "2"
+	content: "2";
 }
 .edit-password-button:before {
-	content: "y"
+	content: "y";
 }
 .edit-profile-button:before {
-	content: "9"
+	content: "9";
 }
 /* ======== */
 /* ! Misc    */
@@ -341,9 +348,9 @@ div#invite-list {
 	border: 1px solid #E4E4E4;
 }
 ul.item-list li {
-    border-bottom: 1px solid #F5F5F5;
-    padding-top: 30px;
-    padding-bottom: 20px;
+	border-bottom: 1px solid #F5F5F5;
+	padding-top: 30px;
+	padding-bottom: 20px;
 }
 /* ======== */
 /* ! HomePage    */
