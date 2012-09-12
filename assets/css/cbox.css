@@ -2,7 +2,7 @@
 	width: 1150px;
 }
 /* Global Padding */
-#content,#sidebar,#content-full,#footer,#header {
+#content,#sidebar,#content-full,#footer,#header{
 	padding: 30px;
 }
 /* Global Negative Horizontal Padding */
@@ -71,6 +71,7 @@ h1#site-title,div#site-title {
 
 /* Widgets */
 .widget { margin: 0 0 20px }
+#content .widget .item-list li {margin: auto; padding-left: 0px; padding-right: 0px;}
 
 #category-description, #tag-description {
     padding: 10px 10px 10px 0;
@@ -151,6 +152,14 @@ ul.item-list li img.avatar {
 	height: 60px;
 }
 /* Activity Stream */
+div.activity-meta {
+	margin-bottom: 0;
+}
+.activity-list li.mini .activity-meta {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
 .sidebar-activity-tabs {
 	padding-bottom: 30px;
 }
@@ -315,6 +324,9 @@ div#invite-list {
 	padding: 5px;
 	width: 160px;
 	float: left;
+}
+ul.item-list li div.action {
+    right: 30px;
 }
 /* ======== */
 /* ! Docs    */
