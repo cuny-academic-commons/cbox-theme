@@ -35,6 +35,7 @@ div.item-list-tabs,
 #header {
     padding-bottom: 30px;
     padding-top: 30px;
+    min-height: 60px;
 }
 h1#site-title,div#site-title {
 	padding: 10px 30px 6px;
@@ -252,7 +253,6 @@ span.activity {
 	display: block;
 	margin-bottom: -18px;
 	padding: 3px 8px;
-	text-align: center;
 }
 /* Use some CSS to hide horizontal navigation */
 div#subnav.item-list-tabs ul li {
@@ -282,6 +282,9 @@ ul.profile-subnav li {
 	box-shadow: none;
 	margin-right: 0px;
 	font-size: 90%;
+}
+ul.profile-subnav li a:before {
+	padding-left: 30px;
 }
 ul.profile-subnav li a {
 	padding-left: 30px;
