@@ -209,8 +209,7 @@ if ( is_main_site() )
 	require_once( 'feature-slider/setup.php' );
 }
 
-// Responsive *turn this into a feature class*
-require_once( 'responsive/setup.php' );
+
 
 // Dashboard
 require_once( 'dashboard/setup.php' );
