@@ -62,6 +62,7 @@ h1#site-title,div#site-title {
 }
 #main-menu-wrap .sub-menu { margin: 8px 0 0 }
 .base-menu .sub-menu { padding-left: 0px !important }
+.top-wrap .base-menu.sub-menu { border-top: 0; }
 
 .main-menu {
 	padding: 5px;
