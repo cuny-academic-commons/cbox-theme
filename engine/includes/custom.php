@@ -52,6 +52,14 @@ if ( is_main_site( $blog_id ) )
 	'after_title' => '</h4>'
 	));
 }
+
+// Options page title and menu title
+function cbox_menu_title() {
+	return __( 'CBox Theme Options', 'cbox' );
+}
+add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_menu_title' );
+add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_menu_title' );
+
 // BuddyPress
 if ( function_exists('bp_is_member') )
 {
