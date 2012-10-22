@@ -41,13 +41,6 @@ div#infinity-cpanel-tab-options {
 	box-shadow: 0 0 0 7px rgba(0, 0, 0, 0.024), 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 0 6px rgba(0, 0, 0, 0.02) inset;
 }
 
-#infinity-cpanel-options-content .icext-section > .ice-title,
-#infinity-cpanel-options-content .icext-option.icext-ui-slider .ice-title,
-#infinity-cpanel-options-content .infinity-docs h2 {
-    font-family: "Droid Serif";
-    font-style: italic;
-}
-
 div#infinity-cpanel-header {
     background: none repeat scroll 0 0 transparent;
     border: 0 none;
@@ -90,11 +83,9 @@ div.icext-option.icext-colorpicker_launcher {
 }
 .infinity-content { padding-right: 20px }
 .start-page li {
-    background: url("../images/cpanel_sprite.png") no-repeat scroll 1px -113px transparent;
     padding-left: 17px;
     font-weight: bold;
 }
-.start-page li:hover { background: url("../images/cpanel_sprite.png") no-repeat scroll 1px -135px transparent }
 .start-page h4 .button {
     background: none repeat scroll 0 0 #444444;
     border-radius: 4px 4px 4px 4px;
@@ -127,7 +118,7 @@ ul.checkbox li {
     margin-left: -20px;
     margin-right: -20px;
     padding-bottom: 15px;;
-        padding-left: 20px;
+    padding-left: 20px;
     padding-right: 20px;
 }
 

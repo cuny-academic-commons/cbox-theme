@@ -3,10 +3,10 @@
 <div class="infinity-content-wrap">
 
 <div class="infinity-content">
-		<h2>Thank you for purchasing Balance!</h2>	
+		<h1>Thank you for using Commons in a Box!</h1>	
  		
  		<p>
- 		Thank you for purchasing Balance! We are glad to welcome you to our community and have you as a customer. We advise you to read the documentation included with this theme to quickly help you get started. Simply navigate to the "Documentation" tab and you'll be presented with a detailled set up guide.
+	 	Welcome to the Theme Dashboard of your CBOX installation. This is where you can find a whole bunch of options to change the front end of your site. Click on the "Options" tab at the top right of this page to view all the customisation options available.
  		</p>	
  				
 		<h2>
@@ -14,10 +14,13 @@
 		</h2>
 	
 		<p>
-If you have additional questions please visit our Support Forum. We'll glady help you with any issues you might encounter related to setup issues or general questions you might have. 
+If you have additional questions please visit our Support Forum. We'll gladly help you with any issues you might encounter related to setup issues or general questions you might have. 
 <br>
 <br>
-Please submit your <strong>installation details</strong> when you create a support topic. They are displayed in the sidebar >>
+Please submit your <strong>installation details</strong> when you create a support topic. They are displayed in the sidebar on this page.
+<br>
+<br>
+<a target="_blank" class="button" href="http://commonsinabox.org/groups/help-support/forums/">Visit Support Forums</a>
 		</p>	
 		
 	<h2>Need general WordPress/BuddyPress Support?</h2>
@@ -28,38 +31,7 @@ Please submit your <strong>installation details</strong> when you create a suppo
 	BuddyPress Support: <a href="http://buddypress.org/support/">BuddyPress Support</a><br>
 	</p>
 	
-  		<div class="dashboard-widget">
-		
-		<h3>Latest Support Topics <a target="_blank" class="button" href="http://http://community.presscrew.com/discussions/">Visit Forums</a></h3>
-		
-		<?php // Get RSS Feed(s)
-		include_once(ABSPATH . WPINC . '/feed.php');
-		
-		// Get a SimplePie feed object from the specified feed source.
-		$rss = fetch_feed('http://community.presscrew.com/discussion/premium-themes/cbox/feed');
-		if (!is_wp_error( $rss ) ) : // Checks that the object is created correctly 
-		    // Figure out how many total items there are, but limit it to 10. 
-		    $maxitems = $rss->get_item_quantity(10); 
-		
-		    // Build an array of all the items, starting with element 0 (first element).
-		    $rss_items = $rss->get_items(0, $maxitems); 
-		endif;
-		?>
-		
-		<ul>
-		    <?php if ($maxitems == 0) echo '<li>No items.</li>';
-		    else
-		    // Loop through each feed item and display each item as a hyperlink.
-		    foreach ( $rss_items as $item ) : ?>
-		    <li>
-		        <a target="_blank" href='<?php echo esc_url( $item->get_permalink() ); ?>'
-		        title='<?php echo 'Posted '.$item->get_date('j F Y | g:i a'); ?>'>
-		        <?php echo esc_html( $item->get_title() ); ?></a>
-		    </li>
-		    <?php endforeach; ?>
-		</ul>	
-		
-	</div>
+
 
 	
 	</div>
