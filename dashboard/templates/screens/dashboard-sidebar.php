@@ -22,7 +22,7 @@ Learn more how to use Commons in a Box as a site owner or developer by visiting 
 	<p>
 		Stay up to date about the Commons in a Box project bij following us on Twitter.<br>
 <br>
-		<a href="https://twitter.com/PressCrew" class="twitter-follow-button">Follow @PressCrew</a>
+		<a href="https://twitter.com/Commonsinabox" class="twitter-follow-button">Follow @Commonsinabox</a>
 		<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
 	</p>
 		
