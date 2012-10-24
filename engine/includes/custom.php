@@ -217,12 +217,6 @@ if ( function_exists('bp_is_member') )
 	require_once( 'buddypress/bp-widgets.php' );
 }
 
-// bbPress
-if ( function_exists('is_bbpress()') )
-{
-	require_once( 'bbpress/setup.php' );
-}
-
 // Slider
 if ( is_main_site() )
 {
