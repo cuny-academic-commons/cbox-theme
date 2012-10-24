@@ -1,6 +1,6 @@
 <?php
 //Custom functionality for Cbox
-require_once( 'engine/includes/custom.php' );
+require_once( 'engine/includes/cbox-base.php' );
 
 /**
  * Set this to true to put Infinity into developer mode
