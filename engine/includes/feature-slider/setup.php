@@ -40,18 +40,6 @@ function cbox_feature_setup()
 add_action( 'init', 'cbox_feature_setup' );
 
 /**
- * Echo a post slug to give a unique CSS ID to Custom Post Types
- *
- * @package Infinity
- * @subpackage cbox
- */
-function post_name() {
-global $post;
-$title = sanitize_title($post->post_title);
-echo $title;
-}
-
-/**
  * Enqueues Slider JS at the bottom of the homepage
  * @package Infinity
  * @subpackage cbox

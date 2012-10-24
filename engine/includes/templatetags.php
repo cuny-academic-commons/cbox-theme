@@ -11,6 +11,20 @@
  * @since 1.0
  */
 
+if ( false === function_exists( 'the_post_name' ) ) {
+	/**
+	* Echo the post name (slug)
+	*/
+	function the_post_name()
+	{
+		// use global post
+		global $post;
+
+		// post_name property is the slug
+		echo $post->post_name;
+	}
+}
+
 /**
  * Output a custom user navigation menu
  *
