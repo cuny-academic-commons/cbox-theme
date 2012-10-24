@@ -129,9 +129,28 @@ if ( function_exists('bp_is_member') )
 	 */
 	function cbox_member_navigation_filter( $html, $user_nav_item )
 	{
-		// is slug the current component?
-		if ( bp_is_current_component( $user_nav_item['slug'] ) ) {
-	
+		// component slugs to show subnavs for
+		$show = array(
+			'activity' => true,
+			'blogs' => true,
+			'forums' => true
+		);
+
+		// add these slugs for logged in users viewing their own profile
+		if ( bp_is_my_profile() ) {
+			$show['friends'] = true;
+			$show['groups'] = true;
+			$show['messages'] = true;
+			$show['profile'] = true;
+			$show['settings'] = true;
+		}
+
+		// is slug the current component and should we show it?
+		if (
+			bp_is_current_component( $user_nav_item['slug'] ) &&
+			array_key_exists( $user_nav_item['slug'], $show )
+		) {
+
 			// yes, need to capture options nav output
 			ob_start();
 	
