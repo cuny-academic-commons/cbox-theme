@@ -45,13 +45,13 @@ global $wpdb, $wp_rewrite, $wp_version;
 		else
 			$custom_permalinks = __( 'custom', 'infinity' );
 ?>
-	<h3><?php _e( 'Need Support?', 'infinity' ) ?></h3>
+	<h3><?php _e( 'Installation Details', 'infinity' ) ?></h3>
 	<p><?php _e( "If you are having issues with the theme and need support, below is some useful info about your installation.", 'infinity' ) ?></p>
 	<p><?php _e( "Please submit this information with your support request so it's easier for us to help you!", 'infinity' ) ?></p>
 
 	<h4><?php _e( 'Versions', 'infinity' ) ?></h4>
 	<ul>
-		<li><?php printf( __( 'Infinity Version: %s', 'infinity' ), INFINITY_VERSION ) ?></li>
+		<li><?php printf( __( 'CBOX Version: %s', 'infinity' ), INFINITY_VERSION ) ?></li>
 		<li><?php printf( __( 'Developer Mode: %s', 'infinity' ), $is_developer_mode ) ?></li>
 		<li><?php printf( __( 'BuddyPress: %s', 'infinity' ), BP_VERSION ) ?></li>
 		<li><?php printf( __( 'MySQL: %s', 'infinity' ), $wpdb->db_version() ) ?></li>

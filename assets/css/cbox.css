@@ -153,6 +153,10 @@ ul.item-list li img.avatar {
 	width: 60px;
 	height: 60px;
 }
+/* Get rid of the Group Avatars in the stream updates */
+.activity-header .avatar {
+	display: none;
+}
 /* Activity Stream */
 div.activity-meta {
 	margin-bottom: 0;
