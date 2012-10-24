@@ -30,7 +30,7 @@ Learn more how to use Commons in a Box as a site owner or developer by visiting 
 		
 	<div class="dashboard-widget">
 		<?php //display some useful support info
-			infinity_support_info();
+			infinity_dashboard_support_info();
 		?>
 	</div>	
 		

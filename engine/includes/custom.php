@@ -238,9 +238,4 @@ if ( is_main_site() )
 	require_once( 'feature-slider/setup.php' );
 }
 
-
-
-// Dashboard
-require_once( 'dashboard/setup.php' );
-
 ?>
