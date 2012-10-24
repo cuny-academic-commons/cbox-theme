@@ -180,29 +180,29 @@ if ( function_exists('bp_is_member') )
  * @package Infinity
  * @subpackage cbox
  */
-function infinity_buttons() { { 
-$cbox_button_color = infinity_option_get( 'cbox_button_color' );
-?>
-<!-- html -->
-<script>
-// Adds color button classes to buttons depening on preset style/option
-jQuery(document).ready(function() {
-		//buttons
-		jQuery('.bp-primary-action,div.group-button').addClass('button white');
-		jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
-		jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
-		jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button').addClass('<?php echo $cbox_button_color ?>');
-		jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
-		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
-		jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
-		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
-		jQuery('#upload').addClass('button green');
-});
-</script>
-<!-- end -->
-<?php }} 
-// Hook into action
-add_action('close_body','infinity_buttons');
+function cbox_custom_buttons()
+{
+	// get button color option
+	$cbox_button_color = infinity_option_get( 'cbox_button_color' );
+
+	// render script tag ?>
+	<script>
+	// Adds color button classes to buttons depening on preset style/option
+	jQuery(document).ready(function() {
+			//buttons
+			jQuery('.bp-primary-action,div.group-button').addClass('button white');
+			jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
+			jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
+			jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button').addClass('<?php echo $cbox_button_color ?>');
+			jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
+			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
+			jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
+			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
+			jQuery('#upload').addClass('button green');
+	});
+	</script><?php
+}
+add_action( 'close_body', 'cbox_custom_buttons' );
 
 /*
  * Include custom functionality.
