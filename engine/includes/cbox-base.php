@@ -232,4 +232,20 @@ if ( is_main_site() )
 	require_once( 'feature-slider/setup.php' );
 }
 
+// Template Tags
+
+if ( false === function_exists( 'the_post_name' ) ) {
+	/**
+	* Echo the post name (slug)
+	*/
+	function the_post_name()
+	{
+		// use global post
+		global $post;
+
+		// post_name property is the slug
+		echo $post->post_name;
+	}
+}
+
 ?>
