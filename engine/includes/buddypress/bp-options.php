@@ -35,11 +35,14 @@ define( 'BP_AVATAR_FULL_WIDTH', 300 );
 if ( !defined( 'BP_AVATAR_FULL_HEIGHT' ) )
 define( 'BP_AVATAR_FULL_HEIGHT', 300 );
 
-/**
- * Add Activity Stream Conditional
- */
-function is_activity_page() { 
-	return ( bp_is_activity_component() && !bp_is_user() );
+
+if ( false == function_exists( 'is_activity_page' ) ) {
+	/**
+	 * Activity Stream Conditional
+	 */
+	function is_activity_page() { 
+		return ( bp_is_activity_component() && !bp_is_user() );
+	}
 }
 
 /**
