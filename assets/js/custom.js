@@ -6,14 +6,14 @@
 		
 		//fancy tooltips up in this theme. #winning
 		jQuery('.base-menu a,.post-meta-data a,#logo-menu-wrap a,a[rel=twipsy],.widget_display_replies a,.generic-button a,.gallery-item a img').tooltip({
-		delay: { show: 500, hide: 100 },
-		placement: 'bottom',
+			delay: { show: 500, hide: 100 },
+			placement: 'bottom'
 		});
 		
 		//fancy tooltips up in this theme. #winning
 		jQuery('.item-list-tabs a').tooltip({
-		delay: { show: 500, hide: 100 },
-		placement: 'right',
+			delay: { show: 500, hide: 100 },
+			placement: 'right'
 		});
 		
 		//add a new grid class for register page
