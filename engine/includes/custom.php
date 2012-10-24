@@ -41,9 +41,9 @@ if ( is_main_site( $blog_id ) )
 	'before_title' => '<h4>',
 	'after_title' => '</h4>'
 	));
-	 
+
 	register_sidebar(array(
-	'name' => 'Homepage right',
+	'name' => 'Homepage Right',
 	'id' => 'homepage-right',
 	'description' => "The right Widget on the Homepage",
 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -195,6 +195,7 @@ add_action('close_body','infinity_buttons');
 if ( function_exists('bp_is_member') )
 {
 	require_once( 'buddypress/bp-options.php' );
+	require_once( 'buddypress/bp-widgets.php' );
 }
 
 // bbPress
