@@ -32,15 +32,6 @@
 		// initial hover effects
 		balance_overlay();
 
-		// initial sidebar height
-		balance_sidebar_height();
-
-		// bump sidebar height after any ajax requests
-		jQuery( '#sidebar' )
-			.bind( 'ajaxStop', function(){
-				balance_sidebar_height();
-			});
-
     }); // END <------ jQuery(function(jQuery) ---------->
 	
 
@@ -61,13 +52,6 @@ function balance_overlay()
 	}, function() {
 		jQuery(this).parent('.post-thumb').find('img').stop().animate({opacity : 1}, 200);
 	});
-}
-
-// make the sidebar and content area the same size
-function balance_sidebar_height()
-{
-	var height = jQuery('.main-wrap').height();
-	jQuery('#sidebar').css( 'min-height', height );
 }
 
 /* ===========================================================
