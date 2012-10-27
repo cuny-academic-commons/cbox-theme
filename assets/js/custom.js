@@ -6,14 +6,14 @@
 		
 		//fancy tooltips up in this theme. #winning
 		jQuery('.base-menu a,.post-meta-data a,#logo-menu-wrap a,a[rel=twipsy],.widget_display_replies a,.generic-button a,.gallery-item a img').tooltip({
-		delay: { show: 500, hide: 100 },
-		placement: 'bottom',
+			delay: { show: 500, hide: 100 },
+			placement: 'bottom'
 		});
 		
 		//fancy tooltips up in this theme. #winning
 		jQuery('.item-list-tabs a').tooltip({
-		delay: { show: 500, hide: 100 },
-		placement: 'right',
+			delay: { show: 500, hide: 100 },
+			placement: 'right'
 		});
 		
 		//add a new grid class for register page
@@ -30,16 +30,7 @@
         });
 
 		// initial hover effects
-		balance_overlay();
-
-		// initial sidebar height
-		balance_sidebar_height();
-
-		// bump sidebar height after any ajax requests
-		jQuery( '#sidebar' )
-			.bind( 'ajaxStop', function(){
-				balance_sidebar_height();
-			});
+		cbox_theme_overlay();
 
     }); // END <------ jQuery(function(jQuery) ---------->
 	
@@ -48,7 +39,7 @@
 })(jQuery);
 
 // buddy press avatars, post thumbnails support and menus hover effect
-function balance_overlay()
+function cbox_theme_overlay()
 {
 	jQuery('.wp-post-image,img.avatar, ul.item-list li img.avatar, .pie-easy-exts-features-header-logo, #primary-nav li a span, a.button-callout, #sidebar a img').hover( function() {
 		jQuery(this).stop().animate({opacity : 0.7}, 200);
@@ -61,13 +52,6 @@ function balance_overlay()
 	}, function() {
 		jQuery(this).parent('.post-thumb').find('img').stop().animate({opacity : 1}, 200);
 	});
-}
-
-// make the sidebar and content area the same size
-function balance_sidebar_height()
-{
-	var height = jQuery('.main-wrap').height();
-	jQuery('#sidebar').css( 'min-height', height );
 }
 
 /* ===========================================================

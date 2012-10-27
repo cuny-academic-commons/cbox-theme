@@ -41,9 +41,9 @@ if ( is_main_site( $blog_id ) )
 	'before_title' => '<h4>',
 	'after_title' => '</h4>'
 	));
-	 
+
 	register_sidebar(array(
-	'name' => 'Homepage right',
+	'name' => 'Homepage Right',
 	'id' => 'homepage-right',
 	'description' => "The right Widget on the Homepage",
 	'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -129,9 +129,28 @@ if ( function_exists('bp_is_member') )
 	 */
 	function cbox_member_navigation_filter( $html, $user_nav_item )
 	{
-		// is slug the current component?
-		if ( bp_is_current_component( $user_nav_item['slug'] ) ) {
-	
+		// component slugs to show subnavs for
+		$show = array(
+			'activity' => true,
+			'blogs' => true,
+			'forums' => true
+		);
+
+		// add these slugs for logged in users viewing their own profile
+		if ( bp_is_my_profile() ) {
+			$show['friends'] = true;
+			$show['groups'] = true;
+			$show['messages'] = true;
+			$show['profile'] = true;
+			$show['settings'] = true;
+		}
+
+		// is slug the current component and should we show it?
+		if (
+			bp_is_current_component( $user_nav_item['slug'] ) &&
+			array_key_exists( $user_nav_item['slug'], $show )
+		) {
+
 			// yes, need to capture options nav output
 			ob_start();
 	
@@ -161,29 +180,29 @@ if ( function_exists('bp_is_member') )
  * @package Infinity
  * @subpackage cbox
  */
-function infinity_buttons() { { 
-$cbox_button_color = infinity_option_get( 'cbox_button_color' );
-?>
-<!-- html -->
-<script>
-// Adds color button classes to buttons depening on preset style/option
-jQuery(document).ready(function() {
-		//buttons
-		jQuery('.bp-primary-action,div.group-button').addClass('button white');
-		jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
-		jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
-		jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button').addClass('<?php echo $cbox_button_color ?>');
-		jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
-		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
-		jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
-		jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
-		jQuery('#upload').addClass('button green');
-});
-</script>
-<!-- end -->
-<?php }} 
-// Hook into action
-add_action('close_body','infinity_buttons');
+function cbox_custom_buttons()
+{
+	// get button color option
+	$cbox_button_color = infinity_option_get( 'cbox_button_color' );
+
+	// render script tag ?>
+	<script>
+	// Adds color button classes to buttons depening on preset style/option
+	jQuery(document).ready(function() {
+			//buttons
+			jQuery('.bp-primary-action,div.group-button').addClass('button white');
+			jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
+			jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
+			jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button').addClass('<?php echo $cbox_button_color ?>');
+			jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
+			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
+			jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
+			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
+			jQuery('#upload').addClass('button green');
+	});
+	</script><?php
+}
+add_action( 'close_body', 'cbox_custom_buttons' );
 
 /*
  * Include custom functionality.
@@ -195,31 +214,38 @@ add_action('close_body','infinity_buttons');
 if ( function_exists('bp_is_member') )
 {
 	require_once( 'buddypress/bp-options.php' );
-}
-
-// bbPress
-if ( function_exists('is_bbpress()') )
-{
-	require_once( 'bbpress/setup.php' );
+	require_once( 'buddypress/bp-widgets.php' );
 }
 
 // Slider
 if ( is_main_site() )
 {
 	// load metaboxes class
-	function be_initialize_cmb_meta_boxes() {
+	function cbox_custom_init_cmb() {
 		if ( !class_exists( 'cmb_Meta_Box' ) ) {
 			require_once( 'metaboxes/init.php' );
 		}
 	}
-	add_action( 'init', 'be_initialize_cmb_meta_boxes', 9999 );
+	add_action( 'init', 'cbox_custom_init_cmb', 9999 );
+
 	// load slider setup
 	require_once( 'feature-slider/setup.php' );
 }
 
+// Template Tags
 
+if ( false === function_exists( 'the_post_name' ) ) {
+	/**
+	* Echo the post name (slug)
+	*/
+	function the_post_name()
+	{
+		// use global post
+		global $post;
 
-// Dashboard
-require_once( 'dashboard/setup.php' );
+		// post_name property is the slug
+		echo $post->post_name;
+	}
+}
 
 ?>
