@@ -110,68 +110,11 @@ if ( function_exists('bp_is_member') )
 	 */
 	function cbox_member_navigation_filter_setup()
 	{
-		global $bp;
-	
-		// loop all nav components
-		foreach ( (array)$bp->bp_nav as $user_nav_item ) {
-			// add navigation filter
-			add_filter( 'bp_get_displayed_user_nav_' . $user_nav_item['css_id'], 'cbox_member_navigation_filter', 999, 2 );
-		}
+		// call helper function in core
+		infinity_bp_nav_inject_options_setup();
 	}
 	add_action( 'bp_setup_nav', 'cbox_member_navigation_filter_setup', 999 );
 	
-	/**
-	 * Inject options nav onto end of active displayed user nav component
-	 *
-	 * @param string $html
-	 * @param array $user_nav_item
-	 * @return string
-	 */
-	function cbox_member_navigation_filter( $html, $user_nav_item )
-	{
-		// component slugs to show subnavs for
-		$show = array(
-			'activity' => true,
-			'blogs' => true,
-			'forums' => true
-		);
-
-		// add these slugs for logged in users viewing their own profile
-		if ( bp_is_my_profile() ) {
-			$show['friends'] = true;
-			$show['groups'] = true;
-			$show['messages'] = true;
-			$show['profile'] = true;
-			$show['settings'] = true;
-		}
-
-		// is slug the current component and should we show it?
-		if (
-			bp_is_current_component( $user_nav_item['slug'] ) &&
-			array_key_exists( $user_nav_item['slug'], $show )
-		) {
-
-			// yes, need to capture options nav output
-			ob_start();
-	
-			// run options nav template tag
-			bp_get_options_nav();
-	
-			// grab buffer and wipe it
-			$nav = ob_get_clean();
-	
-			// inject nav onto end of list item wrapped in special <ul>
-			return preg_replace(
-				'/(<\/li>.*)$/',
-				'<ul class="profile-subnav">' . $nav . '</ul>' . '$1',
-				$html,
-				1
-			);
-		}
-	
-		// no changes
-		return $html;
-	}
 }
 
 /**
