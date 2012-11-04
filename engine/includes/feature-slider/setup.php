@@ -31,7 +31,7 @@ function cbox_feature_setup()
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'menu_icon' => get_stylesheet_directory_uri() . '/base/feature-slider/assets/images/slides-icon.png',
+		'menu_icon' => get_stylesheet_directory_uri() . '/engine/includes/feature-slider/assets/images/slides-icon.png',
 		'supports' => array('title','excerpt','editor', 'thumbnail' )
 	);
 
