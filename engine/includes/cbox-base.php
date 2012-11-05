@@ -158,6 +158,7 @@ if ( function_exists('bp_is_member') )
 {
 	require_once( 'buddypress/bp-options.php' );
 	require_once( 'buddypress/bp-widgets.php' );
+	require_once( 'buddypress/bp-menus.php' );
 }
 
 // Slider
