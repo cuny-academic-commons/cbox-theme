@@ -191,4 +191,5 @@ if ( false === function_exists( 'the_post_name' ) ) {
 	}
 }
 
-?>
+// Widgets
+require_once( dirname(__FILE__) . '/widgets.php' );
