@@ -3,93 +3,144 @@
 /**
  * Register and create a default menu in CBOX.
  *
- * @param str $menu_name The internal menu name we should give our new menu.
- * @param str $location The nav menu location we want our new menu to reside.
- * @todo Make this less specific to BP's directory pages for generic use
+ * @param array $args Arguments to register the default menu:
+ *  'menu_name' - The internal menu name we should give our new menu.
+ *  'location' - The nav menu location we want our new menu to reside.
+ *  'pages' - Associative array of pages. Sample looks like this:
+ *       array(
+ *            array(
+ *                 'title'    => 'Home',
+ *                 'position' => 0,
+ *                 'url'      => home_url( '/' ) // custom url
+ *            ),
+ *            array(
+ *                 'title'        => 'Members',
+ *                 'position'     => 10,
+ *                 'bp_directory' => 'members'   // match bp component
+ *            ),
+ *       )
  */
-function cbox_theme_register_default_menu( $menu_name, $location )
+function cbox_theme_register_default_menu( $args = array() )
 {
 	global $blog_id;
+
+	if ( empty( $args['menu_name'] ) || empty( $args['location'] ) || empty( $args['pages'] ) )
+		return false;
+
+	if ( ! is_array( $args['pages'] ) )
+		return false;
 
 	// check BP reqs and if our custom default menu already exists
 	if (
 		function_exists( 'bp_core_get_directory_pages' ) &&
 		BP_ROOT_BLOG == $blog_id &&
-		! is_nav_menu( $menu_name )
+		! is_nav_menu( $args['menu_name'] )
 	) {
-		// doesn't exist, create it
-		$menu_id = wp_create_nav_menu( $menu_name );
+
+		// menu doesn't exist, so create it
+		$menu_id = wp_create_nav_menu( $args['menu_name'] );
 
 		// get bp pages
-		$pages = bp_core_get_directory_pages();
+		$bp_pages = bp_core_get_directory_pages();
 
-		// allowed pages
-		// key = BP component
-		$pages_ok = array(
-			'members'  => array(
-				'title'    => _x( 'People', 'the link in the header navigation bar', 'cbox-theme' ),
-				'position' => 1
-			),
-			'groups'   => array(
-				'title'    => _x( 'Groups', 'the link in the header navigation bar', 'cbox-theme' ),
-				'position' => 2
-			),
-			'blogs'    => array(
-				'title'    => _x( 'Blogs', 'the link in the header navigation bar', 'cbox-theme' ),
-				'position' => 3
-			),
-			'bp_docs'  => array(
-				'title'    => _x( 'Docs', 'the link in the header navigation bar', 'cbox-theme' ),
-				'position' => 4
-			),
-			'activity' => array(
-				'title'    => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
-				'position' => 5
-			),
-		);
+		// now, add the pages to our menu
+		foreach( $args['pages'] as $page ) {
+			// default args
+			$params = array(
+				'menu-item-status'     => 'publish',
+				'menu-item-title'      => $page['title'],
+				//'menu-item-attr-title' => ! empty( $page['attr-title'] ) ? $page['attr-title'] : $page['title'],
+				'menu-item-classes'    => 'icon-' . ! empty( $page['bp_directory'] ) ? $page['bp_directory'] : sanitize_title( $page['title'] ),
+				'menu-item-position'   => $page['position']
+			);
 
-		// create "Home" nav item first
-		wp_update_nav_menu_item( $menu_id, 0, array(
-			'menu-item-title'   =>  _x( 'Home', 'the link in the header navigation bar', 'cbox-theme' ),
-			'menu-item-classes' => 'icon-home',
-			'menu-item-url'     => home_url( '/' ), 
-			'menu-item-status'  => 'publish'
-		) );
+			// support custom menu type
+			if ( ! empty( $page['type'] ) )
+				$params['menu-item-type'] = $page['type'];
 
-		// now, add the rest of our bp pages from $pages_ok
-		foreach( $pages as $component => $page ) {
-			// make sure we support this page
-			if ( array_key_exists( $component, $pages_ok ) ) {
+			// support custom url
+			if ( ! empty( $page['url'] ) )
+				$params['menu-item-url']  = $page['url'];
+
+			// add additional args for bp directories
+			if ( ! empty( $page['bp_directory'] ) ) {
+				// bp directory page doesn't exist, so stop!
+				if ( ! array_key_exists( $page['bp_directory'], get_object_vars( $bp_pages ) ) )
+					continue;
+
 				// yep, add page as a nav item
-				wp_update_nav_menu_item( $menu_id, 0, array(
-					'menu-item-type'       => 'post_type',
-					'menu-item-status'     => 'publish',
-					'menu-item-object'     => 'page',
-					'menu-item-object-id'  => $page->id,
-					'menu-item-title'      => ! empty( $pages_ok[ $component ]['title'] ) ? $pages_ok[ $component ]['title'] : $page->title,
-					//'menu-item-attr-title' => ! empty( $pages_ok[ $component ]['attr-title'] ) ? $pages_ok[ $component ]['attr-title'] : $page->title,
-					'menu-item-classes'    => 'icon-' . $component,
-					'menu-item-position'   => $pages_ok[ $component ]['position']
-				) );
+				$params['menu-item-type']      = 'post_type';
+				$params['menu-item-object']    = 'page';
+				$params['menu-item-object-id'] = $bp_pages->{$page['bp_directory']}->id;
 			}
+
+			wp_update_nav_menu_item( $menu_id, 0, $params );
+
+			$params = array();
 		}
 
 		// get location settings
 		$locations = get_theme_mod( 'nav_menu_locations' );
 
 		// is our menu location set yet?
-		if ( empty( $locations[ $location ] ) ) {
+		if ( empty( $locations[ $args['location'] ] ) ) {
 			// nope, set it
-			$locations[ $location ] = $menu_id;
+			$locations[ $args['location'] ] = $menu_id;
 
 			// update theme mode
 			set_theme_mod( 'nav_menu_locations', $locations );
 		}
+
+		return true;
 	}
 }
 
-// run this on get_header() on the frontend to give CBOX components a chance 
-// to configure from the admin area (like BP Docs)
-add_action( 'get_header', create_function( '', "
-	cbox_theme_register_default_menu( 'cbox-sub-menu', 'sub-menu' );
-" ) );
+/**
+ * Sets up a default sub menu in the CBOX theme.
+ *
+ * This function is fired on 'get_header' on the frontend to give CBOX
+ * components a chance to configure from the admin area (like BP Docs).
+ */
+function cbox_add_default_sub_menu() {
+	// setup pages
+	$pages = array(
+		array(
+			'title'        => _x( 'Home', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 0,
+			'url'          => home_url( '/' )
+		),
+		array(
+			'title'        => _x( 'People', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 10,
+			'bp_directory' => 'members'
+		),
+		array(
+			'title'        => _x( 'Groups', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 20,
+			'bp_directory' => 'groups'
+		),
+		array(
+			'title'        => _x( 'Blogs', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 30,
+			'bp_directory' => 'blogs'
+		),
+		array(
+			'title'        => _x( 'Docs', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 40,
+			'bp_directory' => 'bp_docs'
+		),
+		array(
+			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 50,
+			'bp_directory' => 'activity'
+		),
+	);
+
+	// register our default sub-menu
+	cbox_theme_register_default_menu( array(
+		'menu_name'  => 'cbox-sub-menu',
+		'location'   => 'sub-menu',
+		'pages'      => $pages
+	) );
+}
+add_action( 'get_header', 'cbox_add_default_sub_menu' );
