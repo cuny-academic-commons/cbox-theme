@@ -312,12 +312,13 @@ class CBox_Widget_Setter {
 			return new WP_Error( 'widget_does_not_exist', 'Widget does not exist' );
 		}
 
-		$sidebars = wp_get_sidebars_widgets();
-		if ( ! isset( $sidebars[ $sidebar_id ] ) ) {
+		global $wp_registered_sidebars;
+		if ( ! isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
 			return new WP_Error( 'sidebar_does_not_exist', 'Sidebar does not exist' );
 		}
 
-		$sidebar = (array) $sidebars[ $sidebar_id ];
+		$sidebars_widgets = wp_get_sidebars_widgets();
+		$sidebar = (array) $sidebars_widgets[ $sidebar_id ];
 
 		// Multi-widgets can only be detected by looking at their settings
 		$option_name  = 'widget_' . $id_base;
