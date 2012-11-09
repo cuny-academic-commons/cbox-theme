@@ -35,7 +35,7 @@ div.item-list-tabs,
 #header {
     padding-bottom: 30px;
     padding-top: 30px;
-    min-height: 60px;
+    height: 120px;
 }
 h1#site-title,div#site-title {
 	padding: 10px 30px 6px;
