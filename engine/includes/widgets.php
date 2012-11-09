@@ -290,6 +290,75 @@ function cbox_set_widgets() {
 			),
 		) );
 	}
+
+	if ( function_exists( 'bpdw_slug' ) ) {
+		$create_url = trailingslashit( home_url( bpdw_slug() ) ) . trailingslashit( BP_DOCS_CREATE_SLUG );
+
+		// Wiki Sidebar
+		CBox_Widget_Setter::clear_sidebar( 'wiki-sidebar' );
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'text',
+			'sidebar_id' => 'wiki-sidebar',
+			'settings'   => array(
+				'title'  => __( 'Welcome To The Wiki', 'cbox-theme' ),
+				'text'   => '<p>' . sprintf( __( 'This sidebar appears on all Wiki pages. Use it to display content that you want your users to see whenever viewing the Wiki, such as a brief description of how wikis work, or a link to <a href="%s">create a new wiki page</a>.', 'cbox-theme' ), $create_url ) . '</p><p>' . sprintf( __( 'To edit this widget, or to add more widgets to the sidebar, visit <a href="%s">Dashboard > Appearance > Widgets</a> and look for the Wiki Sidebar.', 'cbox-theme' ), admin_url( 'widgets.php' ) ) . '</p>',
+				'filter' => false,
+			),
+		) );
+
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'text',
+			'sidebar_id' => 'wiki-sidebar',
+			'settings'   => array(
+				'title'  => '',
+				'text'   => '<a href="' . $create_url . '" class="button">' . __( 'Create New Wiki Page', 'cbox-theme' ) . '</a>',
+				'filter' => false,
+			),
+		) );
+
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'bpdw_tag_cloud',
+			'sidebar_id' => 'wiki-sidebar',
+			'settings'   => array(
+				'title'  => __( 'Wiki Tags', 'bp-docs-wiki' ),
+				'filter' => false,
+			),
+		) );
+
+		// Wiki Top
+		CBox_Widget_Setter::clear_sidebar( 'wiki-top' );
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'text',
+			'sidebar_id' => 'wiki-top',
+			'settings'   => array(
+				'title'  => __( 'Welcome To The Wiki', 'bp-docs-wiki' ),
+				'text'   => '<p>' . __( 'This is a text widget that you can use to introduce your users to the wiki, and perhaps to feature some outstanding wiki content.', 'bp-docs-wiki' ) . '</p><p>' . sprintf( __( 'Edit this widget, or add others to the Wiki Top sidebar, at <a href="%s">Dashboard > Appearance > Widgets</a>.', 'cbox-theme' ), admin_url( 'widgets.php' ) ) . '</p>',
+				'filter' => false,
+			),
+		) );
+
+		// Wiki Bottom Left
+		CBox_Widget_Setter::clear_sidebar( 'wiki-bottom-left' );
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'bpdw_recently_active',
+			'sidebar_id' => 'wiki-bottom-left',
+			'settings'   => array(
+				'title'  => __( 'Recently Active', 'bp-docs-wiki' ),
+				'filter' => false,
+			),
+		) );
+
+		// Wiki Bottom Right
+		CBox_Widget_Setter::clear_sidebar( 'wiki-bottom-right' );
+		CBox_Widget_Setter::set_widget( array(
+			'id_base'    => 'bpdw_most_active',
+			'sidebar_id' => 'wiki-bottom-right',
+			'settings'   => array(
+				'title'  => __( 'Most Active', 'bp-docs-wiki' ),
+				'filter' => false,
+			),
+		) );
+	}
 }
 
 /**
@@ -312,11 +381,12 @@ class CBox_Widget_Setter {
 			return new WP_Error( 'widget_does_not_exist', 'Widget does not exist' );
 		}
 
-		$sidebars = wp_get_sidebars_widgets();
-		if ( ! isset( $sidebars[ $sidebar_id ] ) ) {
+		global $wp_registered_sidebars;
+		if ( ! isset( $wp_registered_sidebars[ $sidebar_id ] ) ) {
 			return new WP_Error( 'sidebar_does_not_exist', 'Sidebar does not exist' );
 		}
 
+		$sidebars = wp_get_sidebars_widgets();
 		$sidebar = (array) $sidebars[ $sidebar_id ];
 
 		// Multi-widgets can only be detected by looking at their settings

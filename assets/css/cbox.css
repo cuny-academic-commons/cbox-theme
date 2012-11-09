@@ -364,6 +364,12 @@ ul.item-list li div.action {
 .docs label {
 	margin-top: 20px;
 }
+/* ======== */
+/* ! Wiki   */
+/* ======== */
+body.wiki.single-bp_doc #subnav {
+	display: none;
+}
 /* BBPress Bleeding */
 .groups.forums #item-header {
 	display: none;

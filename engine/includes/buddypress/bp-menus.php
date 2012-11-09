@@ -125,9 +125,9 @@ function cbox_add_default_sub_menu() {
 			'bp_directory' => 'blogs'
 		),
 		array(
-			'title'        => _x( 'Docs', 'the link in the header navigation bar', 'cbox-theme' ),
+			'title'        => _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 40,
-			'bp_directory' => 'bp_docs'
+			'url'          => home_url( 'wiki' )
 		),
 		array(
 			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
