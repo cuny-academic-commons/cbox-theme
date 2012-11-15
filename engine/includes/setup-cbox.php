@@ -147,6 +147,19 @@ function cbox_custom_buttons()
 }
 add_action( 'close_body', 'cbox_custom_buttons' );
 
+/**
+ * Compiler configuration callback, DO NOT TOUCH
+ */
+function infinity_compiler_config()
+{
+	return array(
+		'output' => 'cbox-build',
+		'refs' => array(
+			'infinity' => 'buddypress',
+			'cbox-theme' => 'master'
+	));
+}
+
 /*
  * Include custom functionality.
  *
