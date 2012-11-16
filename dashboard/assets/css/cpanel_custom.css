@@ -11,9 +11,9 @@ background: #FFF;
 }
 
 div#infinity-cpanel-header-logo {
-    background: url("../../../assets/images/logo.png") no-repeat scroll 0 0 transparent;
+    background: url("../images/admin-logo.png") no-repeat scroll 0 0 transparent;
     height: 61px;
-    width: 187px;
+    width: 330px;
 	top: 10px;
 	left: 0;
 }
@@ -44,11 +44,13 @@ div#infinity-cpanel-tab-options {
 div#infinity-cpanel-header {
     background: none repeat scroll 0 0 transparent;
     border: 0 none;
+    margin-bottom: 25px;
+    margin-top: 40px;
 }
 
 div#infinity-cpanel-toolbar {
     float: right;
-    top: -70px;
+    top: -80px;
 }
 
 div#infinity-cpanel-tabs > ul.ui-tabs-nav li a {
