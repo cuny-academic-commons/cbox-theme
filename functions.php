@@ -14,8 +14,13 @@
 require_once( 'engine/includes/setup-cbox.php' );
 
 /**
- * Widgets
+ * SideBars
  */
-require_once( 'engine/includes/widgets-cbox.php' );
+require_once( 'engine/includes/sidebars-cbox.php' );
+
+/**
+ * BuddyPress
+ */
+require_once( 'engine/includes/buddypress-cbox.php' );
 
 ?>

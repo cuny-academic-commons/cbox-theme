@@ -87,4 +87,4 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 	}
 }
 
-add_action( 'widgets_init', create_function( '', 'return register_widget( "CBox_BP_Blogs_Recent_Posts_Widget" );' ) );
+?>

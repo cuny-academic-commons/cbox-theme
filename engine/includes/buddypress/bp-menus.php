@@ -1,6 +1,56 @@
 <?php
 
 /**
+ * Sets up a default sub menu in the CBOX theme.
+ *
+ * This function is fired on 'get_header' on the frontend to give CBOX
+ * components a chance to configure from the admin area (like BP Docs).
+ */
+function cbox_theme_add_default_sub_menu()
+{
+	// setup pages
+	$pages = array(
+		array(
+			'title'        => _x( 'Home', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 0,
+			'url'          => home_url( '/' )
+		),
+		array(
+			'title'        => _x( 'People', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 10,
+			'bp_directory' => 'members'
+		),
+		array(
+			'title'        => _x( 'Groups', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 20,
+			'bp_directory' => 'groups'
+		),
+		array(
+			'title'        => _x( 'Blogs', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 30,
+			'bp_directory' => 'blogs'
+		),
+		array(
+			'title'        => _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 40,
+			'url'          => home_url( 'wiki' )
+		),
+		array(
+			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
+			'position'     => 50,
+			'bp_directory' => 'activity'
+		),
+	);
+
+	// register our default sub-menu
+	cbox_theme_register_default_menu( array(
+		'menu_name'  => 'cbox-sub-menu',
+		'location'   => 'sub-menu',
+		'pages'      => $pages
+	) );
+}
+
+/**
  * Register and create a default menu in CBOX.
  *
  * @param array $args Arguments to register the default menu:
@@ -95,52 +145,4 @@ function cbox_theme_register_default_menu( $args = array() )
 	}
 }
 
-/**
- * Sets up a default sub menu in the CBOX theme.
- *
- * This function is fired on 'get_header' on the frontend to give CBOX
- * components a chance to configure from the admin area (like BP Docs).
- */
-function cbox_add_default_sub_menu() {
-	// setup pages
-	$pages = array(
-		array(
-			'title'        => _x( 'Home', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 0,
-			'url'          => home_url( '/' )
-		),
-		array(
-			'title'        => _x( 'People', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 10,
-			'bp_directory' => 'members'
-		),
-		array(
-			'title'        => _x( 'Groups', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 20,
-			'bp_directory' => 'groups'
-		),
-		array(
-			'title'        => _x( 'Blogs', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 30,
-			'bp_directory' => 'blogs'
-		),
-		array(
-			'title'        => _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 40,
-			'url'          => home_url( 'wiki' )
-		),
-		array(
-			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 50,
-			'bp_directory' => 'activity'
-		),
-	);
-
-	// register our default sub-menu
-	cbox_theme_register_default_menu( array(
-		'menu_name'  => 'cbox-sub-menu',
-		'location'   => 'sub-menu',
-		'pages'      => $pages
-	) );
-}
-add_action( 'get_header', 'cbox_add_default_sub_menu' );
+?>

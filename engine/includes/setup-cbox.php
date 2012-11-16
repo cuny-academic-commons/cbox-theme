@@ -1,57 +1,4 @@
 <?php
-#Add Homepage Sidebars (only registered on WP Single & Main Blog in MultiSite
-if ( is_main_site( $blog_id ) ) 
-{
-	register_sidebar(array(
-	'name' => 'Homepage Top Right',
-	'id' => 'homepage-top-right',
-	'description' => "The Top Right Widget next to the Slider",
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget' => '</div>',
-	'before_title' => '<h4>',
-	'after_title' => '</h4>'
-	));
-	
-	register_sidebar(array(
-	'name' => 'Homepage Center Widget',
-	'id' => 'homepage-center-widget',
-	'description' => "The Full Width Center Widget on the Homepage",
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget' => '</div>',
-	'before_title' => '<h4>',
-	'after_title' => '</h4>'
-	));
-	
-	register_sidebar(array(
-	'name' => 'Homepage Left',
-	'id' => 'homepage-left',
-	'description' => "The Left Widget on the Homepage",
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget' => '</div>',
-	'before_title' => '<h4>',
-	'after_title' => '</h4>'
-	));
-	
-	register_sidebar(array(
-	'name' => 'Homepage Middle',
-	'id' => 'homepage-middle',
-	'description' => "The Middle Widget on the Homepage",
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget' => '</div>',
-	'before_title' => '<h4>',
-	'after_title' => '</h4>'
-	));
-
-	register_sidebar(array(
-	'name' => 'Homepage Right',
-	'id' => 'homepage-right',
-	'description' => "The right Widget on the Homepage",
-	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-	'after_widget' => '</div>',
-	'before_title' => '<h4>',
-	'after_title' => '</h4>'
-	));
-}
 
 // Options page title and menu title
 function cbox_menu_title() {
@@ -60,68 +7,8 @@ function cbox_menu_title() {
 add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_menu_title' );
 add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_menu_title' );
 
-// BuddyPress
-if ( function_exists('bp_is_member') )
-{
-	/**
-	 * Add Activity Tabs on the Stream Directory
-	 *
-	 * @package Infinity
-	 * @subpackage base
-	 */
-	function cbox_activity_tabs() 
-	{ 
-		if ( bp_is_activity_component() && bp_is_directory() ):
-			infinity_get_template_part( 'templates/parts/activity-tabs' );
-		endif; 
-	} 
-	add_action('open_sidebar','cbox_activity_tabs');
-	
-	/**
-	 * Add Group Navigation Items to Group Pages
-	 *
-	 * @package Infinity
-	 * @subpackage base
-	 */
-	function cbox_group_navigation() 
-	{ 
-		if ( bp_is_group() ) :
-			infinity_get_template_part( 'templates/parts/group-navigation' );
-		endif; 
-	} 
-	add_action('open_sidebar','cbox_group_navigation');
-	
-	/**
-	 * Add Member Navigation to Member Pages
-	 *
-	 * @package Infinity
-	 * @subpackage base
-	 */
-	function cbox_member_navigation() 
-	{ 
-		if ( bp_is_user() ) :
-			infinity_get_template_part( 'templates/parts/member-navigation' );
-		endif; 
-	} 
-	add_action('open_sidebar','cbox_member_navigation');
-	
-	/**
-	 * Add a filter for every displayed user navigation item
-	 */
-	function cbox_member_navigation_filter_setup()
-	{
-		// call helper function in core
-		infinity_bp_nav_inject_options_setup();
-	}
-	add_action( 'bp_setup_nav', 'cbox_member_navigation_filter_setup', 999 );
-	
-}
-
 /**
  * Custom jQuery Buttons
- *
- * @package Infinity
- * @subpackage cbox
  */
 function cbox_custom_buttons()
 {
@@ -165,14 +52,6 @@ function infinity_compiler_config()
  *
  * These will eventually become extensions!
  */
-
-// BuddyPress
-if ( function_exists('bp_is_member') )
-{
-	require_once( 'buddypress/bp-options.php' );
-	require_once( 'buddypress/bp-widgets.php' );
-	require_once( 'buddypress/bp-menus.php' );
-}
 
 // Slider
 if ( is_main_site() )
