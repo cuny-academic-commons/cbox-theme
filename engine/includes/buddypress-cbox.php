@@ -75,56 +75,56 @@ add_action( 'widgets_init', 'cbox_theme_register_widgets' );
 /**
  * Add Activity Tabs on the Stream Directory
  */
-function cbox_activity_tabs()
+function cbox_theme_activity_tabs()
 {
 	if ( bp_is_activity_component() && bp_is_directory() ):
 		infinity_get_template_part( 'templates/parts/activity-tabs' );
 	endif;
 }
-add_action('open_sidebar','cbox_activity_tabs');
+add_action( 'open_sidebar', 'cbox_theme_activity_tabs' );
 
 /**
  * Add Group Navigation Items to Group Pages
  */
-function cbox_group_navigation()
+function cbox_theme_group_navigation()
 {
 	if ( bp_is_group() ) :
 		infinity_get_template_part( 'templates/parts/group-navigation' );
 	endif;
 }
-add_action('open_sidebar','cbox_group_navigation');
+add_action( 'open_sidebar', 'cbox_theme_group_navigation' );
 
 /**
  * Add Member Navigation to Member Pages
  */
-function cbox_member_navigation()
+function cbox_theme_member_navigation()
 {
 	if ( bp_is_user() ) :
 		infinity_get_template_part( 'templates/parts/member-navigation' );
 	endif;
 }
-add_action('open_sidebar','cbox_member_navigation');
+add_action( 'open_sidebar', 'cbox_theme_member_navigation' );
 
 /**
  * Add a filter for every displayed user navigation item
  */
-function cbox_member_navigation_filter_setup()
+function cbox_theme_member_navigation_filter_setup()
 {
 	// call helper function in core
 	infinity_bp_nav_inject_options_setup();
 }
-add_action( 'bp_setup_nav', 'cbox_member_navigation_filter_setup', 999 );
+add_action( 'bp_setup_nav', 'cbox_theme_member_navigation_filter_setup', 999 );
 
 /**
  * Render tour feature markup
  */
-function cbox_buddypress_tour()
+function cbox_theme_buddypress_tour()
 {
 	if ( bp_is_activity_component() && !bp_is_user() && is_user_logged_in() ) {
 		infinity_feature( 'cbox-buddypress-tour' );
 	}
 }
-add_action( 'close_body', 'cbox_buddypress_tour' );
+add_action( 'close_body', 'cbox_theme_buddypress_tour' );
 
 //
 // Helpers

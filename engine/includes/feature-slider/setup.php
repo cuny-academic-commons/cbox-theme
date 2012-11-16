@@ -1,11 +1,12 @@
 <?php
 /**
- * Register custom "Features" post type
- *
- * @package Infinity
- * @subpackage cbox
+ * Feature Slider setup
  */
-function cbox_feature_setup()
+
+/**
+ * Register custom "Features" post type
+ */
+function cbox_theme_feature_setup()
 {
 	$labels = array(
 		'name' => _x('Site Features', 'post type general name', 'infinity'),
@@ -37,26 +38,24 @@ function cbox_feature_setup()
 
 	register_post_type( 'features', $args );
 }
-add_action( 'init', 'cbox_feature_setup' );
+add_action( 'init', 'cbox_theme_feature_setup' );
 
 /**
  * Enqueues Slider JS at the bottom of the homepage
- * @package Infinity
- * @subpackage cbox
  */
-function cbox_flex_slider_script() { { ?>
-<?php if ( is_front_page() ) : ?>
-<!-- html -->
-<script type="text/javascript">
-// Can also be used with $(document).ready()
-jQuery(window).load(function() {
-  jQuery('.flexslider').flexslider({
-    animation: "slide"
-  });
-});
-</script>
-<?php endif; // end primary widget area ?>
-<?php }} 
-// Hook into action
-add_action('close_body','cbox_flex_slider_script');
+function cbox_theme_flex_slider_script()
+{
+	if ( is_front_page() ) {
+		// render script tag ?>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				$('.flexslider').flexslider({
+					animation: "slide"
+				});
+			});
+		</script><?php
+	}
+}
+add_action( 'close_body', 'cbox_theme_flex_slider_script' );
+
 ?>

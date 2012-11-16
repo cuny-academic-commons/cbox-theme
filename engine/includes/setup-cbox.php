@@ -1,16 +1,19 @@
 <?php
 
-// Options page title and menu title
-function cbox_menu_title() {
+/**
+ * Options page title and menu title
+ */
+function cbox_theme_menu_title()
+{
 	return __( 'CBox Theme Options', 'cbox' );
 }
-add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_menu_title' );
-add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_menu_title' );
+add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_theme_menu_title' );
+add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_theme_menu_title' );
 
 /**
  * Custom jQuery Buttons
  */
-function cbox_custom_buttons()
+function cbox_theme_custom_buttons()
 {
 	// get button color option
 	$cbox_button_color = infinity_option_get( 'cbox_button_color' );
@@ -32,43 +35,29 @@ function cbox_custom_buttons()
 	});
 	</script><?php
 }
-add_action( 'close_body', 'cbox_custom_buttons' );
+add_action( 'close_body', 'cbox_theme_custom_buttons' );
 
-/**
- * Compiler configuration callback, DO NOT TOUCH
- */
-function infinity_compiler_config()
-{
-	return array(
-		'output' => 'cbox-build',
-		'refs' => array(
-			'infinity' => 'buddypress',
-			'cbox-theme' => 'master'
-	));
-}
-
-/*
- * Include custom functionality.
- *
- * These will eventually become extensions!
- */
-
+//
 // Slider
+//
+
 if ( is_main_site() )
 {
 	// load metaboxes class
-	function cbox_custom_init_cmb() {
+	function cbox_theme_init_cmb() {
 		if ( !class_exists( 'cmb_Meta_Box' ) ) {
 			require_once( 'metaboxes/init.php' );
 		}
 	}
-	add_action( 'init', 'cbox_custom_init_cmb', 9999 );
+	add_action( 'init', 'cbox_theme_init_cmb', 9999 );
 
 	// load slider setup
 	require_once( 'feature-slider/setup.php' );
 }
 
+//
 // Template Tags
+//
 
 if ( false === function_exists( 'the_post_name' ) ) {
 	/**
@@ -82,6 +71,23 @@ if ( false === function_exists( 'the_post_name' ) ) {
 		// post_name property is the slug
 		echo $post->post_name;
 	}
+}
+
+//
+// Misc
+//
+
+/**
+ * Compiler configuration callback, DO NOT TOUCH
+ */
+function infinity_compiler_config()
+{
+	return array(
+		'output' => 'cbox-build',
+		'refs' => array(
+			'infinity' => 'buddypress',
+			'cbox-theme' => 'master'
+	));
 }
 
 ?>
