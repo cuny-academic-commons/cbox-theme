@@ -13,4 +13,9 @@
  */
 require_once( 'engine/includes/setup-cbox.php' );
 
+/**
+ * Widgets
+ */
+require_once( 'engine/includes/widgets-cbox.php' );
+
 ?>
