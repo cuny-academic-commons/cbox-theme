@@ -51,8 +51,9 @@ a {
 a:hover {
 text-decoration: underline;
 }
-.base-menu a:hover,#object-nav a:hover,#subnav a:hover,#logo-menu-wrap a:hover,.sidebar-activity-tabs a:hover {
+.base-menu a:hover,#object-nav a:hover,#subnav a:hover,#logo-menu-wrap a:hover,.sidebar-activity-tabs a:hover,#main-menu-wrap a span:hover {
 	border: none;
+	text-decoration: none;
 }
 #header {
 	background: #111;
