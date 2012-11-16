@@ -9,7 +9,7 @@
 Learn more how to use Commons in a Box as a site owner or developer by visiting our online documentation. It will guide you through setting up Commons in a Box and getting the most out of it's many features.
 <br>
 <br>
-<a class="button" href="http://commonsinabox.org/documentation" title="Commons in a Box Documentation">Go to the Documentation</a>
+<a class="button" target="_blank" href="http://commonsinabox.org/documentation" title="Commons in a Box Documentation">Go to the Documentation</a>
 		</p>
 	
 	</div>

@@ -1,42 +1,41 @@
 /**
  * Custom Stuff Copyright © 2011 Bowe Frankema
  */
-(function(jQuery){
-	jQuery(document).ready(function() {
-		
-		//fancy tooltips up in this theme. #winning
-		jQuery('.base-menu a,.post-meta-data a,#logo-menu-wrap a,a[rel=twipsy],.widget_display_replies a,.generic-button a,.gallery-item a img').tooltip({
+jQuery(document).ready(function($) {
+
+	// fancy tooltips up in this theme. #winning
+	$('.base-menu a, .post-meta-data a, #logo-menu-wrap a, a[rel=twipsy], .widget_display_replies a, .generic-button a, .gallery-item a img')
+		.tooltip({
 			delay: { show: 500, hide: 100 },
 			placement: 'bottom'
 		});
-		
-		//fancy tooltips up in this theme. #winning
-		jQuery('.item-list-tabs a').tooltip({
+
+	// fancy tooltips up in this theme. #winning
+	$('.item-list-tabs a')
+		.tooltip({
 			delay: { show: 500, hide: 100 },
 			placement: 'right'
 		});
-		
-		//add a new grid class for register page
-		jQuery('.register #content').addClass('column sixteen');
-				
-		//add titles to certain stuff for fancy tooltips
-		jQuery('#favorite-toggle a').attr('title', 'Add this topic to your favorites');
-	 		
-	    jQuery(function(jQuery){
-			jQuery(".toggle_container").hide();
-			jQuery("h6.trigger").click(function(){
-			jQuery(this).toggleClass("active").next().slideToggle("normal");
-			return false; //Prevent the browser jump to the link anchor
-        });
 
-		// initial hover effects
-		cbox_theme_overlay();
+	// add a new grid class for register page
+	$('.register #content').addClass('column sixteen');
 
-    }); // END <------ jQuery(function(jQuery) ---------->
-	
+	// add titles to certain stuff for fancy tooltips
+	$('#favorite-toggle a').attr('title', 'Add this topic to your favorites');
 
+	// hide these by default
+	$('.toggle_container').hide();
+
+	// handle slide toggles
+	$('h6.trigger').click(function(e){
+		$(this).toggleClass("active").next().slideToggle("normal");
+		e.preventDefault();
 	});
-})(jQuery);
+
+	// initial hover effects
+	cbox_theme_overlay();
+});
+
 
 // buddy press avatars, post thumbnails support and menus hover effect
 function cbox_theme_overlay()
