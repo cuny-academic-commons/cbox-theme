@@ -86,6 +86,14 @@ class CBox_Widget_Setter {
 	}
 
 	/**
+	 * Checks to see whether a sidebar is already populated
+	 */
+	public static function is_sidebar_populated( $sidebar_id ) {
+		$sidebars = wp_get_sidebars_widgets();
+		return ! empty( $sidebars[ $sidebar_id ] );
+	}
+
+	/**
 	 * Moves all active widgets from a given sidebar into the inactive array
 	 */
 	public static function clear_sidebar( $sidebar_id, $delete_to = 'inactive' ) {
