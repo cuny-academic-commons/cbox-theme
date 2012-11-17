@@ -74,6 +74,32 @@ if ( false === function_exists( 'the_post_name' ) ) {
 }
 
 //
+// Set up homepage
+//
+
+// Make sure a homepage hasn't been set already by the user, or by cbox-theme
+if ( ! get_option( 'page_on_front' ) ) {
+	$home_page_id = bp_get_option( '_cbox_theme_auto_create_home_page' );
+
+	// Create a dummy page if one is needed
+	if ( ! $home_page_id ) {
+		$home_page_id = wp_insert_post( array(
+			'post_type' => 'page',
+			'post_title' => 'Home Page',
+			'post_status' => 'publish',
+		) );
+	}
+
+	if ( $home_page_id ) {
+		// Set the homepage template, and put the new page on front
+		update_post_meta( $home_page_id, '_wp_page_template', 'templates/homepage-template.php' );
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $home_page_id );
+		update_option( '_cbox_theme_auto_create_home_page', $home_page_id );
+	}
+}
+
+//
 // Misc
 //
 
