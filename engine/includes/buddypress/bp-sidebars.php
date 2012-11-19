@@ -42,6 +42,7 @@ function cbox_theme_populate_sidebars() {
 			'sidebar_id' => 'homepage-top-right',
 			'settings'   => array(
 				'title' => __( 'Featured Member', 'cbox-theme' ),
+				'title_element' => 'h3',
 				'featured_content_type' => 'member',
 				'featured_member' => $username,
 				'custom_description' => __( 'Use the Featured Content widget to show off outstanding content from your community.', 'cbox-theme' ),
