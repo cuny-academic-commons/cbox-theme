@@ -7,7 +7,7 @@
  *  Theme                   Branch              SHA
  * ------------------------------------------------------------------------------------
  * infinity                buddypress          d28705836c1f296ca5f98e137fc853b0f43b7a64
- * cbox-theme              master              2e6e7156a1d35f13008ab6412ce7233130850fa7
+ * cbox-theme              master              9e5fa26ec45ab42a9084c187198d64e70d6bab19
  *
  * @author Infinity Theme Compiler
  */
