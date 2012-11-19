@@ -264,7 +264,7 @@ div#subnav.item-list-tabs ul li {
 	display: none;
 }
 /* We still need to show some stuff though */
-div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,.docs .item-list-tabs ul li {
+div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,single-bp_doc .item-list-tabs ul li {
 	display: block !important;
 }
 /* Profile Navigation and Groups Navigation */
@@ -339,30 +339,38 @@ ul.item-list li div.action {
 /* ======== */
 /* ! Docs    */
 /* ======== */
-.docs div.doc-content {
+.single-bp_doc div.doc-content {
 	border: 0px;
 	padding: 0px;
 }
-.docs .content-column {
+.single-bp_doc .content-column {
 	float: none !important;
 }
 .doc-tabs li {
 	list-style: none outside none;
 }
-.docs .doc-tabs {
+#content .doc-tabs li a {
+	border-radius: 3px;
+	padding: 10px 15px;
+}
+.single-bp_doc .doc-tabs {
 	margin-right: 20px;
 	margin-top: -20px;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-.docs .toggle-switch {
+.single-bp_doc .toggle-switch {
 	padding: 8px 12px;
 }
-.docs div.docs-info-header {
+.single-bp_doc divsingle-bp_doc-info-header {
 	padding: 0px;
 }
-.docs label {
+.single-bp_doc label {
 	margin-top: 20px;
+}
+.doc-tabs ul {
+    margin-left: 0;
+    padding: 0;
 }
 /* ======== */
 /* ! Wiki   */
