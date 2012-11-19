@@ -10,6 +10,13 @@ function cbox_theme_menu_title()
 add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_theme_menu_title' );
 add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_theme_menu_title' );
 
+function cbox_theme_menu_mobile_container()
+{
+	// just print the tag ?>
+	<div class="mobile-menu-container"></div><?php
+}
+add_action( 'open_wrapper', 'cbox_theme_menu_mobile_container' );
+
 /**
  * Custom jQuery Buttons
  */
