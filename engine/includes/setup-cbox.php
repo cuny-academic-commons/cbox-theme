@@ -5,7 +5,7 @@
  */
 function cbox_theme_menu_title()
 {
-	return __( 'CBox Theme Options', 'cbox' );
+	return __( 'CBOX Theme Options', 'cbox' );
 }
 add_filter( 'infinity_dashboard_menu_setup_page_title', 'cbox_theme_menu_title' );
 add_filter( 'infinity_dashboard_menu_setup_menu_title', 'cbox_theme_menu_title' );
