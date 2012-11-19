@@ -487,7 +487,9 @@ body.wiki.single-bp_doc #subnav {
   border-bottom-color: #000000;
 }
 /*RESPONSIVE TWEAKS*/
-.mobile-menu-container {
+.mobile-menu-container,
+.mobile-menu-container a.button,
+.mobile-menu-container select {
 	display: none;
 }
 .mobile-menu-container select {
