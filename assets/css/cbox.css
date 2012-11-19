@@ -264,7 +264,7 @@ div#subnav.item-list-tabs ul li {
 	display: none;
 }
 /* We still need to show some stuff though */
-div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,.docs .item-list-tabs ul li {
+div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,single-bp_doc .item-list-tabs ul li {
 	display: block !important;
 }
 /* Profile Navigation and Groups Navigation */
@@ -339,30 +339,63 @@ ul.item-list li div.action {
 /* ======== */
 /* ! Docs    */
 /* ======== */
-.docs div.doc-content {
+.theme-option div.doc-content
+ {
 	border: 0px;
 	padding: 0px;
 }
-.docs .content-column {
+#doc-title {
+	width: 70%;
+}
+#doc_content {
+	min-height: 300px;
+}
+#content-label {
+    margin-bottom: -25px;
+    margin-top: 25px;
+}
+.theme-option .toggle-content {
+	border-color: #CCCCCC;
+    border-image: none;
+    border-radius: 0 0 5px 5px;
+}
+.single-bp_doc .content-column {
 	float: none !important;
 }
 .doc-tabs li {
 	list-style: none outside none;
 }
-.docs .doc-tabs {
+#content .doc-tabs li a {
+	border-radius: 3px;
+	padding: 10px 15px;
+}
+.single-bp_doc .doc-tabs {
 	margin-right: 20px;
 	margin-top: -20px;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-.docs .toggle-switch {
+.single-bp_doc .toggle-switch {
 	padding: 8px 12px;
 }
-.docs div.docs-info-header {
+.single-bp_doc divsingle-bp_doc-info-header {
 	padding: 0px;
 }
-.docs label {
+.single-bp_doc label {
 	margin-top: 20px;
+}
+.doc-tabs ul {
+    margin-left: 0;
+    padding: 0;
+}
+thead:first-child tr th, thead:first-child tr td {
+    width: 0;
+}
+#bp-create-doc-button {
+	padding: 2px 10px 7px;
+}
+.doc-content-wrapper .toggle-switch {
+	padding: 8px 10px;
 }
 /* ======== */
 /* ! Wiki   */
@@ -452,4 +485,36 @@ body.wiki.single-bp_doc #subnav {
   margin-left: -5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000000;
+}
+/*RESPONSIVE TWEAKS*/
+.mobile-menu-container {
+	display: none;
+}
+.mobile-menu-container select {
+	width: 70%;
+} 
+.mobile-menu-container a.button {
+    font-size: 80%;
+    padding: 5px 8px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+}
+@media only screen and (max-width: 768px) { 
+	#header {
+		margin-top: 20px;
+	}
+	.mobile-menu-container {
+    display: block;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    position: fixed;
+    top: 1px;
+    width: 100%;
+    z-index: 100;
+	}
 }
