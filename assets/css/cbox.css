@@ -339,9 +339,25 @@ ul.item-list li div.action {
 /* ======== */
 /* ! Docs    */
 /* ======== */
-.single-bp_doc div.doc-content {
+.theme-option div.doc-content
+ {
 	border: 0px;
 	padding: 0px;
+}
+#doc-title {
+	width: 70%;
+}
+#doc_content {
+	min-height: 300px;
+}
+#content-label {
+    margin-bottom: -25px;
+    margin-top: 25px;
+}
+.theme-option .toggle-content {
+	border-color: #CCCCCC;
+    border-image: none;
+    border-radius: 0 0 5px 5px;
 }
 .single-bp_doc .content-column {
 	float: none !important;
@@ -371,6 +387,15 @@ ul.item-list li div.action {
 .doc-tabs ul {
     margin-left: 0;
     padding: 0;
+}
+thead:first-child tr th, thead:first-child tr td {
+    width: 0;
+}
+#bp-create-doc-button {
+	padding: 2px 10px 7px;
+}
+.doc-content-wrapper .toggle-switch {
+	padding: 8px 10px;
 }
 /* ======== */
 /* ! Wiki   */
