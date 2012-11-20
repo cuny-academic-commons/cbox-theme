@@ -45,11 +45,11 @@ add_action( 'init', 'cbox_theme_feature_setup' );
  */
 function cbox_theme_flex_slider_script()
 {
-	if ( is_front_page() ) {
+	if ( is_page_template('templates/homepage-template.php') ) {
 		// render script tag ?>
 		<script type="text/javascript">
 			jQuery(window).load(function($){
-				$('.flexslider').flexslider({
+				jQuery('.flexslider').flexslider({
 					animation: "slide"
 				});
 			});

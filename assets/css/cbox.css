@@ -431,11 +431,13 @@ body.wiki.single-bp_doc #subnav {
   margin-top: -3px;
 }
 .tooltip.right {
-  margin-left: -5%;
-  margin-top: -25px !important;
+  margin-left: 3px;
 }
 .tooltip.bottom {
-  margin-top: -20px;
+  margin-top: 0px;
+}
+.admin-bar-showing .tooltip {
+  margin-top: -28px;
 }
 .tooltip.left {
   margin-left: -3px;
