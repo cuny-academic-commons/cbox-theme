@@ -47,14 +47,14 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			</li>
 			<?php else :?>
 			<li>
-					<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/no-slides.jpg"/>
+					<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
 			</li>
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
-		     	<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/no-slides.jpg"/>
+		     	<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
 		    </li>     
 		<?php
 			endif;
@@ -99,14 +99,14 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			</li>
 			<?php else :?>
 			<li>
-					<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/no-slides.jpg"/>
+					<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
 			</li>
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
-		     	<img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/no-slides.jpg"/>
+		     	<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
 		    </li>     
 		<?php
 			endif;
