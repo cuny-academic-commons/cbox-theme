@@ -493,7 +493,7 @@ body.wiki.single-bp_doc #subnav {
 	display: none;
 }
 .mobile-menu-container select {
-	width: 70%;
+	width: 60%;
 } 
 .mobile-menu-container a.button {
     font-size: 80%;
@@ -501,6 +501,9 @@ body.wiki.single-bp_doc #subnav {
     position: absolute;
     right: 10px;
     top: -5px;
+}
+.mobile-menu-container #loginlogout {
+	right: 110px;
 }
 @media only screen and (max-width: 768px) { 
 	#header {
