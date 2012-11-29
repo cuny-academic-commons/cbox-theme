@@ -29,7 +29,7 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			while($wp_query->have_posts()) :
 			$wp_query->the_post();
 			$captions[] = ''.get_the_excerpt().'';
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-full');
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-image');
 		?>		
 			<!-- Loop through slides  -->
 			<!-- Image -->
@@ -81,14 +81,14 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			while($wp_query->have_posts()) :
 			$wp_query->the_post();
 			$captions[] = '<h3>'.get_the_title($post->ID).'</h3><p>'.get_the_excerpt().'</p>';
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-full');
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-image');
 		?>		
 			<!-- Loop through slides  -->
 			<!-- Image -->
 			<?php if(has_post_thumbnail()) :?>
 			<li>
 					<a href="<?php the_permalink(); ?>">
-						<img src="<?php echo $image[0]; ?>" class="attachment-nivothumb wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php 			the_title_attribute(); ?>" />	
+						<img src="<?php echo $image[0]; ?>" class="attachment-nivothumb wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php the_title_attribute(); ?>" />	
 					</a>
 					<!-- Caption -->	
 					<div class="flex-caption">
