@@ -21,9 +21,18 @@ function cbox_theme_menu_mobile_container()
 	// just print the tag ?>
 	<div class="mobile-menu-container">
 		<a class="button black" href="#sidebar">Show Sidebar</a>
+		<?php wp_loginout(); ?>
 	</div><?php
 }
 add_action( 'open_wrapper', 'cbox_theme_menu_mobile_container' );
+
+function cbox_loginout_class($text) 
+{
+	$selector = 'id="loginlogout" class="button black"';
+	$text = str_replace('<a ', '<a '.$selector, $text);
+	return $text;
+}
+add_filter('loginout', 'cbox_loginout_class');
 
 /**
  * Custom jQuery Buttons
