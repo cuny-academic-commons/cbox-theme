@@ -410,6 +410,108 @@ body.wiki.single-bp_doc #subnav {
 #bbpress-forums {
 	font-size: inherit;
 }
+/* BBPress Styling */
+#bbpress-forums ul.bbp-lead-topic,#bbpress-forums ul.bbp-topics,#bbpress-forums ul.bbp-forums,#bbpress-forums ul.bbp-replies {
+    font-size: inherit;
+    border: 0;
+    background: transparent;
+}
+
+.bbPress h1 {
+    margin-bottom: 15px;
+}
+
+.group-forum-topic #bbpress-forums h3 {
+	font-size: 2em;
+}
+.groups #item-buttons .group-button {
+	padding: 2px 7px 5px;
+}
+.bbp-pagination {
+	font-size: 90%;
+}
+
+.bbp-topic-meta {
+    font-size: 85%;
+}
+
+.bbp-topic-freshness {
+    width: 15%;
+}
+
+#bbpress-forums p.bbp-topic-meta img.avatar,#bbpress-forums ul.bbp-reply-revision-log img.avatar,#bbpress-forums ul.bbp-topic-revision-log img.avatar,#bbpress-forums div.bbp-template-notice img.avatar,#bbpress-forums .widget_display_topics img.avatar,#bbpress-forums .widget_display_replies img.avatar,#bbpress-forums p.bbp-topic-meta img.avatar {
+    border: 0;
+    float: none;
+    margin: 0 2px;
+}
+
+#bbpress-forums li.bbp-body ul.forum,#bbpress-forums li.bbp-body ul.topic {
+    border-top: 1px solid #F4F4F4;
+    overflow: hidden;
+    padding: 25px 0 10px 10px;
+}
+
+#bbpress-forums .bbp-forums-list {
+    border-left: 0px;
+}
+
+#bbpress-forums .bbp-forums-list li {
+    display: block;
+    font-size: 90%;
+    padding-top: 5px;
+}
+.bbp-forum-title,
+.bbp-topic-title {
+    font-size: 120%;
+    font-weight: 500;
+}
+.bbp-header .bbp-topic-title {
+	font-size: 100%;
+}
+#bbpress-forums .bbp-forum-content p {
+    font-size: 90%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#bbpress-forums .bbp-breadcrumb {
+    float: none;
+    font-size: 90%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+    position: relative;
+}
+
+.bbp-breadcrumb p {
+    font-size: 100%;
+}
+
+#cse-search-form .gsc-input {
+    padding: 10px;
+}
+
+.post-type-archive-forum .bbp-breadcrumb,.post-type-archive-forum h1 {
+    display: none;
+}
+
+.bbp-reply-content span {
+    position: relative;
+    top: -2px;
+}
+
+.bbp-reply-content span a {
+    color: #FFF;
+    padding-bottom: 3px;
+}
+
+.post img.wp-smiley {
+    box-shadow: none;
+    height: 13px;
+    margin-top: -3px;
+    width: auto;
+}
 /* ============ */
 /* ! Tooltips   */
 /* ============ */
