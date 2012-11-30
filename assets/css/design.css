@@ -282,8 +282,8 @@ span.activity {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .sidebar-activity-tabs .profile-subnav li.selected {
-	background: none repeat scroll 0 0 #363636;
 	border-top: 1px solid #3E3D3D;
+	background: #265079;
 }
 .sidebar-activity-tabs ul.profile-subnav li.current.selected a {
 	color: #FFF;
@@ -295,6 +295,9 @@ span.activity {
 }
 .sidebar-activity-tabs ul li:hover a {
 	font-weight: bold;
+}
+.sidebar-activity-tabs ul.profile-subnav li:hover {
+	background: #444;
 }
 /* Second Level */
 #object-nav ul.profile-subnav {
