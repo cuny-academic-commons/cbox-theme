@@ -288,12 +288,6 @@ ul.profile-subnav li {
 	margin-right: 0px;
 	font-size: 90%;
 }
-ul.profile-subnav li a:before {
-	padding-left: 50px;
-}
-ul.profile-subnav li a {
-	padding-left: 50px;
-}
 .sidebar-activity-tabs ul li.current ul.profile-subnav li a {
 	padding-bottom: 8px;
 	padding-top: 8px;
