@@ -5,6 +5,7 @@
  * our own widget setup routine
  */
 remove_action( 'after_switch_theme', '_wp_sidebars_changed' );
+add_action( 'after_switch_theme', 'retrieve_widgets' );
 
 /**
  * Options page title and menu title
@@ -26,7 +27,7 @@ function cbox_theme_menu_mobile_container()
 }
 add_action( 'open_wrapper', 'cbox_theme_menu_mobile_container' );
 
-function cbox_loginout_class($text) 
+function cbox_loginout_class($text)
 {
 	$selector = 'id="loginlogout" class="button black"';
 	$text = str_replace('<a ', '<a '.$selector, $text);
