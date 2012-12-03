@@ -31,16 +31,18 @@ function cbox_theme_add_default_sub_menu()
 			'bp_directory' => 'blogs'
 		),
 		array(
-			'title'        => _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' ),
-			'position'     => 40,
-			'url'          => home_url( 'wiki' )
-		),
-		array(
 			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 50,
 			'bp_directory' => 'activity'
 		),
 	);
+
+	// BuddyPress Docs Wiki
+	if ( defined( 'BP_DOCS_WIKI_SLUG' ) ) {
+		$pages[5]['title']    = _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' );
+		$pages[5]['position'] = 40;
+		$pages[5]['url']      = home_url( 'wiki' );
+	}
 
 	// register our default sub-menu
 	cbox_theme_register_default_menu( array(

@@ -27,16 +27,6 @@ abstract class ICE_Option extends ICE_Component
 	const FIELD_OPTION_DELIM = '=';
 
 	/**
-	 * For tracking the time updated
-	 */
-	const META_TIME_UPDATED = 'time_updated';
-
-	/**
-	 * For tracking time updated long string
-	 */
-	const META_TIME_UPDATED_KEY = 'tu';
-
-	/**
 	 * If true, a POST value will override the real option value
 	 *
 	 * @var boolean
@@ -406,17 +396,6 @@ abstract class ICE_Option extends ICE_Component
 	}
 
 	/**
-	 * Get special meta data about an option itself
-	 *
-	 * @param string $type The available types are constants of this class prefixed with "META_"
-	 * @return mixed
-	 */
-	public function get_meta( $type )
-	{
-		return get_option( $this->get_meta_option_name( $type ) );
-	}
-
-	/**
 	 * Returns true if a row for the option exists in the database
 	 *
 	 * @param boolean $ignore_default Set to true to ignore any default value that might be set
@@ -465,7 +444,6 @@ abstract class ICE_Option extends ICE_Component
 			} else {
 				// create or update it
 				if ( $this->update_option( $value ) ) {
-					$this->update_meta( self::META_TIME_UPDATED, time() );
 					return true;
 				}
 			}
@@ -486,18 +464,6 @@ abstract class ICE_Option extends ICE_Component
 	}
 
 	/**
-	 * Set special meta data about an option itself
-	 *
-	 * @param string $type
-	 * @param mixed $value
-	 * @return boolean
-	 */
-	private function update_meta( $type, $value )
-	{
-		return update_option( $this->get_meta_option_name( $type ), $value );
-	}
-
-	/**
 	 * Delete this option completely from the database
 	 *
 	 * @return boolean
@@ -506,7 +472,6 @@ abstract class ICE_Option extends ICE_Component
 	{
 		if ( $this->check_caps() ) {
 			if ( $this->delete_option() ) {
-				$this->delete_meta();
 				return true;
 			}
 		}
@@ -522,16 +487,6 @@ abstract class ICE_Option extends ICE_Component
 	protected function delete_option()
 	{
 		return delete_option( $this->get_api_name() );
-	}
-
-	/**
-	 * Delete all special meta data about an option
-	 *
-	 * @return boolean
-	 */
-	private function delete_meta()
-	{
-		return delete_option( $this->get_meta_option_name( self::META_TIME_UPDATED ) );
 	}
 
 	/**
@@ -556,22 +511,6 @@ abstract class ICE_Option extends ICE_Component
 		}
 
 		$this->section = $section->property( 'name' );
-	}
-
-	/**
-	 * Build a special meta option name based on the given type
-	 *
-	 * @param string $type
-	 * @return string
-	 */
-	private function get_meta_option_name( $type )
-	{
-		switch ( $type ) {
-			case self::META_TIME_UPDATED:
-				return $this->get_api_name() . self::API_DELIM . self::META_TIME_UPDATED_KEY;
-			default:
-				throw new Exception( sprintf( 'The "%s" type is not valid', $type ) );
-		}
 	}
 
 	/**
@@ -601,7 +540,7 @@ abstract class ICE_Option extends ICE_Component
 	/**
 	 * Return style selector formatted with the body class
 	 */
-	private function format_style_selector()
+	final protected function format_style_selector()
 	{
 		// grab body class from policy
 		$class = $this->policy()->get_body_class();
@@ -770,22 +709,26 @@ abstract class ICE_Option_Image
 		// src is null by default
 		$src = null;
 
-		// did we get an attachement id?
+		// did we get an attachment id?
 		if ( is_numeric( $attach_id ) ) {
-			// try to get the attachment info
-			$src = wp_get_attachment_image_src( $attach_id, $size );
+			// is attach id gte one?
+			if ( $attach_id >= 1 ) {
+				// try to get the attachment info
+				$src = wp_get_attachment_image_src( $attach_id, $size );
+			} else {
+				// id of zero or less is impossible to lookup,
+				// return false immediately to avoid costly query.
+				return false;
+			}
 		} else {
-			// was a default set?
-			if ( isset( $this->default_value ) ) {
-				// use default
-				$directive = $this->default_value;
-				// is a default set?
-				if ( $directive ) {
-					// mimic the src array
-					$src = array_fill( 0, 3, null );
-					// zero index is the url
-					$src[0] = ICE_Scheme::instance()->theme_file_url( $this->config()->get('default_value')->get_theme(), $directive );
-				}
+			// try to get default url
+			$default_url = $this->get_default_image_url();
+			// get anything?
+			if ( $default_url ) {
+				// mimic the src array
+				$src = array_fill( 0, 3, null );
+				// zero index is the url
+				$src[0] = $default_url;
 			}
 		}
 
@@ -815,12 +758,38 @@ abstract class ICE_Option_Image
 
 		} elseif ( is_string( $value ) && strlen( $value ) >= 1 ) {
 
-			// they must have provided an image path
-			return ICE_Scheme::instance()->theme_file_url( $this->config()->get('default_value')->get_theme(), $this->default_value );
+			// try to get raw default value config
+			$default_config = $this->config()->get('default_value');
 
+			// has default config?
+			if ( $default_config ) {
+				// yep, determine path
+				return ICE_Scheme::instance()->theme_file_url( $default_config->get_theme(), $this->default_value );
+			}
 		}
 
 		return null;
+	}
+
+	/**
+	 * Return absolute URL of the default image (if set)
+	 *
+	 * @return string|false
+	 */
+	public function get_default_image_url()
+	{
+		// was a default set?
+		if ( strlen( $this->default_value ) ) {
+			// use default
+			return
+				ICE_Scheme::instance()->theme_file_url(
+					$this->config()->get('default_value')->get_theme(),
+					$this->default_value
+				);
+		}
+
+		// no default set
+		return false;
 	}
 }
 

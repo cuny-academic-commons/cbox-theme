@@ -1,7 +1,14 @@
 <?php
 /**
- * Feature Slider setup
+ * Add new Post Thumbnail size for slider
  */
+function cbox_thumb_sizes()
+{
+	if ( current_theme_supports( 'post-thumbnails' ) ) {
+		add_image_size( 'slider-image', 635, 344, true );
+	}
+}
+add_action( 'init', 'cbox_thumb_sizes' );
 
 /**
  * Register custom "Features" post type
@@ -32,7 +39,7 @@ function cbox_theme_feature_setup()
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'menu_icon' => get_stylesheet_directory_uri() . '/engine/includes/feature-slider/assets/images/slides-icon.png',
+		'menu_icon' => get_template_directory_uri() . '/engine/includes/feature-slider/assets/images/slides-icon.png',
 		'supports' => array('title','excerpt','editor', 'thumbnail' )
 	);
 
@@ -45,11 +52,11 @@ add_action( 'init', 'cbox_theme_feature_setup' );
  */
 function cbox_theme_flex_slider_script()
 {
-	if ( is_front_page() ) {
+	if ( is_page_template('templates/homepage-template.php') ) {
 		// render script tag ?>
 		<script type="text/javascript">
 			jQuery(window).load(function($){
-				$('.flexslider').flexslider({
+				jQuery('.flexslider').flexslider({
 					animation: "slide"
 				});
 			});
