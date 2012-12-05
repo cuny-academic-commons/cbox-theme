@@ -55,8 +55,8 @@ function cbox_theme_flex_slider_script()
 	if ( is_page_template('templates/homepage-template.php') ) {
 		// render script tag ?>
 		<script type="text/javascript">
-			jQuery(window).load(function($){
-				jQuery('.flexslider').flexslider({
+			jQuery(document).ready(function($){
+				$('.flexslider').flexslider({
 					animation: "slide"
 				});
 			});
