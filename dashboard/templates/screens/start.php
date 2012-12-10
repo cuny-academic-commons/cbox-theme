@@ -17,7 +17,7 @@
 	</h3>
 
 	<p>
-		Please post any questions you have or issues you encounter on our <a href="http://commonsinabox.org/groups/help-support/" target="_blank">Help &amp; Support Forums</strong>.
+		Please post any questions you have or issues you encounter on our <strong><a href="http://commonsinabox.org/groups/help-support/" target="_blank">Help &amp; Support Forums</a></strong>.
 	</p>
 	
 	<p>
