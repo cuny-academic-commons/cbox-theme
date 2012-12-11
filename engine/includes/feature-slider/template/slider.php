@@ -16,7 +16,7 @@
 ?>
 <?php
 // locate no slides image url
-$no_slides_url = infinity_image_url( 'no-slides.jpg' );
+$no_slides_url = infinity_image_url( 'slides-none.jpg' );
 
 // Show slides from the Features custom post type by default
 if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ): 
