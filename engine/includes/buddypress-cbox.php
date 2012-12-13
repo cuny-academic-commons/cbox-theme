@@ -1,6 +1,6 @@
 <?php
 /**
- * Commons in a Box Theme: BuddyPress setup
+ * Commons In A Box Theme: BuddyPress setup
  */
 
 // abort if bp not active

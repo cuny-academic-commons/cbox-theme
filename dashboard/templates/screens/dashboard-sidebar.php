@@ -5,10 +5,10 @@
 		<div class="dashboard-widget">
 			<h3>Online Documentation</h3>
 			<p>
-				Learn more how to use Commons in a Box as a site owner or developer by visiting our online documentation. It will guide you through setting up Commons in a Box and getting the most out of it's many features.
+				Learn more how to use Commons In A Box as a site owner or developer by visiting our online documentation. It will guide you through setting up Commons In A Box and getting the most out of it's many features.
 			</p>
 			<p>
-				<a class="button" target="_blank" href="http://commonsinabox.org/documentation" title="Commons in a Box Documentation">Go to the Documentation</a>
+				<a class="button" target="_blank" href="http://commonsinabox.org/documentation" title="Commons In A Box Documentation">Go to the Documentation</a>
 			</p>
 		</div>
 
@@ -18,7 +18,7 @@
 				Lots of friendly people are ready to help you at our Support Forums!
 			</p>
 			<p>
-				<a class="button" target="_blank" href="http://commonsinabox.org/groups/help-support/" title="Commons in a Box Support">Go to the Support Forums</a>
+				<a class="button" target="_blank" href="http://commonsinabox.org/groups/help-support/" title="Commons In A Box Support">Go to the Support Forums</a>
 			</p>
 		</div>
 
@@ -26,7 +26,7 @@
 		<div class="dashboard-widget">
 			<h3>Follow us on Twitter</h3>
 			<p>
-				Stay up to date about the Commons in a Box project bij following us on Twitter.
+				Stay up to date about the Commons In A Box project by following us on Twitter.
 			</p>
 			<p>
 				<a href="https://twitter.com/CBOX" class="twitter-follow-button">Follow @CBOX</a>
