@@ -15,6 +15,9 @@
  */
 ?>
 <?php
+// locate no slides image url
+$no_slides_url = infinity_image_url( 'slides-none.jpg' );
+
 // Show slides from the Features custom post type by default
 if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ): 
 ?>
@@ -47,14 +50,14 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			</li>
 			<?php else :?>
 			<li>
-					<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
+					<img src="<?php echo $no_slides_url ?>" />
 			</li>
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
-		     	<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
+		     	<img src="<?php echo $no_slides_url ?>" />
 		    </li>     
 		<?php
 			endif;
@@ -99,14 +102,14 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 			</li>
 			<?php else :?>
 			<li>
-					<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
+					<img src="<?php echo $no_slides_url ?>" />
 			</li>
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
-		     	<img src="<?php echo get_template_directory_uri()?>/assets/images/no-slides.jpg"/>
+		     	<img src="<?php echo $no_slides_url ?>" />
 		    </li>     
 		<?php
 			endif;

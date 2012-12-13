@@ -341,6 +341,9 @@ ul.profile-subnav li.current a:before {
 .edit-profile-button:before {
 	content: "9";
 }
+#nav-announcements-groups-li a:before {
+    content: "6"
+}
 /* ======== */
 /* ! Misc    */
 /* ======== */
@@ -364,7 +367,7 @@ ul.item-list li {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 .flex-caption {
-	background-image: url("../../engine/includes/feature-slider/assets/images/slides-bg.png");
+	background-image: url("../images/slides-bg.png");
 	color: #FFF;
 	text-shadow: 0 1px 0 #000000;
 	border-top: 1px solid #545353;

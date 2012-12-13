@@ -15,7 +15,7 @@
 		<div id="flex-slider-wrap-full" class="column ten">
 			<!-- load template for the slider-->
 			<?php
-				infinity_get_template_part( 'engine/includes/feature-slider/template/slider' );
+				infinity_load_template( 'engine/includes/feature-slider/template.php' );
 			?>
 			<!-- end -->
 		</div>	
