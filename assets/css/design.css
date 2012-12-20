@@ -29,7 +29,7 @@ http://infinity.presscrew.com/learn
 body {
 	background: url("../images/bg-body.gif") repeat transparent;
 	border-top: 5px solid #4B4A47;
-	font: 13.6px/140% "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font: 90%/140% "HelveticaNeue","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 h2.page-title a,h2.post-title a,h1.page-title a,h1.post-title a {
 	color: #545454;
@@ -158,7 +158,7 @@ h1#category-title span,h1#tag-title span {
 	box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 	border-radius: 8px;
 }
-ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img,.bbp-author-avatar img {
+ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img,.bbp-author-avatar img,.messages .avatar  {
 	border-radius: 3px 3px 3px 3px;
 	-webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
