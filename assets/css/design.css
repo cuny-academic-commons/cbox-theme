@@ -341,6 +341,9 @@ ul.profile-subnav li.current a:before {
 .edit-profile-button:before {
 	content: "9";
 }
+#nav-announcements-groups-li a:before {
+    content: "6"
+}
 /* ======== */
 /* ! Misc    */
 /* ======== */

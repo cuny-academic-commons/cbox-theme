@@ -4,7 +4,7 @@
 
 <div class="infinity-content">
 
-	<h2>Thank you for using Commons in a Box!</h2>
+	<h2>Thank you for using Commons In A Box!</h2>
 
 	<p>
 	 	Welcome to the Theme Dashboard of your CBOX installation.
