@@ -57,7 +57,11 @@ function cbox_theme_flex_slider_script()
 		<script type="text/javascript">
 			jQuery(document).ready(function($){
 				$('.flexslider').flexslider({
-					animation: "slide"
+					animation: "slide",
+					slideshowSpeed: <?php echo infinity_option_get( 'cbox_flex_slider_time' ); ?>000, 
+					animationSpeed: <?php echo infinity_option_get( 'cbox_flex_slider_transition' ); ?>, 
+					controlNav: true,
+					directionNav: false
 				});
 			});
 		</script><?php
