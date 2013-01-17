@@ -65,21 +65,49 @@ final class ICE_Files extends ICE_Base
 	public static function document_root()
 	{
 		if ( empty( self::$document_root ) ) {
-			if ( isset( $_SERVER['DOCUMENT_ROOT'] ) ) {
-				self::$document_root = self::path_normalize( $_SERVER['DOCUMENT_ROOT'] );
-			} else {
-				$theme_root = self::theme_root();
-				$theme_root_uri = self::theme_root_uri();
-				$uri_parts = parse_url( $theme_root_uri );
-				$path_length = strlen( $uri_parts['path'] );
-				self::$document_root = substr_replace( $theme_root, '', -$path_length );
-			}
+			$theme_root = self::theme_root();
+			$theme_root_uri = self::theme_root_uri();
+			$uri_parts = parse_url( $theme_root_uri );
+			$path_length = strlen( $uri_parts['path'] );
+			self::$document_root = substr_replace( $theme_root, '', $path_length * -1 );
 			self::$document_root_length = strlen( self::$document_root );
 		}
 		
 		return self::$document_root;
 	}
 
+	/**
+	 * Check if path is absolute.
+	 *
+	 * This method doesn't care if the file exists, it only examines the string.
+	 *
+	 * @param string $path The path. Only strings are accepted.
+	 * @return boolean
+	 * @throws ICE_Files_Exception
+	 */
+	public static function path_is_absolute( $path )
+	{
+		// be super strict about type to avoid accidental type juggling
+		if ( is_string( $path ) ) {
+			// perform common tests to avoid PREG until last resort
+			if ( '/' === $path{0} || '\\' === $path{0} ) {
+				// leading slashes are always absolute
+				return true;
+			} elseif ( '' === $path || '.' === $path{0} ) {
+				// empty string or leading dot are never absolute
+				return false;
+			} elseif ( 'dll' === PHP_SHLIB_SUFFIX && 1 === preg_match( '/^[a-z]:/i', $path ) ) {
+				// leading windows drive letter means absolute
+				return true;
+			} else {
+				// out of ideas, assume its not absolute
+				return false;
+			}
+		} else {
+			throw new ICE_Files_Exception( 'Path must be a string' );
+		}
+	}
+	
 	/**
 	 * Normalize a filesystem path to have only single forward slashes
 	 *
@@ -89,7 +117,7 @@ final class ICE_Files extends ICE_Base
 	public static function path_normalize( $path )
 	{
 		// run realpath on absolute paths
-		if ( path_is_absolute( $path ) ) {
+		if ( self::path_is_absolute( $path ) ) {
 			// its absolute
 			$path = realpath( $path );
 		}
