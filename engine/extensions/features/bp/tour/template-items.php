@@ -22,24 +22,30 @@
 		<?php $this->component()->render_content( 'all' ); ?>
 	</li>
 
-<?php if ( bp_is_active( 'friends' ) ): ?>
-	<li data-id="activity-friends" data-text="&rarr;">
-		<?php $this->component()->render_content( 'friends' ); ?>
-	</li>
-<?php endif; ?>
+	<?php if ( bp_is_active( 'friends' ) ): ?>
+		<?php if ( bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
+			<li data-id="activity-friends" data-text="&rarr;">
+				<?php $this->component()->render_content( 'friends' ); ?>
+			</li>
+		<?php endif; ?>
+	<?php endif; ?>
 
-<?php if ( bp_is_active( 'groups' ) ) : ?>
-	<li data-id="activity-groups" data-text="&rarr;">
-		<?php $this->component()->render_content( 'groups' ); ?>
-	</li>
-<?php endif; ?>
+	<?php if ( bp_is_active( 'groups' ) ) : ?>
+		<?php if ( bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
+			<li data-id="activity-groups" data-text="&rarr;">
+				<?php $this->component()->render_content( 'groups' ); ?>
+			</li>
+		<?php endif; ?>
+	<?php endif; ?>
+
+	<?php if ( bp_get_total_favorite_count_for_user( bp_loggedin_user_id() ) ) : ?>
+		<li data-id="activity-tour-favorites" data-text="&rarr;">
+			<?php $this->component()->render_content( 'favorites' ); ?>
+		</li>
+	<?php endif; ?>
 
 	<li data-id="activity-mentions" data-text="&rarr;">
 		<?php $this->component()->render_content( 'mentions' ); ?>
-	</li>
-
-	<li data-id="activity-tour-favorites" data-text="&rarr;">
-		<?php $this->component()->render_content( 'favorites' ); ?>
 	</li>
 
 	<li data-id="activity-filter-by" data-text="&rarr;">
