@@ -132,13 +132,17 @@ add_action( 'close_body', 'cbox_theme_buddypress_tour' );
  * @todo Remove this when bbPress addresses this.
  */
 function cbox_fix_bbp_new_topic_button() {
-	// if groups isn't active and the bbPress plugin isn't enabled, stop now!
-	if ( ! bp_is_active( 'groups' ) && ! function_exists( 'bbpress' ) )
+	// if groups isn't active, stop now!
+	if ( ! bp_is_active( 'groups' ) )
+		return;
+
+	// if bbPress 2 isn't enabled, stop now!
+	if ( ! function_exists( 'bbpress' ) )
 		return;
 
 	// remove the 'New Topic' button
 	// this is done because the 'bp_get_group_new_topic_button' filter doesn't
-	// work propelry
+	// work properly
 	remove_action( 'bp_group_header_actions', 'bp_group_new_topic_button' );
 
 	// If these conditions are met, this button should not be displayed
