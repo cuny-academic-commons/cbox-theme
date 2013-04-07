@@ -264,7 +264,10 @@ div#subnav.item-list-tabs ul li {
 	display: none;
 }
 /* We still need to show some stuff though */
-div.item-list-tabs ul li.last,.group-admin .item-list-tabs ul li,single-bp_doc .item-list-tabs ul li {
+div.item-list-tabs ul li.last,
+.group-admin .item-list-tabs ul li,
+.single-bp_doc .item-list-tabs ul li,
+.courseware .item-list-tabs ul li {
 	display: block !important;
 }
 /* Profile Navigation and Groups Navigation */
