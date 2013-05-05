@@ -1,7 +1,1 @@
-<div class="infinity-docs infinity-docs-page">
-	<?php infinity_dashboard_doc_publish( infinity_screens_route_param( 1 ) ); ?>
-</div>
-<div class="infinity-docs infinity-docs-toc">
-	<?php infinity_dashboard_doc_publish( '_toc' ); ?>
-</div>
-<div class="ui-helper-clearfix"></div>
+<iframe width="100%" height="800" src="http://commonsinabox.org/documentation" frameborder="0" allowfullscreen></iframe>

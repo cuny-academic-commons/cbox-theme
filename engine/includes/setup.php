@@ -33,3 +33,22 @@ require_once INFINITY_INC_PATH . '/options.php';
 //    this file. Its for requires ONLY!
 //
 ////////////////////////////////////////////////////
+
+//
+// CBOX Theme functionality
+//
+
+/**
+ * Setup
+ */
+require_once INFINITY_INC_PATH . '/setup-cbox.php';
+
+/**
+ * SideBars
+ */
+require_once INFINITY_INC_PATH . '/sidebars-cbox.php';
+
+/**
+ * BuddyPress
+ */
+require_once INFINITY_INC_PATH . '/buddypress-cbox.php';
