@@ -208,7 +208,7 @@ the only way you could satisfy both it and this License would be to
 refrain entirely from distribution of the Program.
 
 If any portion of this section is held invalid or unenforceable under
-any particular circumstance, the cbox of the section is intended to
+any particular circumstance, the balance of the section is intended to
 apply and the section as a whole is intended to apply in other
 circumstances.
 

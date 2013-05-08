@@ -7,9 +7,7 @@
  * @subpackage Theme
  */
 
-?>
-
-<?php get_header( 'buddypress' ); ?>
+get_header( 'buddypress' ); ?>
 
 	<?php do_action( 'bp_before_directory_activity_page' ); ?>
 
@@ -36,12 +34,12 @@
 
 			<div class="item-list-tabs no-ajax" id="subnav" role="navigation">
 				<ul>
-					<li class="feed"><a href="<?php bp_sitewide_activity_feed_link() ?>" title="<?php _e( 'RSS Feed', 'buddypress' ); ?>"><?php _e( 'RSS', 'buddypress' ); ?></a></li>
+					<li class="feed"><a href="<?php bp_sitewide_activity_feed_link(); ?>" title="<?php _e( 'RSS Feed', 'buddypress' ); ?>"><?php _e( 'RSS', 'buddypress' ); ?></a></li>
 
 					<?php do_action( 'bp_activity_syndication_options' ); ?>
 
 					<li id="activity-filter-select" class="last">
-						<label for="activity-filter-by"><?php _e( 'Show:', 'buddypress' ); ?></label> 
+						<label for="activity-filter-by"><?php _e( 'Show:', 'buddypress' ); ?></label>
 						<select id="activity-filter-by">
 							<option value="-1"><?php _e( 'Everything', 'buddypress' ); ?></option>
 							<option value="activity_update"><?php _e( 'Updates', 'buddypress' ); ?></option>
