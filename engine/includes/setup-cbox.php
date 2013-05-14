@@ -106,21 +106,4 @@ if ( ! get_option( 'page_on_front' ) ) {
 	}
 }
 
-//
-// Misc
-//
-
-/**
- * Compiler configuration callback, DO NOT TOUCH
- */
-function infinity_compiler_config()
-{
-	return array(
-		'output' => 'cbox-build',
-		'refs' => array(
-			'infinity' => 'buddypress',
-			'cbox-theme' => 'master'
-	));
-}
-
 ?>
