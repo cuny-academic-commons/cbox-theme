@@ -105,5 +105,3 @@ if ( ! get_option( 'page_on_front' ) ) {
 		update_option( '_cbox_theme_auto_create_home_page', $home_page_id );
 	}
 }
-
-?>
