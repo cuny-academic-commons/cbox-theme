@@ -48,19 +48,30 @@ add_action( 'close_body', 'cbox_theme_custom_buttons' );
 // Slider
 //
 
-if ( is_main_site() )
+/**
+ * Load metaboxes class callback
+ */
+function cbox_theme_init_cmb()
 {
-	// load metaboxes class
-	function cbox_theme_init_cmb() {
-		if ( !class_exists( 'cmb_Meta_Box' ) ) {
-			require_once( 'metaboxes/init.php' );
-		}
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'metaboxes/init.php' );
 	}
-	add_action( 'init', 'cbox_theme_init_cmb', 9999 );
-
-	// load slider setup
-	require_once( 'feature-slider/setup.php' );
 }
+
+/**
+ * Slider setup
+ */
+function cbox_theme_slider_setup()
+{
+	// only run slider on main site
+	if ( is_main_site() ) {
+		// load slider setup
+		require_once( 'feature-slider/setup.php' );
+		// load meta box lib (a bit later)
+		add_action( 'init', 'cbox_theme_init_cmb', 9999 );
+	}
+}
+add_action( 'after_setup_theme', 'cbox_theme_slider_setup' );
 
 //
 // Template Tags
