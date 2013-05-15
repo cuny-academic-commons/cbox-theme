@@ -48,19 +48,30 @@ add_action( 'close_body', 'cbox_theme_custom_buttons' );
 // Slider
 //
 
-if ( is_main_site() )
+/**
+ * Load metaboxes class callback
+ */
+function cbox_theme_init_cmb()
 {
-	// load metaboxes class
-	function cbox_theme_init_cmb() {
-		if ( !class_exists( 'cmb_Meta_Box' ) ) {
-			require_once( 'metaboxes/init.php' );
-		}
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'metaboxes/init.php' );
 	}
-	add_action( 'init', 'cbox_theme_init_cmb', 9999 );
-
-	// load slider setup
-	require_once( 'feature-slider/setup.php' );
 }
+
+/**
+ * Slider setup
+ */
+function cbox_theme_slider_setup()
+{
+	// only run slider on main site
+	if ( is_main_site() ) {
+		// load slider setup
+		require_once( 'feature-slider/setup.php' );
+		// load meta box lib (a bit later)
+		add_action( 'init', 'cbox_theme_init_cmb', 9999 );
+	}
+}
+add_action( 'after_setup_theme', 'cbox_theme_slider_setup' );
 
 //
 // Template Tags
@@ -80,47 +91,35 @@ if ( false === function_exists( 'the_post_name' ) ) {
 	}
 }
 
-//
-// Set up homepage
-//
-
-// Make sure a homepage hasn't been set already by the user, or by cbox-theme
-if ( ! get_option( 'page_on_front' ) ) {
-	$home_page_id = bp_get_option( '_cbox_theme_auto_create_home_page' );
-
-	// Create a dummy page if one is needed
-	if ( ! $home_page_id ) {
-		$home_page_id = wp_insert_post( array(
-			'post_type' => 'page',
-			'post_title' => 'Home Page',
-			'post_status' => 'publish',
-		) );
-	}
-
-	if ( $home_page_id ) {
-		// Set the homepage template, and put the new page on front
-		update_post_meta( $home_page_id, '_wp_page_template', 'templates/homepage-template.php' );
-		update_option( 'show_on_front', 'page' );
-		update_option( 'page_on_front', $home_page_id );
-		update_option( '_cbox_theme_auto_create_home_page', $home_page_id );
-	}
-}
-
-//
-// Misc
-//
-
 /**
- * Compiler configuration callback, DO NOT TOUCH
+ * Automagically create a front page if one has not been set already
  */
-function infinity_compiler_config()
+function cbox_theme_auto_create_home_page()
 {
-	return array(
-		'output' => 'cbox-build',
-		'refs' => array(
-			'infinity' => 'buddypress',
-			'cbox-theme' => 'master'
-	));
-}
+	// page on front already set?
+	if ( !get_option( 'page_on_front' ) ) {
 
-?>
+		// nope, grab current auto created home page id
+		$home_page_id = bp_get_option( '_cbox_theme_auto_create_home_page' );
+
+		// get a page id?
+		if ( false === is_numeric( $home_page_id ) ) {
+			// nope, create a new dummy one
+			$home_page_id = wp_insert_post( array(
+				'post_type' => 'page',
+				'post_title' => 'Home Page',
+				'post_status' => 'publish',
+			) );
+		}
+
+		// have an existing or new home page id?
+		if ( is_numeric( $home_page_id ) ) {
+			// yep, set the homepage template, and put the new page on front
+			update_post_meta( $home_page_id, '_wp_page_template', 'templates/homepage-template.php' );
+			update_option( 'show_on_front', 'page' );
+			update_option( 'page_on_front', $home_page_id );
+			update_option( '_cbox_theme_auto_create_home_page', $home_page_id );
+		}
+	}
+}
+add_action( 'after_setup_theme', 'cbox_theme_auto_create_home_page' );

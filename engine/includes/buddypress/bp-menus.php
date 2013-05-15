@@ -146,5 +146,3 @@ function cbox_theme_register_default_menu( $args = array() )
 		return true;
 	}
 }
-
-?>

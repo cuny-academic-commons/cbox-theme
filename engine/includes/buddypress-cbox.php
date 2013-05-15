@@ -195,5 +195,3 @@ if ( false == function_exists( 'is_activity_page' ) ) {
 		return ( bp_is_activity_component() && !bp_is_user() );
 	}
 }
-
-?>
