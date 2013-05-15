@@ -68,5 +68,3 @@ function cbox_theme_flex_slider_script()
 	}
 }
 add_action( 'close_body', 'cbox_theme_flex_slider_script' );
-
-?>
