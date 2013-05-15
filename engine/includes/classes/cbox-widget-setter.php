@@ -128,5 +128,3 @@ class CBox_Widget_Setter {
 		return false;
 	}
 }
-
-?>

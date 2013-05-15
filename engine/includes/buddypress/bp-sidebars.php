@@ -411,5 +411,3 @@ function cbox_theme_populate_sidebars() {
 	} // End bpdw wiki sidebars
 
 }
-
-?>

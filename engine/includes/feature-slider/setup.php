@@ -8,7 +8,7 @@ function cbox_thumb_sizes()
 		add_image_size( 'slider-image', 635, 344, true );
 	}
 }
-add_action( 'init', 'cbox_thumb_sizes' );
+add_action( 'after_setup_theme', 'cbox_thumb_sizes' );
 
 /**
  * Register custom "Features" post type
@@ -45,7 +45,7 @@ function cbox_theme_feature_setup()
 
 	register_post_type( 'features', $args );
 }
-add_action( 'init', 'cbox_theme_feature_setup' );
+add_action( 'after_setup_theme', 'cbox_theme_feature_setup' );
 
 /**
  * Enqueues Slider JS at the bottom of the homepage
@@ -68,5 +68,3 @@ function cbox_theme_flex_slider_script()
 	}
 }
 add_action( 'close_body', 'cbox_theme_flex_slider_script' );
-
-?>
