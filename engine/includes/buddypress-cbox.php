@@ -116,6 +116,72 @@ function cbox_theme_member_navigation_filter_setup()
 add_action( 'bp_setup_nav', 'cbox_theme_member_navigation_filter_setup', 999 );
 
 /**
+ * Filter the options nav on a user's profile only.
+ *
+ * We want to remove the options nav on user pages because Infinity does a
+ * neat job in nesting child items under the parent nav menu.
+ */
+function cbox_theme_remove_user_options_nav() {
+	global $bp;
+
+	$bp->cbox_theme = new stdClass;
+	$bp->cbox_theme->removed_nav_items = array();
+
+	// loop all nav components
+	foreach ( (array) $bp->bp_options_nav as $component => $nav_item ) {
+
+		switch ( $component ) {
+			// remove everything by default
+			// in the future, we could do this on a component-by-component basis
+			// but we probably won't have to do this.
+			default :
+				// get all 'css_id' values as the options nav filter relies on this
+				$options_nav = wp_list_pluck( $nav_item, 'css_id' );
+
+				foreach ( $options_nav as $options_nav_item ) {
+					// we're temporarily saving what is removed so we can reinstate it later
+					// @see cbox_theme_reinstate_user_options_nav()
+					$bp->cbox_theme->removed_nav_items[] = $options_nav_item;
+
+					add_filter(
+						'bp_get_options_nav_' . $options_nav_item,
+						'__return_false'
+					);
+				}
+
+				break;
+		}
+	}
+}
+add_action( 'bp_before_member_body', 'cbox_theme_remove_user_options_nav' );
+
+/**
+ * Reinstate the options nav on a user's profile.
+ *
+ * {@link cbox_theme_remove_user_options_nav()} removes the options nav, but we
+ * need to reinstate it so {@link infinity_bp_nav_inject_options_filter()}
+ * can do its nesting thang in the sidebar.
+ *
+ * The sidebar gets rendered after the regular options nav, which is why
+ * we have to do this.
+ */
+function cbox_theme_reinstate_user_options_nav() {
+	global $bp;
+
+	if ( empty( $bp->cbox_theme->removed_nav_items ) ) {
+		return;
+	}
+
+	foreach ( (array) $bp->cbox_theme->removed_nav_items as $options_nav_item ) {
+		remove_filter(
+			'bp_get_options_nav_' . $options_nav_item,
+			'__return_false'
+		);
+	}
+}
+add_action( 'bp_after_member_body', 'cbox_theme_reinstate_user_options_nav' );
+
+/**
  * Render tour feature markup
  */
 function cbox_theme_buddypress_tour()

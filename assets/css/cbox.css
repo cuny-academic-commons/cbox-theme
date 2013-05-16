@@ -259,17 +259,6 @@ span.activity {
 	margin-bottom: -18px;
 	padding: 3px 8px;
 }
-/* Use some CSS to hide horizontal navigation */
-div#subnav.item-list-tabs ul li {
-	display: none;
-}
-/* We still need to show some stuff though */
-div.item-list-tabs ul li.last,
-.group-admin .item-list-tabs ul li,
-.single-bp_doc .item-list-tabs ul li,
-.courseware .item-list-tabs ul li {
-	display: block !important;
-}
 /* Profile Navigation and Groups Navigation */
 /* First Level */
 .groups div#subnav.item-list-tabs .sidebar-activity-tabs {
