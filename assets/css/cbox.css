@@ -291,6 +291,19 @@ ul.profile-subnav li a {
 	padding-top: 8px;
 	margin: inherit;
 }
+/* XProfile */
+.field-visibility-settings {
+	margin-top: 0.5em;
+}
+.field-visibility-settings legend {
+	border: 0;
+	font-size: 1em;
+	line-height: normal;
+	margin: 0;
+}
+.field-visibility-settings li {
+	list-style: none;
+}
 /* FIX:  hide the horizontal navigation on settings pages using CSS */
 .settings #item-nav {
 	display: none;
