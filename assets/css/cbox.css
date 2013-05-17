@@ -302,6 +302,29 @@ div.item-options {
 	margin-top: -45px;
 	font-size: 70%;
 }
+/* Registration */
+.registration .error {
+	background: #DE3434;
+	border: 1px solid #BB4747;
+	border-radius: 4px;
+	color: white;
+	margin-bottom: 0.5em;
+	padding: 0.3em;
+	width: 85%;
+}
+span.label {
+	color: #999;
+	display: block;
+	font-size: 80%;
+	font-weight: bold;
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+#profile-details-section .checkbox span.label,
+.checkbox .error {
+	margin-left: -1.3em;
+}
+
 /* ======== */
 /* ! Misc    */
 /* ======== */
