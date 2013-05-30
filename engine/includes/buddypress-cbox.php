@@ -249,6 +249,13 @@ function cbox_add_bp_head() {
 }
 add_action( 'wp_head', 'cbox_add_bp_head' );
 
+/**
+ * When running BuddyPress Docs, don't allow theme compatibility mode to kick in
+ *
+ * @since 1.0.5
+ */
+add_filter( 'bp_docs_do_theme_compat', '__return_false' );
+
 //
 // Helpers
 //
