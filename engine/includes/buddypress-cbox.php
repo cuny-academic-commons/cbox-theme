@@ -211,12 +211,20 @@ function cbox_fix_bbp_new_topic_button() {
 	// work properly
 	remove_action( 'bp_group_header_actions', 'bp_group_new_topic_button' );
 
+	// version of bp_is_group_forum() that works with bbPress 2
+	$is_group_forum = bp_is_single_item() && bp_is_groups_component() && bp_is_current_action( 'forum' );
+
 	// If these conditions are met, this button should not be displayed
-	if ( !is_user_logged_in() || !bp_is_group_forum() || bp_is_group_forum_topic()|| bp_group_is_user_banned() )
+	if ( ! is_user_logged_in() || ! $is_group_forum || bp_is_group_forum_topic()|| bp_group_is_user_banned() )
 		return false;
 
-	// add our customized 'New Topic' button
-	add_action( 'bp_group_header_actions', create_function( '', "
+	// create function to output new topic button
+	$new_button = create_function( '', "
+		// do not show in sidebar
+		if ( did_action( 'open_sidebar' ) )
+			return;
+
+		// render the button
 		bp_button( array(
 			'id'                => 'new_topic',
 			'component'         => 'groups',
@@ -229,7 +237,10 @@ function cbox_fix_bbp_new_topic_button() {
 			'link_text'         => __( 'New Topic', 'buddypress' ),
 			'link_title'        => __( 'New Topic', 'buddypress' ),
 		) );
-	" ) );
+	" );
+
+	// add our customized 'New Topic' button
+	add_action( 'bp_group_header_actions', $new_button );
 
 }
 add_action( 'bp_actions', 'cbox_fix_bbp_new_topic_button' );
