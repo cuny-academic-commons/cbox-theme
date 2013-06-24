@@ -67,7 +67,7 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 
 			</ul>
 
-		<p class="cac-more-link"><a href="/blogs">More Blogs</a></p>
+		<p class="cac-more-link"><a href="<?php bp_root_domain(); ?>/<?php bp_blogs_root_slug(); ?>"><?php _e( 'More Blogs', 'cbox-theme' ); ?></a></p>
 
 		<?php else : ?>
 			<div id="message" class="info">
