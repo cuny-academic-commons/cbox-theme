@@ -63,13 +63,11 @@ function cbox_theme_init_cmb()
  */
 function cbox_theme_slider_setup()
 {
-	// only run slider on main site
-	if ( is_main_site() ) {
-		// load slider setup
-		require_once( 'feature-slider/setup.php' );
-		// load meta box lib (a bit later)
-		add_action( 'init', 'cbox_theme_init_cmb', 9999 );
-	}
+	// load slider setup
+	require_once( 'feature-slider/setup.php' );
+
+	// load meta box lib (a bit later)
+	add_action( 'init', 'cbox_theme_init_cmb', 9999 );
 }
 add_action( 'after_setup_theme', 'cbox_theme_slider_setup' );
 
