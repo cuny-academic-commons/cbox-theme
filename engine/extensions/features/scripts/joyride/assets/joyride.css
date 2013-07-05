@@ -91,6 +91,7 @@ body {
     float: right !important;
     margin: 20px 6px 8px 0;
     padding: 2px 16px;
+    text-decoration: none;
 }
 
 .joyride-timer-indicator-wrap {
