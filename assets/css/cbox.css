@@ -150,6 +150,13 @@ form#whats-new-form #whats-new-avatar
 	width: 60px;
 	height: 60px;
 }
+div#item-header ul#group-admins li,
+div#item-header ul#group-mods li
+{
+	width: 34px;
+	height: 34px;
+}
+/* end IE8 avatar fixes */
 ul.item-list li img.avatar {
 	width: 40px;
 	height: 40px;
@@ -363,6 +370,7 @@ div#item-header div#item-header-content {
 	margin-left: 0;
 }
 #item-header-avatar img {
+	width: auto; /* fixes display in IE8 */
 	float: none;
 }
 thead:first-child tr th,thead:first-child tr td {
