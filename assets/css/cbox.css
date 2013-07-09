@@ -166,6 +166,10 @@ ul.item-list li img.avatar {
 .activity-header .avatar {
 	display: none;
 }
+/* Don't break the menubar avatar icon in IE8 */
+#wpadminbar img { 
+	max-width: none;
+}
 /* Activity Stream */
 div.activity-meta {
 	margin-bottom: 0;
