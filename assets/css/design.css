@@ -78,6 +78,7 @@ h1#site-title,div#site-title {
 }
 /* Global CSS3 Stuff */
 .top-menu,.top-wrap .sub-menu,.item-list-tabs,.footer-wrap,thead:first-child tr th,thead:first-child tr td,.base-menu ul ul,.sidebar-activity-tabs ul li.current,.sidebar-activity-tabs ul li.selected,.docs .toggle-switch,.post-title:before,.doc-content-wrapper .toggle-switch,.mobile-menu-container,.info-box h3, #bbpress-forums li.bbp-header  {
+	background-color: #333333; /* for IE */
 	background-image: -webkit-linear-gradient(top, #333333 0%, #222222 100%);
 	background-image: -moz-linear-gradient(top, #333333 0%, #222222 100%);
 	background-image: -o-linear-gradient(top, #333333 0%, #222222 100%);
@@ -90,6 +91,7 @@ h1#site-title,div#site-title {
 	border-top: 2px solid #525151;
 }
 .author-box,.category-box,.tag-box,.info-box,#sidebar,.activity-inner,div.activity-comments form.ac-form,.postthumb img,span.activity,h1#site-title,div#site-title,#inner-sidebar,.sidebar-activity-tabs ul li,div#subnav.item-list-tabs,#top-homepage,.fluid-width-video-wrapper,#bbpress-forums .bbp-breadcrumb, #bbpress-forums li.bbp-footer, .bbp-reply-header {
+	background-color: #FAFAFA; /* for IE */
 	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
