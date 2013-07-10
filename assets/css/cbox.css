@@ -136,6 +136,27 @@ ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img {
 	width: 50px;
 	height: auto;
 }
+/* IE8 expects floats to have width or they lose hasLayout */
+div.item-avatar {
+	width: 55px;
+	height: 60px;
+}
+ul.item-list div.item-avatar {
+	width: 50px;
+	height: 50px;
+}
+form#whats-new-form #whats-new-avatar
+{
+	width: 60px;
+	height: 60px;
+}
+div#item-header ul#group-admins li,
+div#item-header ul#group-mods li
+{
+	width: 34px;
+	height: 34px;
+}
+/* end IE8 avatar fixes */
 ul.item-list li img.avatar {
 	width: 40px;
 	height: 40px;
@@ -156,6 +177,10 @@ ul.item-list li img.avatar {
 /* Get rid of the Group Avatars in the stream updates */
 .activity-header .avatar {
 	display: none;
+}
+/* Don't break the menubar avatar icon in IE8 */
+#wpadminbar img { 
+	max-width: none;
 }
 /* Activity Stream */
 div.activity-meta {
@@ -345,6 +370,7 @@ div#item-header div#item-header-content {
 	margin-left: 0;
 }
 #item-header-avatar img {
+	width: auto; /* fixes display in IE8 */
 	float: none;
 }
 thead:first-child tr th,thead:first-child tr td {
