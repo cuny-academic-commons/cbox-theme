@@ -179,7 +179,7 @@ ul.item-list li img.avatar {
 	display: none;
 }
 /* Don't break the menubar avatar icon in IE8 */
-#wpadminbar img { 
+#wpadminbar img {
 	max-width: none;
 }
 /* Activity Stream */
