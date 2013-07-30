@@ -89,6 +89,7 @@ add_action( 'open_sidebar', 'cbox_theme_activity_tabs' );
 function cbox_theme_group_navigation()
 {
 	if ( bp_is_group() ) :
+		cbox_populate_group_global();
 		infinity_get_template_part( 'templates/parts/group-navigation' );
 	endif;
 }
@@ -259,6 +260,35 @@ function cbox_add_bp_head() {
 	do_action( 'bp_head' );
 }
 add_action( 'wp_head', 'cbox_add_bp_head' );
+
+/**
+ * Populate the $groups_template global for use outside the loop
+ *
+ * We build the group navigation outside the groups loop. In order to use BP's
+ * group template functions while building the nav, we must have the template
+ * global populated. In this function, we fill in any missing data, based on
+ * the current group.
+ *
+ * This issue should be fixed more elegantly upstream in BuddyPress, ideally
+ * by making the template functions fall back on the current group when the
+ * loop global is not populated.
+ *
+ * @see cbox-theme#155
+ */
+function cbox_populate_group_global() {
+	global $groups_template;
+
+	if ( bp_is_group() && isset( $groups_template->groups[0]->group_id ) && empty( $groups_template->groups[0]->name ) ) {
+		$current_group = groups_get_current_group();
+
+		// Fill in all missing properties
+		foreach ( $current_group as $cur_key => $cur_value ) {
+			if ( ! isset( $groups_template->groups[0]->{$cur_key} ) ) {
+				$groups_template->groups[0]->{$cur_key} = $cur_value;
+			}
+		}
+	}
+}
 
 /**
  * When running BuddyPress Docs, don't allow theme compatibility mode to kick in
