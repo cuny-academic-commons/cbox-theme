@@ -21,13 +21,13 @@
             	<a class="button edit-avatar-button" href="<?php echo $userLink; ?>profile/change-avatar"><?php _e( 'Change Avatar', 'buddypress' ); ?></a>
             </li>
             <li id="edit-password">
-            	<a class="button edit-password-button" href="<?php echo $userLink; ?>settings"><?php _e( 'General Settings', 'buddypress' ); ?></a>
+            	<a class="button edit-password-button" href="<?php echo $userLink; ?>settings"><?php _e( 'Email/Password Settings', 'cbox-theme' ); ?></a>
             </li>
             <li id="edit-notifications">
-            	<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/"><?php _e( 'Email Notification', 'buddypress' ); ?></a>
+            	<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/"><?php _e( 'Notification Settings', 'cbox-theme' ); ?></a>
             </li>
         </ul>
-    </div>  
+    </div>
 	<?php endif; ?>
 </div>
 <!-- Profile Tabs -->
