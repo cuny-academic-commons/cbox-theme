@@ -438,6 +438,16 @@ ul.item-list li div.action {
 .single-bp_doc label {
 	margin-top: 20px;
 }
+.single-bp_doc #comments .comment-author cite {
+	margin-left: 14px;
+}
+.single-bp_doc #comments .comment-meta,
+.single-bp_doc #comments p {
+	margin-left: 62px;
+}
+.single-bp_doc #comments .reply {
+	top: 74px;
+}
 .doc-tabs ul {
     margin-left: 0;
     padding: 0;
