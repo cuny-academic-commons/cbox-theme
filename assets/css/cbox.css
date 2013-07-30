@@ -438,6 +438,9 @@ ul.item-list li div.action {
 .single-bp_doc label {
 	margin-top: 20px;
 }
+.single-bp_doc #comments li.comment {
+	position: relative;
+}
 .single-bp_doc #comments .comment-author cite {
 	margin-left: 14px;
 }
@@ -446,7 +449,7 @@ ul.item-list li div.action {
 	margin-left: 62px;
 }
 .single-bp_doc #comments .reply {
-	top: 74px;
+	top: 28px;
 }
 .doc-tabs ul {
     margin-left: 0;
