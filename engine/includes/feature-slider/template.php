@@ -49,15 +49,28 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 					
 			</li>
 			<?php else :?>
-			<li>
-					<img src="<?php echo $no_slides_url ?>" />
-			</li>
+			<!-- Fallback to default slide if no features are present -->
+		    <li>
+		     	<img src="<?php echo $no_slides_url ?>" />
+			     	<div class="flex-caption">
+						<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+						<p>
+						<?php _e( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Site Feature</strong>.', 'cbox-theme' ); ?>
+					</p>
+					</div>
+		    </li>   
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
 		     	<img src="<?php echo $no_slides_url ?>" />
+			     	<div class="flex-caption">
+						<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+						<p>
+						<?php _e( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Site Feature</strong>.', 'cbox-theme' ); ?>
+						</p>
+					</div>
 		    </li>     
 		<?php
 			endif;
@@ -101,15 +114,28 @@ if ( infinity_option_get( 'cbox_flex_slider' ) == 1 ):
 					
 			</li>
 			<?php else :?>
-			<li>
-					<img src="<?php echo $no_slides_url ?>" />
-			</li>
+			<!-- Fallback to default slide if no features are present -->
+		    <li>
+		     	<img src="<?php echo $no_slides_url ?>" />
+			     	<div class="flex-caption">
+						<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+						<p>
+						<?php _e( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Site Feature</strong>.', 'cbox-theme' ); ?>
+					</p>
+					</div>
+		    </li>   
 			<?php endif;?>
 			</li>	
 		<?php endwhile; else: ?>
 			<!-- Fallback to default slide if no features are present -->
 		    <li>
 		     	<img src="<?php echo $no_slides_url ?>" />
+			     	<div class="flex-caption">
+						<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+						<p>
+						<?php _e( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Site Feature</strong>.', 'cbox-theme' ); ?>
+						</p>
+					</div>
 		    </li>     
 		<?php
 			endif;
