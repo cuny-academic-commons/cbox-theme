@@ -389,6 +389,7 @@ function cbox_theme_populate_sidebars() {
 				'settings'   => array(
 					'title'  => __( 'Recently Active', 'bp-docs-wiki' ),
 					'filter' => false,
+					'max_pages' => 5,
 				),
 			) );
 
@@ -403,6 +404,7 @@ function cbox_theme_populate_sidebars() {
 				'settings'   => array(
 					'title'  => __( 'Most Active', 'bp-docs-wiki' ),
 					'filter' => false,
+					'max_pages' => 5,
 				),
 			) );
 
