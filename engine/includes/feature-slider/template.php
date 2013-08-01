@@ -19,11 +19,6 @@
 // slider type
 $slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
 
-// slider is disabled, so stop now!
-if ( $slider_type === 0 ) {
-	return;
-}
-
 // locate no slides image url
 $no_slides_url  = infinity_image_url( 'slides-bg.png' );
 $no_slider_text = '';
