@@ -21,7 +21,7 @@ $slider = infinity_option_get( 'cbox_flex_slider' ) > 0;
 				infinity_load_template( 'engine/includes/feature-slider/template.php' );
 			?>
 			<!-- end -->
-		</div>	
+		</div>
 		<?php endif; ?>
 
 		<div id="homepage-sidebar-right" class="column <?php if ( $slider ) echo 'six'; else 'sixteen'; ?>">
@@ -35,31 +35,31 @@ $slider = infinity_option_get( 'cbox_flex_slider' ) > 0;
     <?php
         do_action( 'open_content' );
         do_action( 'open_home' );
-    ?>  
+    ?>
     <div id="center-homepage-widget">
 		<?php
 		    dynamic_sidebar( 'Homepage Center Widget' );
 		?>
-	</div>      
+	</div>
 	<div class="homepage-widgets row">
-	    <div id="homepage-widget-left" class="column five homepage-widget">         
+	    <div id="homepage-widget-left" class="column five homepage-widget">
 	            <?php
 	                dynamic_sidebar( 'Homepage Left' );
 	            ?>
 	    </div>
-	             
-	    <div id="homepage-widget-middle" class="column five homepage-widget">  
+
+	    <div id="homepage-widget-middle" class="column five homepage-widget">
 	            <?php
 	                dynamic_sidebar( 'Homepage Middle' );
 	            ?>
 	    </div>
-	     
-	    <div id="homepage-widget-right" class="column six homepage-widget">   
+
+	    <div id="homepage-widget-right" class="column six homepage-widget">
 	            <?php
 	            	dynamic_sidebar( 'Homepage Right' );
 	            ?>
-	    </div>  
-	</div>      
+	    </div>
+	</div>
     <?php
         do_action( 'close_home' );
         do_action( 'close_content' );
