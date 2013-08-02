@@ -129,6 +129,9 @@ h1#site-title,div#site-title {
 	padding-left: 20px;
 	padding-right: 20px;
 }
+.flex-caption h3 a {
+	color: #FFF;
+}
 /* Avatars */
 ul.item-list li img.avatar,#whats-new-avatar img,.item-avatar img {
 	margin-left: 0;

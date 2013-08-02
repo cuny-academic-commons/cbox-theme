@@ -78,7 +78,11 @@ if( $slider_query->have_posts() ) :
 
 			<!-- Caption -->
 			<div class="flex-caption">
-				<h3><?php the_title_attribute();?></h3>
+				<h3>
+					<a href="<?php the_permalink(); ?>">
+						<?php the_title_attribute();?>
+					</a>
+				</h3>
 				<?php echo apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) );?>
 			</div>
 
