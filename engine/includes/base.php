@@ -397,19 +397,3 @@ function infinity_base_get_image_tag_class( $class, $id, $align, $size )
 	return $align;
 }
 add_filter( 'get_image_tag_class', 'infinity_base_get_image_tag_class', 0, 4 );
-
-/**
- * Create an excerpt
- *
- * Uses bp_create_excerpt() when available. Otherwise falls back on a very
- * rough approximation, ignoring the fancy params passed.
- *
- * @since 1.0.5
- */
-function cbox_create_excerpt( $text, $length = 225, $options = array() ) {
-	if ( !function_exists( 'bp_create_excerpt' ) ) {
-		return bp_create_excerpt( $text, $length, $options );
-	} else {
-		return substr( $text, 0, $length ) . ' [&hellip;]';
-	}
-}

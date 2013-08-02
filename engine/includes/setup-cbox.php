@@ -44,6 +44,22 @@ function cbox_theme_custom_buttons()
 }
 add_action( 'close_body', 'cbox_theme_custom_buttons' );
 
+/**
+ * Create an excerpt
+ *
+ * Uses bp_create_excerpt() when available. Otherwise falls back on a very
+ * rough approximation, ignoring the fancy params passed.
+ *
+ * @since 1.0.5
+ */
+function cbox_create_excerpt( $text, $length = 425, $options = array() ) {
+	if ( !function_exists( 'bp_create_excerpt' ) ) {
+		return bp_create_excerpt( $text, $length, $options );
+	} else {
+		return substr( $text, 0, $length ) . ' [&hellip;]';
+	}
+}
+
 //
 // Slider
 //
