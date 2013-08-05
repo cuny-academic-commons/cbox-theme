@@ -67,29 +67,42 @@ if( $slider_query->have_posts() ) :
 	while( $slider_query->have_posts() ) :
 		$slider_query->the_post();
 		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-image');
+	if(get_post_meta($post->ID, '_cbox_enable_custom_url', true) == "yes") {
+		$slide_url = get_post_meta($post->ID, '_cbox_custom_url', true);
+	} else {
+		$slide_url = get_permalink();
+	}
+	$video_value = get_post_meta( $post->ID, '_cbox_enable_custom_video', true);
+	if(!$video_value) { $video_value = "no"; }
+	$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
+	if(!$slider_excerpt) { 
+		$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) ); 
+	}
 ?>
 		<!-- Loop through slides  -->
-		<?php if( has_post_thumbnail() ) :?>
+	<?php if( has_post_thumbnail() && $video_value == "no" ) :?>
 		<li>
 			<!-- Image -->
-			<a href="<?php the_permalink(); ?>">
-				<img src="<?php echo $image[0]; ?>" class="attachment-nivothumb wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php the_title_attribute(); ?>" />
+			<a href="<?php echo $slide_url; ?>">
+				<img src="<?php echo $image[0]; ?>" title="<?php the_title_attribute(); ?>" alt="<?php the_title_attribute(); ?>" />
 			</a>
 
 			<!-- Caption -->
 			<div class="flex-caption">
 				<h3>
-					<a href="<?php the_permalink(); ?>">
-						<?php the_title_attribute();?>
+					<a href="<?php echo $slide_url; ?>">
+						<?php the_title_attribute();?> 
 					</a>
 				</h3>
-				<?php echo apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) );?>
+				<?php echo $slider_excerpt; ?>
 			</div>
 
 		</li>
-
-		<!-- Fallback to default slide if no features are present -->
-		<?php else :?>
+	<?php elseif ( $video_value == "yes" ): /* Display a video if one has been set */ ?>
+		<li class="slide-video-embed">
+			<?php echo apply_filters( 'the_content', get_post_meta( get_the_ID(), $prefix . '_cbox_video_url', true ) ); ?>
+		</li>	
+	<?php /* Fallback to default slide if no features are present */ else :?>
 
 		<li>
 			<img src="<?php echo $no_slides_url ?>" width="589" height="319" alt="" style="height:319px;" />
@@ -99,7 +112,8 @@ if( $slider_query->have_posts() ) :
 				<p><?php echo $no_slider_text; ?></p>
 			</div>
 		</li>
-		<?php endif;?>
+
+	<?php endif;?>
 
 	<?php endwhile;
 
