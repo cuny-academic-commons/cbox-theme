@@ -125,6 +125,15 @@ function cbox_theme_slider_setup()
 }
 add_action( 'after_setup_theme', 'cbox_theme_slider_setup' );
 
+/**
+ * add WP Thumb for dynamic thumbnails across the theme.
+ */ 
+function cbox_theme_wpthumb()
+{
+	if( !class_exists( 'WP_Thumb' ) ){
+		require_once( 'WPThumb/wpthumb.php' );
+	}
+}
 //
 // Template Tags
 //
