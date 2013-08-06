@@ -19,6 +19,10 @@
 // slider type
 $slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
 
+//slider sizes
+$sliderheight = infinity_option_get( 'cbox-flex-slider-height' );
+$sliderwidth = infinity_option_get( 'cbox-flex-slider-width' );
+
 // locate no slides image url
 $no_slides_url  = infinity_image_url( 'slides-bg.png' );
 $no_slider_text = '';
@@ -84,7 +88,7 @@ if( $slider_query->have_posts() ) :
 		<li>
 			<!-- Image -->
 			<a href="<?php echo $slide_url; ?>">
-				<img src="<?php echo $image[0]; ?>" title="<?php the_title_attribute(); ?>" alt="<?php the_title_attribute(); ?>" />
+				<?php the_post_thumbnail( array( 'width' => $sliderwidth, 'height' => $sliderheight, 'crop' => true ) ) ?>
 			</a>
 
 			<!-- Caption -->
