@@ -103,13 +103,18 @@ function cbox_create_excerpt( $text, $length = 425, $options = array() ) {
 //
 
 /**
- * Load metaboxes class callback
+ * Load metaboxes class callback: https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
  */
-function cbox_theme_init_cmb()
-{
-	if ( !class_exists( 'cmb_Meta_Box' ) ) {
-		require_once( 'metaboxes/init.php' );
-	}
+
+if ( !class_exists( 'cmb_Meta_Box' ) ) {
+	require_once( 'metaboxes/init.php' );
+}
+
+/**
+ * add WP Thumb for dynamic thumbnails across the theme: https://github.com/humanmade/WPThumb
+ */ 
+if( !class_exists( 'WP_Thumb' ) ){
+	require_once( 'WPThumb/wpthumb.php' );
 }
 
 /**
@@ -125,15 +130,6 @@ function cbox_theme_slider_setup()
 }
 add_action( 'after_setup_theme', 'cbox_theme_slider_setup' );
 
-/**
- * add WP Thumb for dynamic thumbnails across the theme.
- */ 
-function cbox_theme_wpthumb()
-{
-	if( !class_exists( 'WP_Thumb' ) ){
-		require_once( 'WPThumb/wpthumb.php' );
-	}
-}
 //
 // Template Tags
 //
