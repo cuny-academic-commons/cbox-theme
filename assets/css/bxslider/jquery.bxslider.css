@@ -19,6 +19,10 @@
 	margin: 0;
 	padding: 0;
 }
+.slides li {
+	position: absolute;
+	display: none;
+}
 
 .bx-wrapper {
 	position: relative;
@@ -50,7 +54,7 @@
 /* LOADER */
 
 .bx-wrapper .bx-loading {
-	min-height: 344px;
+	height: 344px;
 	background: url(images/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
