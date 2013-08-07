@@ -105,9 +105,11 @@ function cbox_create_excerpt( $text, $length = 425, $options = array() ) {
 /**
  * Load metaboxes class callback: https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
  */
-
-if ( !class_exists( 'cmb_Meta_Box' ) ) {
-	require_once( 'metaboxes/init.php' );
+function cbox_theme_init_cmb()
+{
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'metaboxes/init.php' );
+	}
 }
 
 /**
