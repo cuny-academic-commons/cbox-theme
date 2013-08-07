@@ -70,7 +70,6 @@ $slider_query = new WP_Query( $query_args );
 if( $slider_query->have_posts() ) :
 	while( $slider_query->have_posts() ) :
 		$slider_query->the_post();
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-image');
 	if(get_post_meta($post->ID, '_cbox_enable_custom_url', true) == "yes") {
 		$slide_url = get_post_meta($post->ID, '_cbox_custom_url', true);
 	} else {
