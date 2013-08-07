@@ -68,13 +68,24 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 			array(
-				'name' => 'Slide Intro',
+				'name' => 'Slide Caption',
 				'desc' => 'Write down the text you would like to display in the slider. You can leave this empty if you want to show an excerpt of the post you have written above.',
 				'id'   => $prefix . 'slider_excerpt',
 				'type' => 'wysiwyg',
 						'options' => array(
 					    'media_buttons' => false, // show insert/upload button(s)
 					),
+			),
+			array(
+				'name'    => 'Hide Caption?',
+				'desc'    => 'Do you want to completely hide the caption for this slide? This will only display your slide image',
+				'id'      => $prefix . 'hide_caption',
+				'type'    => 'radio_inline',
+				'std' => 'no',
+				'options' => array(
+					array( 'name' => 'Yes', 'value' => 'yes', ),
+					array( 'name' => 'No', 'value' => 'no', ),
+				),
 			),
 		),
 	);
@@ -128,13 +139,13 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 					array( 'name' => 'No', 'value' => 'no', ),
 				),
 			),
-			array(
-				'name' => 'Custom URL',
-				'desc' => 'The full URL you would like the slide to point to. Example: http://www.google.com',
-				'id'   => $prefix . 'custom_url',
-				'type' => 'text',
-			),
-			)
+				array(
+					'name' => 'Custom URL',
+					'desc' => 'The full URL you would like the slide to point to. Example: http://www.google.com',
+					'id'   => $prefix . 'custom_url',
+					'type' => 'text',
+				),
+				)
 		);
 	return $meta_boxes;
 }
@@ -153,10 +164,14 @@ function cbox_theme_flex_slider_script()
 
 				jQuery('.slides').bxSlider({
 					adaptiveHeight: true,
+					auto: true,
+	  				autoHover: true,
 					mode: 'fade',
 					video: true,
 	  				useCSS: false,
-	  				controls: false
+	  				controls: false,
+	  				pause : <?php echo infinity_option_get( 'cbox_flex_slider_time' ); ?>000,
+	  				speed: <?php echo infinity_option_get( 'cbox_flex_slider_transition' ); ?>
 				});
 
 			});

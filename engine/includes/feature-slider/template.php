@@ -76,6 +76,8 @@ if( $slider_query->have_posts() ) :
 	} else {
 		$slide_url = get_permalink();
 	}
+	$hide_caption = get_post_meta( $post->ID, '_cbox_hide_caption', true);
+	if(!$hide_caption) { $hide_caption = "no"; }
 	$video_value = get_post_meta( $post->ID, '_cbox_enable_custom_video', true);
 	if(!$video_value) { $video_value = "no"; }
 	$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
@@ -83,6 +85,7 @@ if( $slider_query->have_posts() ) :
 		$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) ); 
 	}
 ?>
+
 		<!-- Loop through slides  -->
 	<?php if( has_post_thumbnail() && $video_value == "no" ) :?>
 		<li>
@@ -92,14 +95,16 @@ if( $slider_query->have_posts() ) :
 			</a>
 
 			<!-- Caption -->
-			<div class="flex-caption">
-				<h3>
-					<a href="<?php echo $slide_url; ?>">
-						<?php the_title_attribute();?> 
-					</a>
-				</h3>
-				<?php echo $slider_excerpt; ?>
-			</div>
+			<?php if ( $hide_caption == "no" ): /* Hide the caption if box is checked */ ?>
+				<div class="flex-caption">
+					<h3>
+						<a href="<?php echo $slide_url; ?>">
+							<?php the_title_attribute();?> 
+						</a>
+					</h3>
+					<?php echo $slider_excerpt; ?>
+				</div>
+			<?php endif;?>
 
 		</li>
 	<?php elseif ( $video_value == "yes" ): /* Display a video if one has been set */ ?>
@@ -110,11 +115,10 @@ if( $slider_query->have_posts() ) :
 
 		<li>
 			<img src="<?php echo $no_slides_url ?>" width="589" height="319" alt="" style="height:319px;" />
-
-			<div class="flex-caption">
-				<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
-				<p><?php echo $no_slider_text; ?></p>
-			</div>
+				<div class="flex-caption">
+					<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+					<p><?php echo $no_slider_text; ?></p>
+				</div>
 		</li>
 
 	<?php endif;?>
