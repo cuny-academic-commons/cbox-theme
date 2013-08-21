@@ -530,12 +530,12 @@ body.wiki.single-bp_doc #subnav {
     font-size: 90%;
     padding-top: 5px;
 }
-.bbp-forum-title,
+#bbpress-forums .bbp-forum-title,
 .bbp-topic-title {
     font-size: 120%;
     font-weight: 500;
 }
-.bbp-header .bbp-topic-title {
+#bbpress-forums .bbp-header .bbp-topic-title {
 	font-size: 100%;
 }
 #bbpress-forums .bbp-forum-content p {
