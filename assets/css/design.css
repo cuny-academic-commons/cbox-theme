@@ -437,4 +437,8 @@ thead:first-child tr th a,thead:first-child tr td a {
 #bbpress-forums div.odd,#bbpress-forums ul.odd {
     background-color: #FFFFFF;
 }
-
+/*Third Pary Plugin Fixes*/
+#links-personal-li #links-order-select,
+#links-personal-li #links-category-select {
+	display: none;
+}

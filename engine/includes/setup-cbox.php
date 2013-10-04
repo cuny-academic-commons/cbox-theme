@@ -91,7 +91,7 @@ add_action( 'close_body', 'cbox_theme_custom_buttons' );
  * @since 1.0.5
  */
 function cbox_create_excerpt( $text, $length = 425, $options = array() ) {
-	if ( !function_exists( 'bp_create_excerpt' ) ) {
+	if ( function_exists( 'bp_create_excerpt' ) ) {
 		return bp_create_excerpt( $text, $length, $options );
 	} else {
 		return substr( $text, 0, $length ) . ' [&hellip;]';
