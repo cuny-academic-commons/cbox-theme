@@ -122,12 +122,12 @@ h1#site-title,div#site-title {
 	bottom: 0;
 	position: absolute;
 	width: inherit;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 .flex-caption p,.flex-caption h3 {
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .flex-caption h3 a {
 	color: #FFF;
@@ -530,12 +530,12 @@ body.wiki.single-bp_doc #subnav {
     font-size: 90%;
     padding-top: 5px;
 }
-.bbp-forum-title,
+#bbpress-forums .bbp-forum-title,
 .bbp-topic-title {
     font-size: 120%;
     font-weight: 500;
 }
-.bbp-header .bbp-topic-title {
+#bbpress-forums .bbp-header .bbp-topic-title {
 	font-size: 100%;
 }
 #bbpress-forums .bbp-forum-content p {
