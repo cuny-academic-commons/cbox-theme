@@ -56,13 +56,25 @@ add_filter( 'cmb_meta_boxes', 'cmb_sample_metaboxes' );
  */
 function cmb_sample_metaboxes( array $meta_boxes ) {
 
+	// Check which slider option is set
+	$slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
+
+	// Show meta boxes only on Features post type
+	if ( $slider_type == 1 ) {
+		$cbox_slider_type = 'features';
+	}
+	// Or show them on all posts when a Featured Category is used for the slider
+	if ( $slider_type == 2 ) {
+		$cbox_slider_type = 'post';
+	}
+
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_cbox_';
 
 	$meta_boxes[] = array(
 		'id'         => 'cbox_slider_options',
 		'title'      => 'Slide Caption Text',
-		'pages'      => array( 'features', ), // Post type
+		'pages'      => array( $cbox_slider_type ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
@@ -95,7 +107,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 	$meta_boxes[] = array(
 			'id'         => 'cbox_video_options',
 			'title'      => 'Video Options',
-			'pages'      => array( 'features', ), // Post type
+			'pages'      => array( $cbox_slider_type ), // Post type
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'show_names' => true, // Show field names on the left
@@ -123,7 +135,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 	$meta_boxes[] = array(
 			'id'         => 'cbox_url_options',
 			'title'      => 'Custom URL/Permalink',
-			'pages'      => array( 'features', ), // Post type
+			'pages'      => array( $cbox_slider_type ), // Post type
 			'context'    => 'side',
 			'priority'   => 'high',
 			'show_names' => true, // Show field names on the left
