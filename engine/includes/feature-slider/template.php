@@ -19,6 +19,10 @@
 // slider type
 $slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
 
+//slider sizes
+$sliderheight = infinity_option_get( 'cbox-flex-slider-height' );
+$sliderwidth = infinity_option_get( 'cbox-flex-slider-width' );
+
 // locate no slides image url
 $no_slides_url  = infinity_image_url( 'slides-bg.png' );
 $no_slider_text = '';
@@ -66,40 +70,57 @@ $slider_query = new WP_Query( $query_args );
 if( $slider_query->have_posts() ) :
 	while( $slider_query->have_posts() ) :
 		$slider_query->the_post();
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'slider-image');
+	if(get_post_meta($post->ID, '_cbox_enable_custom_url', true) == "yes") {
+		$slide_url = get_post_meta($post->ID, '_cbox_custom_url', true);
+	} else {
+		$slide_url = get_permalink();
+	}
+	$hide_caption = get_post_meta( $post->ID, '_cbox_hide_caption', true);
+	if(!$hide_caption) { $hide_caption = "no"; }
+	$video_value = get_post_meta( $post->ID, '_cbox_enable_custom_video', true);
+	if(!$video_value) { $video_value = "no"; }
+	$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
+	if(!$slider_excerpt) { 
+		$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) ); 
+	}
 ?>
+
 		<!-- Loop through slides  -->
-		<?php if( has_post_thumbnail() ) :?>
+	<?php if( has_post_thumbnail() && $video_value == "no" ) :?>
 		<li>
 			<!-- Image -->
-			<a href="<?php the_permalink(); ?>">
-				<img src="<?php echo $image[0]; ?>" class="attachment-nivothumb wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php the_title_attribute(); ?>" />
+			<a href="<?php echo $slide_url; ?>">
+				<?php the_post_thumbnail( array( 'width' => $sliderwidth, 'height' => $sliderheight, 'crop' => true ) ) ?>
 			</a>
 
 			<!-- Caption -->
-			<div class="flex-caption">
-				<h3>
-					<a href="<?php the_permalink(); ?>">
-						<?php the_title_attribute();?>
-					</a>
-				</h3>
-				<?php echo apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) );?>
-			</div>
+			<?php if ( $hide_caption == "no" ): /* Hide the caption if box is checked */ ?>
+				<div class="flex-caption">
+					<h3>
+						<a href="<?php echo $slide_url; ?>">
+							<?php the_title_attribute();?> 
+						</a>
+					</h3>
+					<?php echo $slider_excerpt; ?>
+				</div>
+			<?php endif;?>
 
 		</li>
-
-		<!-- Fallback to default slide if no features are present -->
-		<?php else :?>
+	<?php elseif ( $video_value == "yes" ): /* Display a video if one has been set */ ?>
+		<li class="slide-video-embed">
+			<?php echo apply_filters( 'the_content', get_post_meta( get_the_ID(), $prefix . '_cbox_video_url', true ) ); ?>
+		</li>	
+	<?php /* Fallback to default slide if no features are present */ else :?>
 
 		<li>
 			<img src="<?php echo $no_slides_url ?>" width="589" height="319" alt="" style="height:319px;" />
-
-			<div class="flex-caption">
-				<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
-				<p><?php echo $no_slider_text; ?></p>
-			</div>
+				<div class="flex-caption">
+					<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+					<p><?php echo $no_slider_text; ?></p>
+				</div>
 		</li>
-		<?php endif;?>
+
+	<?php endif;?>
 
 	<?php endwhile;
 

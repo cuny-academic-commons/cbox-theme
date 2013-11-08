@@ -13,9 +13,13 @@
  * @since 1.0
  */
 ?>
+<?php
+   $thumbheight = infinity_option_get( 'cbox-thumb-height' );
+   $thumbwidth = infinity_option_get( 'cbox-thumb-width' );
+?>	
 <!-- show the post thumb? -->
 <?php if ( has_post_thumbnail() && current_theme_supports( 'infinity-post-thumbnails' )):?>
 <figure class="postthumb">
-	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', infinity_text_domain ) ?> <?php the_title_attribute(); ?>"><?php the_post_thumbnail('post-image'); ?></a>
+	<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', infinity_text_domain ) ?> <?php the_title_attribute(); ?>"><?php the_post_thumbnail( array( 'width' => $thumbwidth, 'height' => $thumbheight, 'crop' => true ) ) ?></a>
 </figure>
 <?php endif;?>

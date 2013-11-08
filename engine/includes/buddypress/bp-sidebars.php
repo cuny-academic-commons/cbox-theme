@@ -35,7 +35,7 @@ function cbox_theme_populate_sidebars() {
 
 		// Pull up a random member to populate
 		global $wpdb;
-		$username = $wpdb->get_var( $wpdb->prepare( "SELECT user_login FROM $wpdb->users ORDER BY RAND()" ) );
+		$username = $wpdb->get_var( "SELECT user_login FROM {$wpdb->users} ORDER BY RAND()" );
 
 		CBox_Widget_Setter::set_widget( array(
 			'id_base'    => 'cac_featured_content_widget',
