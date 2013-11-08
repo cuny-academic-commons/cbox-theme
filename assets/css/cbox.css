@@ -467,6 +467,12 @@ thead:first-child tr th, thead:first-child tr td {
 .doc-content-wrapper .toggle-switch {
 	padding: 8px 10px;
 }
+.bp-docs-attachment-drawer > ul {
+	padding-left: 20px;
+}
+.bp-docs-attachment-drawer h4 {
+	font-size: 1.0em;
+}
 /* ======== */
 /* ! Wiki   */
 /* ======== */
