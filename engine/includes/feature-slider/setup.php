@@ -54,7 +54,7 @@ add_filter( 'cmb_meta_boxes', 'cmb_sample_metaboxes' );
  * @param  array $meta_boxes
  * @return array
  */
-function cmb_sample_metaboxes( array $meta_boxes ) {
+function cmb_sample_metaboxes( $meta_boxes = array() ) {
 
 	// Check which slider option is set
 	$slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
@@ -161,8 +161,6 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		);
 	return $meta_boxes;
 }
-
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 
 /**
  * Fetch slide image to show on the Site Features index
