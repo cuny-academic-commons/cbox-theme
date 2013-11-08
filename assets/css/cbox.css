@@ -473,6 +473,15 @@ thead:first-child tr th, thead:first-child tr td {
 .bp-docs-attachment-drawer h4 {
 	font-size: 1.0em;
 }
+.doc-attachments > ul {
+	padding-left: 0;
+}
+.doc-attachments #doc-attachments-ul li {
+	padding-left: 0;
+}
+.doc-attachments h3 {
+	font-size: 1.25em;
+}
 /* ======== */
 /* ! Wiki   */
 /* ======== */
