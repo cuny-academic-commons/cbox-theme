@@ -155,7 +155,7 @@ function cbox_get_featured_slide($post_ID)
 /**
  * Add new column to the Site Features index
  */
-function cbox_site_features_column($defaults) 
+function cbox_site_features_column($defaults)
 {
 	 $defaults['featured_image'] = 'Featured Image';
 	 return $defaults;
@@ -164,12 +164,12 @@ function cbox_site_features_column($defaults)
 /**
  * Show the slide image in the new column
  */
-function cbox_site_features_column_content($column_name, $post_ID) 
+function cbox_site_features_column_content($column_name, $post_ID)
 {
 	 if ($column_name == 'featured_image') {
 	  $post_featured_image = cbox_get_featured_slide($post_ID);
 	  if ($post_featured_image){
-	   echo '<img src="' . $post_featured_image . '" />'; 
+	   echo '<img src="' . $post_featured_image . '" />';
 	  }
 	 }
 }
