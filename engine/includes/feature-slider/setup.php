@@ -16,31 +16,31 @@ add_action( 'after_setup_theme', 'cbox_thumb_sizes', 20 );
 function cbox_theme_feature_setup()
 {
 	$labels = array(
-		'name' => _x('Site Features', 'post type general name', 'infinity'),
-		'singular_name' => _x('Site Features', 'post type singular name', 'infinity'),
-		'add_new' => _x('Add Feature', 'infobox', 'infinity'),
-		'add_new_item' => __('Add New Feature', 'infinity'),
-		'edit_item' => __('Edit Feature', 'infinity'),
-		'new_item' => __('New Feature', 'infinity'),
-		'view_item' => __('View Feature', 'infinity'),
-		'search_items' => __('Search Feature', 'infinity'),
-		'not_found' =>  __('No Features fount', 'infinity'),
-		'not_found_in_trash' => __('No Features are found in Trash', 'infinity'),
-		'parent_item_colon' => ''
+		'name'               => _x( 'Featured Slider', 'post type general name', 'infinity' ),
+		'singular_name'      => _x( 'Site Features', 'post type singular name', 'infinity' ),
+		'all_items'          => _x( 'All Slides', 'infinity' ),
+		'add_new'            => _x( 'Add Slide', 'infobox', 'infinity' ),
+		'add_new_item'       => __( 'Add Slide', 'infinity' ),
+		'edit_item'          => __( 'Edit Slide', 'infinity' ),
+		'new_item'           => __( 'New Slide', 'infinity' ),
+		'search_items'       => __( 'Search slides', 'infinity' ),
+		'not_found'          => __( 'No slides found', 'infinity' ),
+		'not_found_in_trash' => __( 'No slides found in trash', 'infinity' ),
+		'parent_item_colon'  => ''
 	);
 
 	$args = array(
-		'labels' => $labels,
-		'public' => true,
+		'labels'             => $labels,
+		'public'             => true,
 		'publicly_queryable' => true,
-		'show_ui' => true,
-		'query_var' => true,
-		'rewrite' => true,
-		'capability_type' => 'post',
-		'hierarchical' => false,
-		'menu_position' => null,
-		'menu_icon' => infinity_image_url( 'slides-icon.png' ),
-		'supports' => array('title','editor', 'thumbnail' )
+		'show_ui'            => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'menu_icon'          => infinity_image_url( 'slides-icon.png' ),
+		'supports'           => array( 'title', 'editor', 'thumbnail' )
 	);
 
 	register_post_type( 'features', $args );
@@ -157,9 +157,23 @@ function cbox_get_featured_slide($post_ID)
  */
 function cbox_site_features_column($defaults)
 {
-	 $defaults['featured_image'] = 'Featured Image';
+	 $defaults['featured_image'] = __( 'Slide Image', 'cbox-theme' );
 	 return $defaults;
 }
+
+/**
+ * Renames the 'Featured Image' metabox for the 'features' post type.
+ *
+ * To rename the metabox, we actually have to remove the 'Featured Image'
+ * metabox and replace it with a custom one with the same functionality.
+ *
+ * @since 1.0.6
+ */
+function cbox_rename_featured_image_metabox() {
+	remove_meta_box( 'postimagediv', 'features', 'side' );
+	add_meta_box( 'postimagediv', __( 'Slide Image' ), 'post_thumbnail_meta_box', 'features', 'side', 'high' );
+}
+add_action( 'add_meta_boxes', 'cbox_rename_featured_image_metabox' );
 
 /**
  * Show the slide image in the new column
