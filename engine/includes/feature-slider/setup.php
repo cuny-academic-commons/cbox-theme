@@ -73,24 +73,24 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 
 	$meta_boxes[] = array(
 		'id'         => 'cbox_slider_options',
-		'title'      => 'Slide Caption Text',
+		'title'      => __( 'Slide Options', 'cbox-theme' ),
 		'pages'      => array( $cbox_slider_type ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 			array(
-				'name' => 'Slide Caption',
-				'desc' => 'Write down the text you would like to display in the slider. You can leave this empty if you want to show an excerpt of the post you have written above.',
+				'name' => __( 'Slide Caption', 'cbox-theme' ),
+				'desc' => __( 'Write down the text you would like to display in the slider. You can leave this empty if you want to show an excerpt of the post you have written above.', 'cbox-theme' ),
 				'id'   => $prefix . 'slider_excerpt',
 				'type' => 'wysiwyg',
-						'options' => array(
+					'options' => array(
 					    'media_buttons' => false, // show insert/upload button(s)
 					),
 			),
 			array(
-				'name'    => 'Hide Caption?',
-				'desc'    => 'Do you want to completely hide the caption for this slide? This will only display your slide image',
+				'name'    => __( 'Hide Caption?', 'cbox-theme' ),
+				'desc'    => __( 'Do you want to completely hide the caption for this slide? This will only display your slide image', 'cbox-theme' ),
 				'id'      => $prefix . 'hide_caption',
 				'type'    => 'radio_inline',
 				'std' => 'no',
@@ -99,66 +99,44 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 					array( 'name' => 'No', 'value' => 'no', ),
 				),
 			),
+			array(
+				'name' => __( 'Custom URL', 'cbox-theme' ),
+				'desc' => __( 'The full URL you would like the slide to point to. Example: http://www.google.com.  Leave this blank to use the regular slider post permalink.', 'cbox-theme' ),
+				'id'   => $prefix . 'custom_url',
+				'type' => 'text',
+			),
 		),
 	);
 
 	// Add other metaboxes as needed
-
 	$meta_boxes[] = array(
 			'id'         => 'cbox_video_options',
-			'title'      => 'Video Options',
+			'title'      => __( 'Video Options', 'cbox-theme' ),
 			'pages'      => array( $cbox_slider_type ), // Post type
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'show_names' => true, // Show field names on the left
 			'fields' => array(
-			array(
-				'name'    => 'Embed a Video?',
-				'desc'    => 'Do you want to display a video inside your slide? Note: The video will replace your caption text and slide image.',
-				'id'      => $prefix . 'enable_custom_video',
-				'type'    => 'radio_inline',
-				'std' => 'no',
-				'options' => array(
-					array( 'name' => 'Yes', 'value' => 'yes', ),
-					array( 'name' => 'No', 'value' => 'no', ),
+				array(
+					'name'    => __( 'Embed a Video?', 'cbox-theme' ),
+					'desc'    => __( 'Do you want to display a video inside your slide? Note: The video will replace your caption text and slide image.', 'cbox-theme' ),
+					'id'      => $prefix . 'enable_custom_video',
+					'type'    => 'radio_inline',
+					'std' => 'no',
+					'options' => array(
+						array( 'name' => 'Yes', 'value' => 'yes', ),
+						array( 'name' => 'No', 'value' => 'no', ),
+					),
 				),
-			),
-			array(
-				'name' => 'Video URL',
-				'desc' => 'Enter a Youtube or Vimeo URL. example: http://www.youtube.com/watch?v=iMuFYnvSsZg',
-				'id'   => $prefix . 'video_url',
-				'type' => 'oembed',
-			),
+				array(
+					'name' => __( 'Video URL', 'cbox-theme' ),
+					'desc' => __( 'Enter a Youtube or Vimeo URL. example: http://www.youtube.com/watch?v=iMuFYnvSsZg', 'cbox-theme' ),
+					'id'   => $prefix . 'video_url',
+					'type' => 'oembed',
+				),
 			)
-		);
+	);
 
-	$meta_boxes[] = array(
-			'id'         => 'cbox_url_options',
-			'title'      => 'Custom URL/Permalink',
-			'pages'      => array( $cbox_slider_type ), // Post type
-			'context'    => 'side',
-			'priority'   => 'high',
-			'show_names' => true, // Show field names on the left
-			'fields' => array(
-				array(
-				'name'    => 'Use a Custom URL',
-				'desc'    => 'Do you want to point your slide to a specific URL?',
-				'id'      => $prefix . 'enable_custom_url',
-				'type'    => 'radio_inline',
-				'std' => 'no',
-				'options' => array(
-					array( 'name' => 'Yes', 'value' => 'yes', ),
-					array( 'name' => 'No', 'value' => 'no', ),
-				),
-			),
-				array(
-					'name' => 'Custom URL',
-					'desc' => 'The full URL you would like the slide to point to. Example: http://www.google.com',
-					'id'   => $prefix . 'custom_url',
-					'type' => 'text',
-				),
-				)
-		);
 	return $meta_boxes;
 }
 

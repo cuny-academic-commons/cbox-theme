@@ -70,19 +70,28 @@ $slider_query = new WP_Query( $query_args );
 if( $slider_query->have_posts() ) :
 	while( $slider_query->have_posts() ) :
 		$slider_query->the_post();
-	if(get_post_meta($post->ID, '_cbox_enable_custom_url', true) == "yes") {
-		$slide_url = get_post_meta($post->ID, '_cbox_custom_url', true);
-	} else {
-		$slide_url = get_permalink();
-	}
-	$hide_caption = get_post_meta( $post->ID, '_cbox_hide_caption', true);
-	if(!$hide_caption) { $hide_caption = "no"; }
-	$video_value = get_post_meta( $post->ID, '_cbox_enable_custom_video', true);
-	if(!$video_value) { $video_value = "no"; }
-	$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
-	if(!$slider_excerpt) { 
-		$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) ); 
-	}
+
+		// slide URL
+		$slide_url = get_post_meta( $post->ID, '_cbox_custom_url', true );
+		if ( empty( $slide_url ) ) {
+			$slide_url = get_permalink();
+		} else {
+			$slide_url = esc_url( $slide_url );
+		}
+
+		// caption
+		$hide_caption = get_post_meta( $post->ID, '_cbox_hide_caption', true );
+		if ( ! $hide_caption ) { $hide_caption = "no"; }
+
+		$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
+		if ( empty( $slider_excerpt ) ) { 
+			$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) ); 
+		}
+
+		// video
+		$video_value = get_post_meta( $post->ID, '_cbox_enable_custom_video', true);
+		if ( ! $video_value ) { $video_value = "no"; }
+
 ?>
 
 		<!-- Loop through slides  -->
