@@ -122,7 +122,7 @@ if( $slider_query->have_posts() ) :
 	<?php /* Fallback to default slide if no features are present */ else :?>
 
 		<li>
-			<img src="<?php echo $no_slides_url ?>" width="589" height="319" alt="" style="height:319px;" />
+			<img src="<?php echo $no_slides_url ?>" width="<?php echo esc_attr( $sliderwidth ) ?>" height="319" alt="" style="height:319px;" />
 				<div class="flex-caption">
 					<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
 					<p><?php echo $no_slider_text; ?></p>
@@ -138,7 +138,7 @@ else:
 
 		<!-- Fallback to default slide if no features are present -->
 		<li>
-			<img src="<?php echo $no_slides_url ?>" width="589" height="319" alt="" style="height:319px;" />
+			<img src="<?php echo $no_slides_url ?>" width="<?php echo esc_attr( $sliderwidth ) ?>" height="319" alt="" style="height:319px;" />
 
 			<div class="flex-caption">
 				<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
