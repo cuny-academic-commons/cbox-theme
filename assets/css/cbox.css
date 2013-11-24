@@ -488,6 +488,9 @@ thead:first-child tr th, thead:first-child tr td {
 body.wiki.single-bp_doc #subnav {
 	display: none;
 }
+.widget .wiki-page-title {
+	display: inline-block;
+}
 /* BBPress Bleeding */
 .groups.forums #item-header {
 	display: none;
