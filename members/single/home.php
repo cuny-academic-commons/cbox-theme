@@ -60,7 +60,7 @@ get_header( 'buddypress' ); ?>
 				elseif ( bp_is_user_settings() ) :
 					locate_template( array( 'members/single/settings.php'  ), true );
 
-				elseif ( bp_is_user_notifications() ) :
+				elseif ( function_exists( 'bp_is_user_notifications' ) && bp_is_user_notifications() ) :
 					locate_template( array( 'members/single/notifications.php' ), true );
 
 				// If nothing sticks, load a generic template
