@@ -333,7 +333,8 @@ ul.profile-subnav li a {
 	list-style: none;
 }
 /* FIX:  hide the horizontal navigation on settings pages using CSS */
-.settings #item-nav {
+.settings #item-nav,
+#content #object-nav {
 	display: none;
 }
 /* widgets */

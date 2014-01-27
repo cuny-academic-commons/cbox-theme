@@ -244,6 +244,10 @@ li#invite-groups-li a:before {
     content: "A"
 }
 
+li#notifications-personal-li a:before {
+    content: "_";
+}
+
 li#home-groups-li a:before,
 li#link-home-personal-li a:before {
     content: "0"

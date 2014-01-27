@@ -9,7 +9,7 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div id="content" role="main" class="<?php do_action( 'content_class' ); ?>">
+	<div id="content">
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>
@@ -19,6 +19,18 @@ get_header( 'buddypress' ); ?>
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 
 			</div><!-- #item-header -->
+
+			<div id="item-nav">
+				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
+					<ul>
+
+						<?php bp_get_displayed_user_nav(); ?>
+
+						<?php do_action( 'bp_member_options_nav' ); ?>
+
+					</ul>
+				</div>
+			</div><!-- #item-nav -->
 
 			<div id="item-body">
 
@@ -47,6 +59,9 @@ get_header( 'buddypress' ); ?>
 
 				elseif ( bp_is_user_settings() ) :
 					locate_template( array( 'members/single/settings.php'  ), true );
+
+				elseif ( bp_is_user_notifications() ) :
+					locate_template( array( 'members/single/notifications.php' ), true );
 
 				// If nothing sticks, load a generic template
 				else :
