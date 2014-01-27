@@ -42,14 +42,8 @@ Parent styles */
 
 body { min-width: inherit }
 @media only screen and (max-width: 768px) { 
-	html {
-	    margin-top: 0 !important;
-	}
-	body {
-		margin-top: -28px;
-	}
 	#wpadminbar,
-	.twipsy { display: none !important }
+	.twipsy { display: block !important }
 	#sidebar { 
 		min-height: auto !important;
 	}
