@@ -314,7 +314,7 @@ ul.profile-subnav li {
 }
 ul.profile-subnav li a:before {
 	color: #4D4D4D;
-	content: "+";
+	content: "+" !important;
 	font-size: 100%;
 	margin-left: 0;
 	padding-right: 7px;
