@@ -52,6 +52,12 @@ function cbox_jqueryui_hotfix( $page ) {
 	// remove jQuery UI core and register the older version from WP 3.5
 	wp_deregister_script( 'jquery-ui-core' );
 	wp_register_script( 'jquery-ui-core', '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js', array('jquery'), '1.9.2', 1 );
+
+	// remove some other jQuery UI scripts that might be in use
+	wp_deregister_script( 'jquery-ui-button' );
+	wp_register_script( 'jquery-ui-button', '' );
+	wp_deregister_script( 'jquery-ui-tabs' );
+	wp_register_script( 'jquery-ui-tabs', '' );
 }
 add_action( 'admin_enqueue_scripts', 'cbox_jqueryui_hotfix', 20 );
 
