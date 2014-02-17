@@ -2,8 +2,7 @@
 /**
  * Add new Post Thumbnail size for slider
  */
-function cbox_thumb_sizes()
-{
+function cbox_thumb_sizes() {
 	if ( current_theme_supports( 'post-thumbnails' ) ) {
 		add_image_size( 'slider-image', 635, 344, true );
 	}
@@ -151,22 +150,21 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 /**
  * Fetch slide image to show on the Site Features index
  */
-function cbox_get_featured_slide($post_ID)
-{
+function cbox_get_featured_slide( $post_ID ) {
 	$post_thumbnail_id = get_post_thumbnail_id($post_ID);
-	 if ($post_thumbnail_id){
-	  $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'width=200&height=110&crop=1&crop_from_position=center,left');
-	  return $post_thumbnail_img[0];
+
+	if ($post_thumbnail_id){
+		$post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'width=200&height=110&crop=1&crop_from_position=center,left');
+		return $post_thumbnail_img[0];
 	}
 }
 
 /**
  * Add new column to the Site Features index
  */
-function cbox_site_features_column($defaults)
-{
-	 $defaults['featured_image'] = __( 'Slide Image', 'cbox-theme' );
-	 return $defaults;
+function cbox_site_features_column( $defaults ) {
+	$defaults['featured_image'] = __( 'Slide Image', 'cbox-theme' );
+	return $defaults;
 }
 
 /**
@@ -186,16 +184,14 @@ add_action( 'add_meta_boxes', 'cbox_rename_featured_image_metabox' );
 /**
  * Show the slide image in the new column
  */
-function cbox_site_features_column_content($column_name, $post_ID)
-{
-	 if ($column_name == 'featured_image') {
-	  $post_featured_image = cbox_get_featured_slide($post_ID);
-	  if ($post_featured_image){
-	   echo '<img src="' . $post_featured_image . '" />';
-	  }
-	 }
+function cbox_site_features_column_content( $column_name, $post_ID ) {
+	if ($column_name == 'featured_image') {
+		$post_featured_image = cbox_get_featured_slide($post_ID);
+		if ( $post_featured_image ){
+			echo '<img src="' . $post_featured_image . '" />';
+		}
+	}
 }
-
 add_filter('manage_features_posts_columns', 'cbox_site_features_column', 10);
 add_action('manage_features_posts_custom_column', 'cbox_site_features_column_content', 10, 2);
 
