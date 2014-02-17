@@ -78,6 +78,7 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 	// Or show them on all posts when a Featured Category is used for the slider
 	if ( $slider_type == 2 ) {
 		$cbox_slider_type = 'post';
+		add_action( 'admin_footer', 'cbox_featured_post_admin_footer' );
 	}
 
 	// Start with an underscore to hide fields from custom fields list
@@ -230,3 +231,50 @@ function cbox_theme_flex_slider_script()
 	}
 }
 add_action( 'close_body', 'cbox_theme_flex_slider_script' );
+
+/**
+ * Add inline JS to toggle "Slide Options" metabox on a "Post" admin page.
+ *
+ * When the slider's featured category is checked in the "Post" admin page,
+ * this javascript will either show or hide the "Slide Options" and "Video
+ * Options" metaboxes.
+ *
+ * This is only used if the slider is set to use a post category.
+ *
+ * @since 1.0.7
+ */
+function cbox_featured_post_admin_footer() {
+	switch ( $GLOBALS['hook_suffix'] ) {
+		case 'post-new.php' :
+		case 'post.php' :
+
+		$cat_id = infinity_option_get( 'cbox_flex_slider_category' );
+	?>
+
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(function($) {
+		function cbox_toggle_metaboxes() {
+			$('#cbox_slider_options, #cbox_video_options').hide();
+
+			$('#categorychecklist input[type="checkbox"]').each(function(i,e){
+				var id = $(this).attr('id').match(/-([0-9]*)$/i);
+				id = (id && id[1]) ? parseInt(id[1]) : null ;
+
+				if ($.inArray(id, [<?php echo $cat_id; ?>]) > -1 && $(this).is(':checked')) {
+					$('#cbox_slider_options, #cbox_video_options').show();
+				}
+			});
+		}
+
+		$('#taxonomy-category').on( 'click', '#categorychecklist input[type="checkbox"]', cbox_toggle_metaboxes );
+
+		cbox_toggle_metaboxes();
+	});
+//]]>
+</script>
+
+	<?php
+			break;
+	}
+}
