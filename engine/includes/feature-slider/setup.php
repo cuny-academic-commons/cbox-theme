@@ -17,8 +17,8 @@ function cbox_theme_feature_setup()
 {
 	$slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
 
-	// Don't register post type if slider is turned off
-	if ( $slider_type === 0 ) {
+	// Don't register post type if slider is not in post type mode
+	if ( $slider_type != 1 ) {
 		return;
 	}
 
@@ -49,11 +49,6 @@ function cbox_theme_feature_setup()
 		'menu_icon'          => infinity_image_url( 'slides-icon.png' ),
 		'supports'           => array( 'title', 'editor', 'thumbnail' )
 	);
-
-	// Do not show in WP admin bar if slider type is set to a category
-	if ( $slider_type == 2 ) {
-		$args['show_in_admin_bar'] = false;
-	}
 
 	register_post_type( 'features', $args );
 }
