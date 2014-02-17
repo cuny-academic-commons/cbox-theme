@@ -17,7 +17,7 @@ function cbox_theme_feature_setup()
 {
 	$labels = array(
 		'name'               => _x( 'Featured Slider', 'post type general name', 'infinity' ),
-		'singular_name'      => _x( 'Site Features', 'post type singular name', 'infinity' ),
+		'singular_name'      => _x( 'Featured Slide', 'post type singular name', 'infinity' ),
 		'all_items'          => _x( 'All Slides', 'infinity' ),
 		'add_new'            => _x( 'Add Slide', 'infobox', 'infinity' ),
 		'add_new_item'       => __( 'Add Slide', 'infinity' ),

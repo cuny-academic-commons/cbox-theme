@@ -43,7 +43,7 @@ if ( ! empty( $posts_per_page ) ) {
 if ( $slider_type == 1 ) {
 	$query_args['post_type'] = 'features';
 
-	$no_slider_text = __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Site Feature</strong>.', 'cbox-theme' );
+	$no_slider_text = __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Featured Slide</strong>.', 'cbox-theme' );
 }
 
 // post category
