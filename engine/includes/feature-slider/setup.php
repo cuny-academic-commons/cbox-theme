@@ -15,6 +15,13 @@ add_action( 'after_setup_theme', 'cbox_thumb_sizes', 20 );
  */
 function cbox_theme_feature_setup()
 {
+	$slider_type = (int) infinity_option_get( 'cbox_flex_slider' );
+
+	// Don't register post type if slider is turned off
+	if ( $slider_type === 0 ) {
+		return;
+	}
+
 	$labels = array(
 		'name'               => _x( 'Featured Slider', 'post type general name', 'infinity' ),
 		'singular_name'      => _x( 'Featured Slide', 'post type singular name', 'infinity' ),
@@ -42,6 +49,11 @@ function cbox_theme_feature_setup()
 		'menu_icon'          => infinity_image_url( 'slides-icon.png' ),
 		'supports'           => array( 'title', 'editor', 'thumbnail' )
 	);
+
+	// Do not show in WP admin bar if slider type is set to a category
+	if ( $slider_type == 2 ) {
+		$args['show_in_admin_bar'] = false;
+	}
 
 	register_post_type( 'features', $args );
 }
