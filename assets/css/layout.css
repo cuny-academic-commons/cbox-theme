@@ -100,7 +100,7 @@ h1#site-title,div#site-title {
     width: 100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    webkit-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 .base-menu ul li {
     float: left;

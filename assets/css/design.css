@@ -97,7 +97,7 @@ h1#site-title,div#site-title {
 	background-image: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
 	background-image: linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
-	-image -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 	text-shadow: 0 1px 0 #FFFFFF;
 	border: 0px;
