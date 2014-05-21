@@ -109,7 +109,7 @@ h1#site-title,div#site-title {
     list-style-type: none;
 }
 .base-menu ul li.right {
-float: right;	
+	float: right;	
 }
 .base-menu ul li li:hover ul,
 .base-menu ul li li.sfHover ul,
@@ -118,8 +118,8 @@ float: right;
 .base-menu ul li li li li:hover ul,
 .base-menu ul li li li li.sfHover ul {
     /* match .nav ul width */
-    top: -1px;
-    left: 180px;
+    top: -5px;
+    left: 190px;
 }
 .base-menu ul li:hover {
     visibility: inherit; /* fixes IE7 'sticky bug' */
@@ -137,6 +137,10 @@ float: right;
     left: 0px;
     z-index: 95;
 }
+/* display as block, or hover fails to work properly when text wraps */
+.base-menu a span {
+	display: block;
+}
 .base-menu ul ul {
     top: -9999em;
     width: 210px;
@@ -148,8 +152,7 @@ float: right;
 }
 .base-menu ul ul li {
     float: left;
-    width: 150px;
-    padding: 0 5px 0 5px;
+    width: 180px;
 }
 .base-menu ul ul ul {
 	margin-left: -10px;
@@ -175,8 +178,11 @@ float: right;
 .base-menu li li a span { padding: 0; color: #BBB; }
 .base-menu ul li.sfHover li a,
 .base-menu ul li.sfHover li a:hover,
+.base-menu ul li.sfHover > a span,
+.base-menu ul li.sfHover li.sfHover > a span,
+.base-menu ul li.sfHover li.sfHover li.sfHover > a span,
 .base-menu ul li.sfHover li a span:hover {
-color: #DDD;
+	color: #DDD;
 }
 /*  Make sub menus appear */
 .base-menu ul li:hover ul,
@@ -198,8 +204,8 @@ color: #DDD;
 .base-menu ul li li li.sfHover ul,
 .base-menu ul li li li li:hover ul,
 .base-menu ul li li li li.sfHover ul {
-    left: 180px; /* match .nav ul width */
-    top: -1px;
+	left: 190px; /* match .nav ul width */
+	top: -5px;
 }
 /* 2nd level skin */
 .base-menu ul ul {
@@ -212,9 +218,8 @@ color: #DDD;
 }
 .base-menu ul ul li {
     float: left;
-    width: 150px;
+    width: 180px;
     background: none;
-    padding: 0 5px 0 5px;
 }
 .base-menu li a:hover {
     color: #DDD;
@@ -222,10 +227,11 @@ color: #DDD;
 .base-menu ul ul li:first-child { border-top: none }
 .base-menu ul ul li:last-child { border-bottom: none }
 .base-menu ul ul li a {
-    width: 150px;
+    width: 180px;
 }
 .base-menu ul ul li a:hover {
-    padding-left: 12px;
+	/* removed odd movement */
+	/* padding-left: 12px; */
 }
 
 .base-menu:first-child ul li:after{
