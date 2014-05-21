@@ -77,7 +77,7 @@ h1#site-title,div#site-title {
 
 html body .top-wrap .sub-menu {
     position: absolute;
-    z-index: 50;
+    z-index: 150;
 }
 
 

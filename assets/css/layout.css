@@ -71,19 +71,19 @@ h1#site-title,div#site-title {
 #top-menu-wrap {
     margin-bottom: -6px;
     /* setting z-index for dropdowns. do not mess with this */
-    z-index: 12 !important; 
+    z-index: 120 !important; 
 }
 
 #main-menu-wrap {
     padding: 0;
     /* setting z-index for dropdowns. do not mess with this */
-    z-index: 11 !important; 
+    z-index: 110 !important;
 }
-#main-menu-wrap ul.sub-menu { z-index: 99 !important }
+#main-menu-wrap ul.sub-menu { z-index: 150 !important }
 
 #sub-menu-wrap {
 /* setting z-index for dropdowns. do not mess with this */
-	z-index: 10 !important;
+	z-index: 100 !important;
     margin-bottom: -3px;
     position: relative; /* CMW - redeclaring works */
     min-height: 36px;
@@ -189,7 +189,7 @@ h1#site-title,div#site-title {
 .base-menu ul li:hover ul,
 .base-menu ul li.sfHover ul {
     top: 34px; /* match top ul list item height */
-    z-index: 99;
+    z-index: 150;
 }
 /* Hide all subs subs (4 levels deep) */
 .base-menu ul li:hover li ul,
