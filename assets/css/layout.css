@@ -65,7 +65,7 @@ h1#site-title,div#site-title {
 
 /* Top Menu */
 #top-menu-wrap, #sub-menu-wrap {
-    position: relative;        
+    position: relative;        /* CMW - I think this gets excluded for #sub-menu-wrap because of the declaration below */
 }
 
 #top-menu-wrap {
@@ -85,6 +85,7 @@ h1#site-title,div#site-title {
 /* setting z-index for dropdowns. do not mess with this */
 	z-index: 10 !important;
     margin-bottom: -3px;
+    position: relative; /* CMW - redeclaring works */
 }
 
 /* ===================== */
