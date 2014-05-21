@@ -86,6 +86,7 @@ h1#site-title,div#site-title {
 	z-index: 10 !important;
     margin-bottom: -3px;
     position: relative; /* CMW - redeclaring works */
+    min-height: 36px;
 }
 
 /* ===================== */
