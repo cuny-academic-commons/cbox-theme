@@ -61,7 +61,8 @@ h1#site-title,div#site-title {
     padding-right: 20px;
 }
 #main-menu-wrap .sub-menu { margin: 8px 0 0 }
-.base-menu .sub-menu { padding-left: 0px !important }
+.base-menu .sub-menu { padding: 0 !important }
+.main-menu .sub-menu { padding: 0 !important }
 .top-wrap .base-menu.sub-menu {
     border-top: 0;
     position: absolute;
@@ -76,7 +77,26 @@ h1#site-title,div#site-title {
 
 html body .top-wrap .sub-menu {
     position: absolute;
-    z-index: 50;
+    z-index: 150;
+}
+
+
+/* fix sub-menu styling */
+.main-menu ul.sub-menu a {
+	margin-right: 0;
+}
+
+#main-menu-wrap ul.sub-menu ul.sub-menu {
+	margin-top: 0;
+}
+
+#main-menu-wrap ul.sub-menu ul.sub-menu {
+	margin-top: 0;
+}
+
+#main-menu-wrap ul ul li.sfHover ul {
+	left: 180px; /* match .nav ul width */
+	top: -2px;
 }
 
 
