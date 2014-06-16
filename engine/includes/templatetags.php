@@ -96,3 +96,15 @@ function is_not_admin()
 {
     return ( !is_admin() );
 }
+
+/**
+ * Is there more than one profile group tab?
+ *
+ * @since 1.0.8
+ *
+ * @return bool
+ */
+function cbox_profile_has_multiple_tabs() {
+	global $profile_template;
+	return $profile_template->group_count > 1;
+}
