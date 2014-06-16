@@ -104,7 +104,7 @@ body { min-width: inherit }
 	}
 	.mobile-menu-container {
 	width: 100%;
-    z-index: 100;
+    z-index: 1000;
     background: #222;
     border-bottom: 1px solid #292525;
     border-top: 2px solid #525151;
