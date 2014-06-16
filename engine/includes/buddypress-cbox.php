@@ -309,3 +309,19 @@ if ( false == function_exists( 'is_activity_page' ) ) {
 		return ( bp_is_activity_component() && !bp_is_user() );
 	}
 }
+
+/**
+ * Remove profile group tab from edit profile page if there's only one profile group. 
+ * A lone button reading "Base" that does nothing (refreshes the current page) is confusing
+ * to users and useless. 
+ *
+ * @since 1.0.7
+ */ 
+function cbox_remove_extranneous_profile_group_tabs($tabs, $groups) { 
+	if ( count( $groups ) > 1 ) { 
+		return $tabs; 
+	} else { 
+		return; 
+	} 
+} 
+add_filter( 'xprofile_filter_profile_group_tabs', 'cbox_remove_extranneous_profile_group_tabs' ); 
