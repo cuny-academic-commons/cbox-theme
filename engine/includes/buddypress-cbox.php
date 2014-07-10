@@ -64,6 +64,11 @@ add_action( 'get_header', 'cbox_theme_magic_menus' );
  */
 function cbox_theme_register_widgets()
 {
+	// bail if blogs not active
+	if ( ! bp_is_active( 'blogs' ) ) {
+		return;
+	}
+	
 	// load requirements
 	require_once 'buddypress/bp-widgets.php';
 
