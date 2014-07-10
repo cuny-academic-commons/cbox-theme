@@ -68,7 +68,9 @@ function cbox_theme_register_widgets()
 	require_once 'buddypress/bp-widgets.php';
 
 	// register it
-	return register_widget( "CBox_BP_Blogs_Recent_Posts_Widget" );
+	if ( bp_is_active( 'blogs' ) ) {
+		register_widget( "CBox_BP_Blogs_Recent_Posts_Widget" );
+	}
 }
 add_action( 'widgets_init', 'cbox_theme_register_widgets' );
 
