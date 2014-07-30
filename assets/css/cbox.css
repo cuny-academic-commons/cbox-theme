@@ -45,6 +45,9 @@ h1#site-title,div#site-title {
     font-size: 14px;
     line-height: 180%;
 }
+.icext-header-logo img {
+	max-width: none;
+}
 #infinity-base .icext-feature a {
 	left: 0px;
 	position: inherit;
