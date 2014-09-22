@@ -31,6 +31,7 @@ body {
 /* ========== */
 #header {
     position: relative;
+	z-index: 112 !important;
 }
 
 #header:after {
@@ -83,7 +84,7 @@ h1#site-title,div#site-title {
 
 #sub-menu-wrap {
 /* setting z-index for dropdowns. do not mess with this */
-	z-index: 100 !important;
+	z-index: 111 !important;
     margin-bottom: -3px;
     position: relative; /* CMW - redeclaring works */
     min-height: 36px;
