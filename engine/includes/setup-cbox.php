@@ -194,7 +194,7 @@ function cbox_theme_init_cmb()
 
 /**
  * add WP Thumb for dynamic thumbnails across the theme: https://github.com/humanmade/WPThumb
- */ 
+ */
 if( !class_exists( 'WP_Thumb' ) ){
 	require_once( 'WPThumb/wpthumb.php' );
 }
@@ -262,7 +262,7 @@ function cbox_theme_auto_create_home_page()
 			}
 
 		}
-		
+
 		// we need to create a new page
 		if ( $create_page ) {
 			// create the new page
@@ -288,7 +288,7 @@ function cbox_theme_auto_create_home_page()
 			// front page no longer exists so purge the following options
 			delete_option( 'page_on_front' );
 			delete_option( '_cbox_theme_auto_create_home_page' );
-			
+
 			// redirect back to homepage
 			wp_redirect( get_home_url() ); die();
 		}
