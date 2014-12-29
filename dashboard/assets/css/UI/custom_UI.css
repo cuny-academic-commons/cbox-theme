@@ -883,7 +883,7 @@ button.ui-button::-moz-focus-inner {
  * http://docs.jquery.com/UI/Dialog#theming
  */
 .ui-dialog {
-    position: fixed;
+    position: absolute;
     padding: 0;
     width: 300px;
     overflow: hidden;
