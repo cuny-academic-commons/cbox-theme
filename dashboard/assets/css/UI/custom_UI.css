@@ -1363,4 +1363,4 @@ label, legend {
     font-size: 13px;
 }
 select { width: 220px }
-input[type="checkbox"] { display: inline }
+input[type="checkbox"] { display: inline-block }
