@@ -113,7 +113,7 @@ function cbox_admin_remove_head_scripts() {
 add_action( 'admin_head', 'cbox_admin_remove_head_scripts', 9999 );
 
 /**
- * Removes WP's dynamic load-scripts.php javascript from the admin footer.
+ * Remove jQuery UI script handles from WP's load-scripts.php JS in the admin footer.
  *
  * This interferes with CBOX Theme's javascript.  Part of the hotfix approach
  * from cbox_jqueryui_hotfix().
