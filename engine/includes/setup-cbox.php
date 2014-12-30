@@ -39,25 +39,55 @@ function cbox_jqueryui_hotfix( $page ) {
 	}
 
 	global $wp_version;
-	
+
 	// stop if WP version is less than 3.6
 	if ( version_compare( $wp_version, '3.6' ) < 0 ) {
 		return;
 	}
 
 	// remove jQuery core and register the older version from WP 3.5
-	wp_deregister_script( 'jquery-core' );
-	wp_register_script( 'jquery-core', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array(), '1.8.3' );
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", array(), '1.8.3' );
 
 	// remove jQuery UI core and register the older version from WP 3.5
 	wp_deregister_script( 'jquery-ui-core' );
 	wp_register_script( 'jquery-ui-core', '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js', array('jquery'), '1.9.2', 1 );
 
+	// Google's jQuery UI already includes all UI widgets
+	//
+	// so now, we need to trick WP into thinking that the accordion widget is
+	// active so CBOX Theme will detect accordion properly
+	//
+	// to do this, enqueue a small CDN JS file - min.js - as a filler
+	// this will not be used at all (hackety mchack-hack)
+	wp_deregister_script( 'jquery-ui-accordion' );
+	wp_register_script( 'jquery-ui-accordion', '//cdnjs.cloudflare.com/ajax/libs/min.js/0.2.3/$.min.js', array('jquery-ui-core'), '1.9.2', 1 );
+
 	// remove some other jQuery UI scripts that might be in use
-	wp_deregister_script( 'jquery-ui-button' );
-	wp_register_script( 'jquery-ui-button', '' );
-	wp_deregister_script( 'jquery-ui-tabs' );
-	wp_register_script( 'jquery-ui-tabs', '' );
+	$jquery_ui_handles = array(
+		// header additions
+		'widget',
+		'mouse',
+		'slider',
+		'sortable',
+		'position',
+		'resizable',
+		'menu',
+
+		// footer additions
+		'dialog',
+		'draggable',
+		'progressbar',
+
+		// misc
+		'button',
+		'tabs',
+	);
+
+	foreach ( $jquery_ui_handles as $handle ) {
+		wp_deregister_script( "jquery-ui-{$handle}" );
+		wp_register_script( "jquery-ui-{$handle}", '' );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'cbox_jqueryui_hotfix', 20 );
 
