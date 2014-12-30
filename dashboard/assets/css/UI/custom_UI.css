@@ -115,11 +115,12 @@ text-decoration: none;
 ----------------------------------*/
 /* Overlays */
 .ui-widget-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 100;
 }
 /*
  * jQuery UI CSS Framework 1.8.7
@@ -886,6 +887,7 @@ button.ui-button::-moz-focus-inner {
     padding: 0;
     width: 300px;
     overflow: hidden;
+    z-index: 1000;
 }
 .ui-dialog {
     -webkit-box-shadow: 0 2px 12px rgba(0,0,0,0.6);
@@ -910,15 +912,21 @@ button.ui-button::-moz-focus-inner {
     position: absolute;
     right: .8em;
     top: 55%;
-    width: 16px;
+    width: 18px;
     margin: -10px 0 0 0;
     padding: 0;
-    height: 16px;
+    height: 18px;
 }
 .ui-dialog .ui-dialog-titlebar-close span {
     display: block;
-    margin: 1px;
+    padding: 0;
+	margin: 1px;
     background: url(images/icon_sprite.png) 0 -16px no-repeat;
+    line-height: 1.2;
+}
+.ui-dialog .ui-dialog-titlebar-close span.ui-icon {
+	top: 0;
+	left: 0;
 }
 .ui-dialog .ui-dialog-titlebar-close:hover span { background-position: -16px -16px }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {
@@ -1361,4 +1369,4 @@ label, legend {
     font-size: 13px;
 }
 select { width: 220px }
-input[type="checkbox"] { display: inline }
+input[type="checkbox"] { display: inline-block }
