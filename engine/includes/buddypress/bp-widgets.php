@@ -31,7 +31,7 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$real_max = $instance['max_posts'] * 10;
 		$counter = 0;
 
-		if ( bp_has_activities( 'action=new_blog_post&max=' . $real_max . '&per_page=' . $real_max ) ) : ?>
+		if ( bp_has_activities( 'action=new_blog_post,new_groupblog_post&max=' . $real_max . '&per_page=' . $real_max ) ) : ?>
 
 			<ul id="blog-post-list" class="activity-list item-list">
 
