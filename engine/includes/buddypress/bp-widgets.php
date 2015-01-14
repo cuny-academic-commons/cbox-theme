@@ -34,7 +34,7 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$query_string = empty( $instance['include_groupblog'] ) ? 'action=new_blog_post' : 'action=new_blog_post,new_groupblog_post';  
 		$query_string .= '&max=' . $real_max . '&per_page=' . $real_max;  
 
-		if ( bp_has_activities( $query_string_a . $query_string_b ) ) : ?>
+		if ( bp_has_activities( $query_string ) ) : ?>
 
 			<ul id="blog-post-list" class="activity-list item-list">
 
