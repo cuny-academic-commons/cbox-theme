@@ -31,8 +31,8 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$real_max = $instance['max_posts'] * 10;
 		$counter = 0;
 
-		$query_string_a = empty( $instance['include_groupblog'] ) ? 'action=new_blog_post' : 'action=new_blog_post,new_groupblog_post';  
-		$query_string_b = '&max=' . $real_max . '&per_page=' . $real_max;  
+		$query_string = empty( $instance['include_groupblog'] ) ? 'action=new_blog_post' : 'action=new_blog_post,new_groupblog_post';  
+		$query_string .= '&max=' . $real_max . '&per_page=' . $real_max;  
 
 		if ( bp_has_activities( $query_string_a . $query_string_b ) ) : ?>
 
@@ -107,7 +107,9 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 
 		<p><label for="<?php echo $this->get_field_name( 'link_title' ) ?>"><input type="checkbox" name="<?php echo $this->get_field_name( 'link_title' ) ?>" value="1" <?php checked( $link_title ) ?> /> <?php _e( 'Link widget title to Blogs directory', 'cbox-theme' ) ?></label></p>
 
-		<p><label for="<?php echo $this->get_field_name( 'include_groupblog' ) ?>"><input type="checkbox" name="<?php echo $this->get_field_name( 'include_groupblog' ) ?>" value="1" <?php checked( $include_groupblog ) ?> /> <?php _e( 'Include groupblog posts', 'cbox-theme' ) ?></label></p>
+		<?php if ( is_multisite() && bp_is_active( 'groups' ) && defined( 'BP_GROUPBLOG_IS_INSTALLED' ) ) : ?> 
+			<p><label for="<?php echo $this->get_field_name( 'include_groupblog' ) ?>"><input type="checkbox" name="<?php echo $this->get_field_name( 'include_groupblog' ) ?>" value="1" <?php checked( $include_groupblog ) ?> /> <?php _e( 'Include groupblog posts', 'cbox-theme' ) ?></label></p>
+		<?php endif; ?> 
 
 		<p><label for="<?php echo $this->get_field_id( 'max_posts' ) ?>"><?php _e('Max posts to show:', 'buddypress'); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'max_posts' ); ?>" name="<?php echo $this->get_field_name( 'max_posts' ); ?>" type="text" value="<?php echo esc_attr( $max_posts ); ?>" style="width: 30%" /></label></p>
 
