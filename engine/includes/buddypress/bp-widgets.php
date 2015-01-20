@@ -31,7 +31,10 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$real_max = $instance['max_posts'] * 10;
 		$counter = 0;
 
-		if ( bp_has_activities( 'action=new_blog_post&max=' . $real_max . '&per_page=' . $real_max ) ) : ?>
+		$query_string = empty( $instance['include_groupblog'] ) ? 'action=new_blog_post' : 'action=new_blog_post,new_groupblog_post';  
+		$query_string .= '&max=' . $real_max . '&per_page=' . $real_max;  
+
+		if ( bp_has_activities( $query_string ) ) : ?>
 
 			<ul id="blog-post-list" class="activity-list item-list">
 
@@ -82,6 +85,7 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$instance['max_posts']  = strip_tags( $new_instance['max_posts'] );
 		$instance['title']      = strip_tags( $new_instance['title'] );
 		$instance['link_title'] = empty( $new_instance['link_title'] ) ? '0' : '1';
+		$instance['include_groupblog'] = empty( $new_instance['include_groupblog'] ) ? '0' : '1';
 
 		return $instance;
 	}
@@ -95,12 +99,17 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$max_posts  = strip_tags( $instance['max_posts'] );
 		$title      = strip_tags( $instance['title'] );
 		$link_title = (bool) $instance['link_title'];
+		$include_groupblog = (bool) $instance['include_groupblog'];
 
 		?>
 
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e('Title: ', 'cbox-theme'); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" style="width: 90%" /></label></p>
 
 		<p><label for="<?php echo $this->get_field_name( 'link_title' ) ?>"><input type="checkbox" name="<?php echo $this->get_field_name( 'link_title' ) ?>" value="1" <?php checked( $link_title ) ?> /> <?php _e( 'Link widget title to Blogs directory', 'cbox-theme' ) ?></label></p>
+
+		<?php if ( is_multisite() && bp_is_active( 'groups' ) && defined( 'BP_GROUPBLOG_IS_INSTALLED' ) ) : ?> 
+			<p><label for="<?php echo $this->get_field_name( 'include_groupblog' ) ?>"><input type="checkbox" name="<?php echo $this->get_field_name( 'include_groupblog' ) ?>" value="1" <?php checked( $include_groupblog ) ?> /> <?php _e( 'Include groupblog posts', 'cbox-theme' ) ?></label></p>
+		<?php endif; ?> 
 
 		<p><label for="<?php echo $this->get_field_id( 'max_posts' ) ?>"><?php _e('Max posts to show:', 'buddypress'); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'max_posts' ); ?>" name="<?php echo $this->get_field_name( 'max_posts' ); ?>" type="text" value="<?php echo esc_attr( $max_posts ); ?>" style="width: 30%" /></label></p>
 
