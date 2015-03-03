@@ -211,7 +211,7 @@ function cbox_theme_flex_slider_script()
 					mode: 'fade',
 					video: true,
 	  				useCSS: false,
-	  				controls: false,
+	  				controls: <?php echo apply_filters( 'cbox_flex_slider_controls', false ); ?>,
 	  				pause : <?php echo infinity_option_get( 'cbox_flex_slider_time' ); ?>000,
 	  				speed: <?php echo infinity_option_get( 'cbox_flex_slider_transition' ); ?>
 				});
