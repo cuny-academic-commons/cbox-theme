@@ -203,11 +203,10 @@ function cbox_theme_flex_slider_script()
 	if ( is_page_template('templates/homepage-template.php') ) {
 		// render script tag ?>
 		<script type="text/javascript">
+			var cbox_slider;
 			jQuery(document).ready(function(){
-
-				jQuery('.slides').bxSlider({
+				cbox_slider = jQuery('.slides').bxSlider({
 					adaptiveHeight: true,
-					auto: true,
 	  				autoHover: true,
 					mode: 'fade',
 					video: true,
@@ -217,6 +216,7 @@ function cbox_theme_flex_slider_script()
 	  				speed: <?php echo infinity_option_get( 'cbox_flex_slider_transition' ); ?>
 				});
 
+				cbox_slider.startAuto();
 			});
 		</script><?php
 	}
