@@ -205,10 +205,8 @@ function cbox_theme_flex_slider_script()
 		<script type="text/javascript">
 			var cbox_slider;
 			jQuery(document).ready(function(){
-
 				cbox_slider = jQuery('.slides').bxSlider({
 					adaptiveHeight: true,
-					//auto: true,
 	  				autoHover: true,
 					mode: 'fade',
 					video: true,
@@ -219,7 +217,6 @@ function cbox_theme_flex_slider_script()
 				});
 
 				cbox_slider.startAuto();
-
 			});
 		</script><?php
 	}
