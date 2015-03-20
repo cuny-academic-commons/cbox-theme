@@ -222,16 +222,18 @@
           currentParentHeight = $('#' + parentElementID).outerHeight(),
           currentTipHeight = $('#joyRidePopup' + prevCount).outerHeight(),
           nubHeight = Math.ceil($('.joyride-nub').outerHeight() / 2);
-          if (settings.tipLocation == "bottom") {
-            $('#joyRidePopup' + prevCount).offset({top: (currentTipPosition.top + currentParentHeight + nubHeight),
-              left: currentTipPosition.left});
-          } else if (settings.tipLocation == "top") {
-            if (currentTipPosition.top <= currentTipHeight) {
-              $('#joyRidePopup' + prevCount).offset({top: (currentTipPosition.top + nubHeight + currentParentHeight),
+          if ( $('#joyRidePopup' + prevCount).length !== 0 ) {
+            if (settings.tipLocation == "bottom") {
+              $('#joyRidePopup' + prevCount).offset({top: (currentTipPosition.top + currentParentHeight + nubHeight),
                 left: currentTipPosition.left});
-            } else {
-              $('#joyRidePopup' + prevCount).offset({top: ((currentTipPosition.top) - (currentTipHeight  + nubHeight)),
-                left: currentTipPosition.left});
+            } else if (settings.tipLocation == "top") {
+              if (currentTipPosition.top <= currentTipHeight) {
+                $('#joyRidePopup' + prevCount).offset({top: (currentTipPosition.top + nubHeight + currentParentHeight),
+                  left: currentTipPosition.left});
+              } else {
+                $('#joyRidePopup' + prevCount).offset({top: ((currentTipPosition.top) - (currentTipHeight  + nubHeight)),
+                  left: currentTipPosition.left});
+              }
             }
           }
         });
