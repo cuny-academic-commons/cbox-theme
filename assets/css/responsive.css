@@ -80,8 +80,6 @@ body { min-width: inherit }
 
 	.post-category, .time-posted {display: none}
 
-	#wpadminbar{ display: none }
-
 	div#content .padder {
 		margin-right: 0;
 		width: auto;
@@ -114,6 +112,8 @@ body { min-width: inherit }
 		top: 1px;
 		height: 50px;
 	}
+
+	body.admin-bar-showing .mobile-menu-container {top:44px;}
 
 	.mobile-menu-container select {
 		box-shadow: none;
@@ -290,5 +290,15 @@ body { min-width: inherit }
 		width: 100%;
 		padding-left: 0px;
 		padding-right: 0px;
+	}
+}
+
+/* Mobile Menu */
+@media only screen and (max-width: 600px) {
+	.mobile-menu-container {position:relative;}
+
+	body.admin-bar-showing .mobile-menu-container {
+		top:-25px;
+		margin-bottom: -1em;
 	}
 }
