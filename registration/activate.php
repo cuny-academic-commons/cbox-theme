@@ -22,7 +22,7 @@
 				<?php if ( isset( $_GET['e'] ) ) : ?>
 					<p><?php _e( 'Your account was activated successfully! Your account details have been sent to you in a separate email.', 'buddypress' ); ?></p>
 				<?php else : ?>
-					<p><?php _e( 'Your account was activated successfully! You can now log in with the username and password you provided when you signed up.', 'buddypress' ); ?></p>
+					<p><?php printf( __( 'Your account was activated successfully! You can now <a href="%s">log in</a> with the username and password you provided when you signed up.', 'buddypress' ), wp_login_url( bp_get_root_domain() ) ); ?></p>
 				<?php endif; ?>
 
 			<?php else : ?>
@@ -35,7 +35,7 @@
 					<input type="text" name="key" id="key" value="" />
 
 					<p class="submit">
-						<input type="submit" name="submit" value="<?php _e( 'Activate', 'buddypress' ); ?>" />
+						<input type="submit" name="submit" value="<?php esc_attr_e( 'Activate', 'buddypress' ); ?>" />
 					</p>
 
 				</form>
