@@ -201,20 +201,38 @@ add_action('manage_features_posts_custom_column', 'cbox_site_features_column_con
 function cbox_theme_flex_slider_script()
 {
 	if ( is_page_template('templates/homepage-template.php') ) {
+		// build filtered options array
+		$options = apply_filters( 'cbox_flex_slider_controls', array(
+			'adaptiveHeight' => true,
+			'autoHover' => true,
+			'mode' => 'fade',
+			'video' => true,
+			'useCSS' => false,
+			'controls' => false,
+			'pause' => ( infinity_option_get( 'cbox_flex_slider_time' ) * 1000 ),
+			'speed' => infinity_option_get( 'cbox_flex_slider_transition' ),
+		) );
+
 		// render script tag ?>
 		<script type="text/javascript">
 			var cbox_slider;
 			jQuery(document).ready(function(){
 				cbox_slider = jQuery('.slides').bxSlider({
-					adaptiveHeight: true,
-	  				autoHover: true,
-					mode: 'fade',
-					video: true,
-	  				useCSS: false,
-	  				controls: false,
-	  				pause : <?php echo infinity_option_get( 'cbox_flex_slider_time' ); ?>000,
-	  				speed: <?php echo infinity_option_get( 'cbox_flex_slider_transition' ); ?>
-				});
+					<?php
+
+					// this format maintains the output layout as best it can
+					foreach( $options AS $option => $value ) {
+
+						// print quote marks around vars unless numeric or boolean
+						$quote = '"';
+						if ( is_bool( $value ) || is_numeric( $value ) ) $quote = '';
+
+						// format booleans
+						if ( $value === true ) $value = 'true';
+						if ( $value === false ) $value = 'false';
+
+						echo $option ?>: <?php echo $quote; ?><?php echo $value; ?><?php echo $quote; ?>,
+					<?php } ?>});
 
 				cbox_slider.startAuto();
 			});
