@@ -2,7 +2,7 @@
 
 class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 	function __construct() {
-		parent::WP_Widget( false, $name = __( 'Recent Networkwide Blog Posts', 'cbox-theme' ) );
+		parent::__construct( false, $name = __( 'Recent Networkwide Blog Posts', 'cbox-theme' ) );
 	}
 
 	function widget($args, $instance) {
