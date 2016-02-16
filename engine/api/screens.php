@@ -34,7 +34,7 @@ class Infinity_Screens_Policy extends ICE_Screen_Policy
 	/**
 	 * @return ICE_Screen_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

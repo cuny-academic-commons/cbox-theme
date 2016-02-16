@@ -24,7 +24,7 @@ class Infinity_Widgets_Policy extends ICE_Widget_Policy
 	/**
 	 * @return ICE_Widget_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

@@ -62,7 +62,7 @@ final class ICE_File_Cache extends ICE_Map
 	 * @param boolean $force If true, overwrite existing data
 	 * @return ICE_File The fstat instance for the filename
 	 */
-	public function add( $filename, $force = false )
+	public function add( $filename, $force = false, $prepend = false )
 	{
 		// get the hash
 		$hash = $this->hash( $filename );

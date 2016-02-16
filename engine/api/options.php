@@ -24,7 +24,7 @@ class Infinity_Options_Policy extends ICE_Option_Policy
 	/**
 	 * @return ICE_Option_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

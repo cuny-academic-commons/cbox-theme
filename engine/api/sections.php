@@ -24,7 +24,7 @@ class Infinity_Sections_Policy extends ICE_Section_Policy
 	/**
 	 * @return ICE_Section_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

@@ -24,7 +24,7 @@ class Infinity_Shortcodes_Policy extends ICE_Shortcode_Policy
 	/**
 	 * @return ICE_Shortcode_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

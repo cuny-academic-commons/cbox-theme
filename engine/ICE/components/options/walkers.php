@@ -27,7 +27,7 @@ class ICE_Option_Walker_Category extends Walker_Category
 	 * @param int $depth Depth of category in reference to parents.
 	 * @param array $args
 	 */
-	function start_el( &$output, $category, $depth, $args )
+	function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 )
 	{
 		// get option from args
 		$option = $args['ice_option'];
@@ -59,7 +59,7 @@ class ICE_Option_Walker_Category extends Walker_Category
 	 * @param int $depth Depth of category. Not used.
 	 * @param array $args Only uses 'list' for whether should append to output.
 	 */
-	function end_el(&$output, $page, $depth, $args) {
+	function end_el( &$output, $page, $depth = 0, $args = array() ) {
 		$output .= PHP_EOL;
 	}
 }
@@ -82,7 +82,7 @@ class ICE_Option_Walker_Page extends Walker_Page
 	 * @param int $current_page Page ID.
 	 * @param array $args
 	 */
-	function start_el(&$output, $page, $depth, $args, $current_page)
+	function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 )
 	{
 		// get option from args
 		$option = $args['ice_option'];
@@ -113,7 +113,7 @@ class ICE_Option_Walker_Page extends Walker_Page
 	 * @param object $page Page data object. Not used.
 	 * @param int $depth Depth of page. Not Used.
 	 */
-	function end_el(&$output, $page, $depth) {
+	function end_el( &$output, $page, $depth = 0, $args = array() ) {
 		$output .= PHP_EOL;
 	}
 }

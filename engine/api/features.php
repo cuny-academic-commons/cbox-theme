@@ -24,7 +24,7 @@ class Infinity_Features_Policy extends ICE_Feature_Policy
 	/**
 	 * @return ICE_Feature_Policy
 	 */
-	static public function instance()
+	static public function instance( $class = null )
 	{
 		self::$calling_class = __CLASS__;
 		return parent::instance();

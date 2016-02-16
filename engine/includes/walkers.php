@@ -29,7 +29,7 @@ class Infinity_Base_Walker_Nav_Menu extends Walker_Nav_Menu
 	 * @param int $depth Depth of menu item. Used for padding.
 	 * @param object $args
 	 */
-	function start_el(&$output, $item, $depth, $args)
+	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 )
 	{
 		// get item classes
 		$item_classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -66,7 +66,7 @@ class Infinity_Base_Walker_Nav_Menu extends Walker_Nav_Menu
 	 * @param object $item Page data object. Not used.
 	 * @param int $depth Depth of page. Not Used.
 	 */
-	function end_el( &$output, $item, $depth )
+	function end_el( &$output, $item, $depth = 0, $args = array() )
 	{
 		// close link item
 		$output .= '</li>' . PHP_EOL;
@@ -93,7 +93,7 @@ class Infinity_Base_Walker_Page_Menu extends Walker_Page
 	 * @param array $args
 	 * @param int $current_page Page ID.
 	 */
-	function start_el(&$output, $page, $depth, $args, $current_page)
+	function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 )
 	{
 		// need the menu item classes
 		$classes[] = 'menu-item';
@@ -124,7 +124,7 @@ class Infinity_Base_Walker_Page_Menu extends Walker_Page
 	 * @param object $page Page data object. Not used.
 	 * @param int $depth Depth of page. Not Used.
 	 */
-	function end_el( &$output, $page, $depth )
+	function end_el( &$output, $page, $depth = 0, $args = array() )
 	{
 		// close link item
 		$output .= '</li>' . PHP_EOL;

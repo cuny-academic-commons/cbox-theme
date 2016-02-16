@@ -424,7 +424,7 @@ class ICE_Posts_List extends WP_Posts_List_Table
 	 * @param stdClass $a_post
 	 * @return boolean
 	 */
-	function single_row( $a_post )
+	function single_row( $a_post, $level = 0 )
 	{
 		global $post, $post_type;
 
