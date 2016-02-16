@@ -29,7 +29,7 @@ class Infinity_Widgets_Policy extends ICE_Widget_Policy
 		self::$calling_class = __CLASS__;
 		return parent::instance();
 	}
-	
+
 	/**
 	 * @return Infinity_Widgets_Registry
 	 */

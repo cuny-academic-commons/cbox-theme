@@ -29,7 +29,7 @@ class Infinity_Shortcodes_Policy extends ICE_Shortcode_Policy
 		self::$calling_class = __CLASS__;
 		return parent::instance();
 	}
-	
+
 	/**
 	 * @return Infinity_Shortcodes_Registry
 	 */

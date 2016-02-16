@@ -31,7 +31,7 @@ class ICE_Option_Walker_Category extends Walker_Category
 	{
 		// get option from args
 		$option = $args['ice_option'];
-		
+
 		// selected values
 		$selected = $option->get();
 

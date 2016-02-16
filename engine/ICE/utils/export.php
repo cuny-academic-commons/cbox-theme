@@ -72,8 +72,8 @@ class ICE_Export extends ICE_Base
 
 	/**
 	 * Name of the file (without extension)
-	 * 
-	 * @var string 
+	 *
+	 * @var string
 	 */
 	private $name;
 
@@ -210,7 +210,7 @@ class ICE_Export extends ICE_Base
 			// push onto children stack
 			$this->children[ $name ] = $child;
 		}
-		
+
 		// return the child object
 		return $this->children[ $name ];
 	}
@@ -367,7 +367,7 @@ class ICE_Export extends ICE_Base
 			// yes, update it
 			return $this->update();
 		}
-		
+
 		// did NOT refresh
 		return false;
 	}
@@ -395,7 +395,7 @@ class ICE_Export_Manager
 {
 	/**
 	 * Array of export objects being managed
-	 * 
+	 *
 	 * @var array
 	 */
 	private $exports = array();

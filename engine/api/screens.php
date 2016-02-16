@@ -39,7 +39,7 @@ class Infinity_Screens_Policy extends ICE_Screen_Policy
 		self::$calling_class = __CLASS__;
 		return parent::instance();
 	}
-	
+
 	/**
 	 * @return Infinity_Screens_Registry
 	 */

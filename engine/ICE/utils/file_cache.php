@@ -51,7 +51,7 @@ final class ICE_File_Cache extends ICE_Map
 			$this->last_hash_file = $filename;
 			$this->last_hash_md5 = md5( $filename );
 		}
-		
+
 		return $this->last_hash_md5;
 	}
 

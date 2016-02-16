@@ -70,7 +70,7 @@ class Infinity_Base_Walker_Nav_Menu extends Walker_Nav_Menu
 	{
 		// close link item
 		$output .= '</li>' . PHP_EOL;
-		
+
 	}
 }
 
@@ -128,7 +128,7 @@ class Infinity_Base_Walker_Page_Menu extends Walker_Page
 	{
 		// close link item
 		$output .= '</li>' . PHP_EOL;
-		
+
 		// add menu divider to first level
 		if ( $depth < 1 ) {
 			$output .= '<li class="menu-divider"></li>' . PHP_EOL;

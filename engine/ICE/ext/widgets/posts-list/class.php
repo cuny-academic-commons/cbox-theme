@@ -38,7 +38,7 @@ class ICE_Ext_Widget_Posts_List
 				return parent::get_property( $name );
 		}
 	}
-	
+
 	/**
 	 */
 	protected function init()
@@ -263,10 +263,10 @@ class ICE_Posts_List extends WP_Posts_List_Table
 	 * @var stdClass
 	 */
 	private $post;
-	
+
 	/**
 	 * The post type of the list of posts
-	 * 
+	 *
 	 * @var string
 	 */
 	private $post_type;
@@ -446,7 +446,7 @@ class ICE_Posts_List extends WP_Posts_List_Table
 		}
 
 		$post = $global_post;
-		
+
 		return;
 	}
 
@@ -492,7 +492,7 @@ class ICE_Posts_List extends WP_Posts_List_Table
 					<span><?php _e( 'Trashed' ) ?></span><?php
 					break;
 			}
-		
+
 			// render current status hint and close container ?>
 			<input type="hidden" value="<?php print $post_status ?>" />
 		</span><?php

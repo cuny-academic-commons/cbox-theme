@@ -44,7 +44,7 @@ class ICE_Style extends ICE_Asset
 
 	/**
 	 * Add/get a rule for a selector
-	 * 
+	 *
 	 * @param string $selector CSS selector to affect
 	 * @return ICE_Style_Rule
 	 */
@@ -127,7 +127,7 @@ class ICE_Style extends ICE_Asset
 					// done with less
 					break;
 			}
-			
+
 			// replace all CSS url() values
 			return preg_replace_callback( '/url\s*\([\'\"\s]*([^\'\"\s]*)[\'\"\s]*\)/', array($this, 'fix_url_path'), $content );
 		}
@@ -319,7 +319,7 @@ abstract class ICE_Style_Unit extends ICE_Base
 	public function set( $unit )
 	{
 		$unit = (string) $unit;
-		
+
 		if ( $this->validate( $unit ) ) {
 			$this->value = $unit;
 			return true;
@@ -380,7 +380,7 @@ class ICE_Style_Unit_Length extends ICE_Style_Unit
 
 /**
  * A style value percentage unit of measure
- * 
+ *
  * @package ICE
  * @subpackage dom
  */
@@ -476,7 +476,7 @@ abstract class ICE_Style_Value
 		// invalid value
 		return false;
 	}
-	
+
 	/**
 	 * Set the value and unit for this value container
 	 *
@@ -594,7 +594,7 @@ class ICE_Style_Value_String extends ICE_Style_Value
 
 /**
  * A style color value
- * 
+ *
  * @package ICE
  * @subpackage dom
  */
@@ -833,20 +833,20 @@ abstract class ICE_Style_Property extends ICE_Base
 
 	/**
 	 * Set the value for this property
-	 * 
+	 *
 	 * @param mixed $value The value to set
 	 * @param string $unit The unit for the value (not supported by every property)
 	 * @return boolean
 	 */
 	abstract public function set_value( $value, $unit = null );
-	
+
 	/**
 	 * Get the style unit object which is set for the current style value object
-	 * 
+	 *
 	 * @return string
 	 */
 	abstract public function get_unit();
-	
+
 	/**
 	 * Set the unit for the style unit object which is set for the current style value object
 	 *
@@ -866,7 +866,7 @@ abstract class ICE_Style_Property extends ICE_Base
 
 /**
  * A simple style property which has a single value
- * 
+ *
  * @package ICE
  * @subpackage dom
  */
@@ -1165,7 +1165,7 @@ final class ICE_Style_Property_Composite extends ICE_Style_Property
 				);
 			}
 		}
-		
+
 		return true;
 	}
 
@@ -1258,7 +1258,7 @@ final class ICE_Style_Property_Factory extends ICE_Base
 		if ( !self::$instance instanceof self ) {
 			self::$instance = new self();
 		}
-		
+
 		return self::$instance;
 	}
 
@@ -1348,7 +1348,7 @@ final class ICE_Style_Property_Factory extends ICE_Base
 				->add_enum( 'inset', __( 'Inset', infinity_text_domain ) )
 				->add_enum( 'outset', __( 'Outset', infinity_text_domain ) );
 	}
-	
+
 	/**
 	 * Return a new border-width property object
 	 *
@@ -1474,7 +1474,7 @@ final class ICE_Style_Property_Factory extends ICE_Base
 
 	/**
 	 * Return a new margin-top property object
-	 * 
+	 *
 	 * @return ICE_Style_Property
 	 */
 	protected function prop_margin_top()
@@ -1511,7 +1511,7 @@ final class ICE_Style_Property_Factory extends ICE_Base
 	{
 		return $this->prop_margin( 'margin-left' );
 	}
-	
+
 	/**
 	 * Return a new max length property object
 	 *

@@ -57,7 +57,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 
 	/**
 	 * The scheme instance which owns this instance
-	 * 
+	 *
 	 * @var ICE_Scheme
 	 */
 	private $scheme;
@@ -130,7 +130,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 
 		// register styles
 		add_action( 'ice_register_styles', array( $this, 'register_styles' ) );
-		
+
 		// init scripts map
 		$this->scripts = new ICE_Map();
 
@@ -145,7 +145,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 
 		// init internal scripts
 		$this->setup_internal_scripts( $script_defs_w );
-		
+
 		// define scripts
 		$this->define_scripts( $script_defs_w );
 
@@ -176,7 +176,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 	{
 		// get custom ui stylesheet directive
 		$ui_stylesheet = $this->scheme->directives()->get( ICE_Scheme::DIRECTIVE_UI_STYLESHEET );
-		
+
 		// custom ui stylesheet set?
 		if ( $ui_stylesheet instanceof ICE_Init_Directive ) {
 			ICE_Enqueue::instance()->ui_stylesheet(
@@ -205,7 +205,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 		} else {
 			$exports['dynamic'] = $export_styles;
 		}
-		
+
 		// add internal style for every export
 		foreach( $exports as $handle => $export ) {
 			$styles->add( $handle, $export->get_property( 'url' ) );
@@ -362,7 +362,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 	{
 		// loop through and update triggers map with deps
 		foreach ( $directive_map as $theme => $directive ) {
-			
+
 			// get directive value
 			$value = $directive->get_value();
 
@@ -475,7 +475,7 @@ class ICE_Scheme_Enqueue extends ICE_Base
 								$map->item_at($handle)->item_at(self::TRIGGER_PARAMS)->copy_from($action_params);
 							}
 						}
-						
+
 						// is this an actions trigger type?
 						if ( $trigger_type == self::TRIGGER_ACTS ) {
 							// yes, hook it to action handler

@@ -29,14 +29,14 @@ class ICE_Map
 {
 	/**
 	 * Internal data storage.
-	 * 
+	 *
 	 * @var array
 	 */
 	private $__data__ = array();
 
 	/**
 	 * Whether this list is read-only.
-	 * 
+	 *
 	 * @var boolean
 	 */
 	private $__read_only__ = false;

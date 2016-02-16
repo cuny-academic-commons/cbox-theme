@@ -29,7 +29,7 @@ class Infinity_Options_Policy extends ICE_Option_Policy
 		self::$calling_class = __CLASS__;
 		return parent::instance();
 	}
-	
+
 	/**
 	 * @return Infinity_Options_Registry
 	 */
@@ -136,7 +136,7 @@ class Infinity_Options_Renderer extends ICE_Option_Renderer
 		if ( $this->do_save_single_button() ) {
 			$this->render_save_one();
 		}
-		
+
 		$this->render_reset_one();
 	}
 
@@ -181,7 +181,7 @@ function infinity_options_init()
 
 	// enable component
 	ICE_Scheme::instance()->enable_component( $options_policy );
-	
+
 	do_action( 'infinity_options_init' );
 }
 
@@ -302,7 +302,7 @@ function infinity_option_render_begin( $option_name )
 			$option_name, $infinity_246f86b591->property( 'name' )
 		);
 	}
-	
+
 	// fetch it
 	$infinity_246f86b591 = infinity_option_fetch($option_name)->render_bypass();
 
@@ -467,7 +467,7 @@ function infinity_options_render_menu_section( ICE_Section $section )
 	// get registries for this theme
 	$sections_registry = Infinity_Sections_Policy::instance()->registry();
 	$options_registry = Infinity_Options_Policy::instance()->registry();
-	
+
 	// get children of this section
 	$children = $sections_registry->get_children( $section );
 
@@ -517,7 +517,7 @@ function infinity_options_render_options_screen()
 {
 	// section
 	$load_section = null;
-	
+
 	if ( !empty($_POST['load_section']) ) {
 		$load_section = $_POST['load_section'];
 	} else {
