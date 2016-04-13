@@ -1,7 +1,6 @@
-
 <div id="profile-sidebar">
 	<div id="item-header-avatar">
-		<a href="<?php bp_user_link(); ?>"><?php bp_displayed_user_avatar( 'type=full' ); ?></a>
+		<a href="<?php echo esc_url( bp_get_displayed_user_link() ); ?>"><?php bp_displayed_user_avatar( 'type=full' ); ?></a>
 	</div><!-- #item-header-avatar -->
 
 	<div id="item-buttons">
@@ -10,7 +9,7 @@
 
 	<?php /* Show Quick Menu for own Profile page */ if ( bp_is_my_profile() ) : ?>
 	<div id="profile-nav-menu">
-		<?php $userLink = bp_get_loggedin_user_link();?>
+		<?php $userLink = esc_url( bp_get_loggedin_user_link() ); ?>
 		<ul>
 			<li id="edit-profile">
 				<a class="button edit-profile-button" href="<?php echo $userLink; ?>profile/edit"><?php _e( 'Edit My Profile', 'buddypress' ); ?></a>
