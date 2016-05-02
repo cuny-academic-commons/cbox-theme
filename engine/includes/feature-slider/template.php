@@ -83,7 +83,7 @@ if( $slider_query->have_posts() ) :
 		$hide_caption = get_post_meta( $post->ID, '_cbox_hide_caption', true );
 		if ( ! $hide_caption ) { $hide_caption = "no"; }
 
-		$slider_excerpt = wpautop( get_post_meta( get_the_ID(), $prefix . '_cbox_slider_excerpt', true ) );
+		$slider_excerpt = wpautop( get_post_meta( get_the_ID(), '_cbox_slider_excerpt', true ) );
 		if ( empty( $slider_excerpt ) ) {
 			$slider_excerpt = apply_filters( 'the_content', cbox_create_excerpt( get_the_content() ) );
 		}
@@ -117,7 +117,7 @@ if( $slider_query->have_posts() ) :
 		</li>
 	<?php elseif ( $video_value == "yes" ): /* Display a video if one has been set */ ?>
 		<li class="slide-video-embed">
-			<?php echo apply_filters( 'the_content', get_post_meta( get_the_ID(), $prefix . '_cbox_video_url', true ) ); ?>
+			<?php echo apply_filters( 'the_content', get_post_meta( get_the_ID(), '_cbox_video_url', true ) ); ?>
 		</li>
 	<?php /* Fallback to default slide if no features are present */ else :?>
 
