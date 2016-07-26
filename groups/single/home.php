@@ -60,6 +60,9 @@
 						// Old group forums
 						elseif ( bp_is_group_forum()      ) : locate_template( array( 'groups/single/forum.php'        ), true );
 
+						// Membership request
+						elseif ( bp_is_group_membership_request() ) : locate_template( array( 'groups/single/request-membership.php' ), true );
+
 						// Anything else (plugins mostly)
 						else                                : locate_template( array( 'groups/single/plugins.php'      ), true );
 
