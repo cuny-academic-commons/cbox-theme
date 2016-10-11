@@ -32,7 +32,8 @@ function infinity_dashboard_cpanel_action()
 		if ( $route['action'] ) {
 			return $route['action'];
 		} else {
-			return array_shift( infinity_dashboard_cpanel_actions() );
+			$actions = infinity_dashboard_cpanel_actions();
+			return array_shift( $actions );
 		}
 	}
 
