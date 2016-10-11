@@ -369,7 +369,7 @@ final class ICE_Loader extends ICE_Base
 	 *
 	 * @param string $file,... An unlimited number of files to load
 	 */
-	public function load_wpadmin_lib()
+	public static function load_wpadmin_lib()
 	{
 		foreach( func_get_args() as $file ) {
 			require_once ABSPATH . 'wp-admin/includes/' . $file . '.php';

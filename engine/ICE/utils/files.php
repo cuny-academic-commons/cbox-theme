@@ -286,7 +286,7 @@ final class ICE_Files extends ICE_Base
 	 * @param boolean $absolute Set to true to return abolute path to file
 	 * @return array
 	 */
-	public function list_filtered( $dir, $regex, $absolute = false )
+	public static function list_filtered( $dir, $regex, $absolute = false )
 	{
 		// does the directory exist?
 		if ( is_dir( $dir ) ) {
