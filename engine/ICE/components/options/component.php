@@ -549,7 +549,7 @@ abstract class ICE_Option extends ICE_Component
 		// handle body selectors
 		if ( preg_match( '/^(body[^:]*)(:[\w-]+)?/', $this->style_selector, $matches ) ) {
 			// its a body selector, append it
-			return sprintf( '%s.%s%s', $matches[1], $class, $matches[2] );
+			return sprintf( '%s.%s%s', $matches[1], $class, isset( $matches[2] ) ? $matches[2] : '' );
 		} else {
 			// not a body selector, prepend it
 			return sprintf( 'body.%s %s', $class, $this->style_selector );
