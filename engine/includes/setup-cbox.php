@@ -1,6 +1,54 @@
 <?php
 
 /**
+ * Suppress notices created by CBOX Theme.
+ *
+ * Currently suppresses the 'bp_setup_current_user' and
+ * 'bbp_setup_current_user' notices.
+ *
+ * @param  int    $errno      The error number. See http://php.net/manual/en/errorfunc.constants.php.
+ * @param  string $errstr     The error message.
+ * @param  string $errfile    Path to the file that caused the error.
+ * @param  int    $errline    Line number of the error.
+ * @param  array  $errcontext Array of error data.
+ * @return bool   True to suppress error reporting; false to use default error handler.
+ */
+function cbox_theme_error_handler( $errno, $errstr, $errfile, $errline, $errcontext ) {
+	if ( empty( $errcontext['function'] ) ) {
+		return false;
+	}
+
+	switch ( $errcontext['function'] ) {
+		case 'bp_setup_current_user' :
+			// Suppress cbox-theme.
+			if ( false !== strpos( $errcontext['message'], 'cbox-theme' ) ) {
+				return true;
+			}
+
+			break;
+
+		case 'bbp_setup_current_user' :
+			// Suppress cbox-theme for bbPress 2.6+.
+			if ( false !== strpos( $errcontext['message'], 'cbox-theme' ) ) {
+				return true;
+			}
+
+			// bbPress < 2.6. Sigh.
+			$e = new Exception;
+			$trace = $e->getTraceAsString();
+			if ( false !== strpos( $trace, 'cbox-theme' ) ) {
+				unset( $e, $trace );
+				return true;
+			}
+
+			break;
+	}
+
+	return false;
+}
+set_error_handler( 'cbox_theme_error_handler' );
+
+/**
  * Don't allow WordPress to move widgets over to this theme, as it messes with
  * our own widget setup routine
  */
