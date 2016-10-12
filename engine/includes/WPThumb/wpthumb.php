@@ -203,10 +203,11 @@ class WP_Thumb {
 		elseif ( ( ! $this->file_path ) && $this->args['default'] && file_exists( $this->args['default'] ) )
 			$this->file_path = $this->args['default'];			
 
-        if ( $this->getArg( 'cache_with_query_params' ) )
-            return $this->file_path;
+		if ( $this->getArg( 'cache_with_query_params' ) )
+			return $this->file_path;
 
-        $this->_file_path = reset( explode( '?', $this->file_path ) );
+		$this->_file_path = explode( '?', $this->file_path );
+		$this->_file_path = reset( $this->_file_path );
 
 		return $this->_file_path;
 	}
