@@ -18,6 +18,11 @@ function cbox_theme_error_handler( $errno, $errstr, $errfile, $errline, $errcont
 		return false;
 	}
 
+	// Suppress strict standards notices by cbox-theme.
+	if ( E_STRICT === $errno && false !== strpos( $errfile, 'cbox-theme' ) ) {
+		return true;
+	}
+
 	switch ( $errcontext['function'] ) {
 		case 'bp_setup_current_user' :
 			// Suppress cbox-theme.
