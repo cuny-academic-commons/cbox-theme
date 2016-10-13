@@ -75,10 +75,11 @@ function infinity_register_bp_menu( $menu_name )
  */
 function infinity_bp_nav_inject_options_setup()
 {
-	global $bp;
+	$nav = bp_get_nav_menu_items();
 
-	// loop all nav components
-	foreach ( (array)$bp->bp_nav as $user_nav_item ) {
+	foreach ( $nav as $user_nav_item ) {
+		$user_nav_item = (array) $user_nav_item;
+
 		// add navigation filter
 		add_filter(
 			'bp_get_displayed_user_nav_' . $user_nav_item['css_id'],

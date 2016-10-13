@@ -130,8 +130,15 @@ function cbox_theme_remove_user_options_nav() {
 	$bp->cbox_theme = new stdClass;
 	$bp->cbox_theme->removed_nav_items = array();
 
-	// loop all nav components
-	foreach ( (array) $bp->bp_options_nav as $component => $nav_item ) {
+	// BP 2.6+
+	if ( function_exists( 'bp_core_get_directory_page_id' ) ) {
+		$nav = $bp->members->nav->get_secondary( array( 'parent_slug' => bp_current_component() ) );
+	} else {
+		$current_component = bp_current_component();
+		$nav               = $bp->bp_options_nav[ $current_component ];
+	}
+
+	foreach ( $nav as $component => $nav_item ) {
 
 		switch ( $component ) {
 			// remove everything by default
@@ -139,18 +146,12 @@ function cbox_theme_remove_user_options_nav() {
 			// but we probably won't have to do this.
 			default :
 				// get all 'css_id' values as the options nav filter relies on this
-				$options_nav = wp_list_pluck( $nav_item, 'css_id' );
+				$bp->cbox_theme->removed_nav_items[] = $nav_item['css_id'];
 
-				foreach ( $options_nav as $options_nav_item ) {
-					// we're temporarily saving what is removed so we can reinstate it later
-					// @see cbox_theme_reinstate_user_options_nav()
-					$bp->cbox_theme->removed_nav_items[] = $options_nav_item;
-
-					add_filter(
-						'bp_get_options_nav_' . $options_nav_item,
-						'__return_false'
-					);
-				}
+				add_filter(
+					'bp_get_options_nav_' . $nav_item['css_id'],
+					'__return_false'
+				);
 
 				break;
 		}
