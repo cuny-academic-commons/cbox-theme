@@ -105,6 +105,11 @@ function is_not_admin()
  * @return bool
  */
 function cbox_profile_has_multiple_tabs() {
-	global $profile_template;
-	return $profile_template->group_count > 1;
+	$groups = bp_xprofile_get_groups( array(
+		'hide_empty_groups' => true,
+		'fetch_fields' => false,
+		'update_meta_cache' => false,
+	) );
+
+	return count( $groups ) > 1;
 }
