@@ -21,7 +21,7 @@ if ( post_password_required() ) { ?><p class="nocomments"><?php _e('This post is
  * This is where our comments display is generated.
  */
  
- $comments_by_type = &separate_comments( $comments );
+ $comments_by_type = separate_comments( $comments );
  
  // You can start editing here -- including this comment!
  
