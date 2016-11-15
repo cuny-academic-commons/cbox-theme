@@ -5,7 +5,7 @@ WordPress Theme Designer you can quickly modify/add templates, enqueue CSS/JS
 files and roll out custom themes for your clients using pre-made loops and
 template parts without writing any PHP code. 
 
-![Files and Folders](infinity://admin:image/docs/folder-structure.png)
+![Files and Folders](infinity://admin:image/docs/folder_structure.png)
 
 **Blue = Theme Development files**  
 The assets folder contains all the css/js/image files for the Base Theme. The Templates

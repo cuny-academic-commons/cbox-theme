@@ -98,7 +98,7 @@ In this example the standard loop template has been loaded from:
 If you want to customize the loop, all you would need to do is copy over
 this template into your Child Theme folder and customize it as needed.
 
-![Loop Example](infinity://admin:image/docs/loop-example.png)
+![Loop Example](infinity://admin:image/docs/loop_example.png)
 
 ### Using Hooks
 
@@ -123,7 +123,7 @@ The example below shows you how to add some custom content before a single post.
 
 The result:
 
-![Hook Example](infinity://admin:image/docs/hook-example.png)
+![Hook Example](infinity://admin:image/docs/hook_example.png)
 
 > We strongly advise you to always look at the available hooks first before you modify
   any of the templates. By doing this you  'll ensure yourself of the most upgrade-safe
