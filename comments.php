@@ -52,7 +52,8 @@ if ( post_password_required() ) { ?><p class="nocomments"><?php _e('This post is
 		<div class="nav-next fr"><?php next_comments_link( __( 'Newer Comments <span class="meta-nav">&rarr;</span>', infinity_text_domain ) ); ?></div>
 		<div class="fix"></div><!--/.fix-->
 	</div><!-- .navigation -->
-<?php } // End IF Statement
+	<?php } // End pagination IF Statement
+  } // End comment IF Statement
 
 if ( ! empty($comments_by_type['pings']) ) { ?>
  	<h3 id="comments-title"><?php  _e('Trackbacks/Pingbacks', infinity_text_domain); ?></h3>
@@ -67,14 +68,12 @@ if ( ! empty($comments_by_type['pings']) ) { ?>
 			wp_list_comments( array( 'callback' => 'list_pings', 'type' => 'pings' ) );
 		?>
 	</ol>
-<?php }
-
-	} // End have_comments() IF Statement
+<?php } // End pings IF Statement
  
  } else {
 
  
- } // End IF Statement
+ } // End have_comments() IF Statement
  
 ?>
 </div><!--/#comments-->
