@@ -80,14 +80,14 @@ Go through the Template Pack setup as described below.
 
 > This setup screen is found under **Appearance > BP Compatibility** in your WordPress Dashboard
 
-**1. Click on Move Template files**   ![BuddyPress example 1](infinity://admin:image/docs/bp-setup-1.png)
+**1. Click on Move Template files**   ![BuddyPress example 1](infinity://admin:image/docs/bp_setup_1.png)
 
 **2.Click on Move to Step Three**
 
 **3. Skip to the bottom and click Finish!**
 
 **4. Make sure to tick the box next to "Disable Template Pack CSS"**
-   ![BuddyPress Example](infinity://admin:image/docs/bp-setup-2.png)
+   ![BuddyPress Example](infinity://admin:image/docs/bp_setup_2.png)
 
 ###You're done! That's all there is to it.
 
@@ -109,7 +109,7 @@ Go to the Template Pack setup (found under Appearance > BP Compatibility
 
 Press the Reset button under the Reset Setup section at the bottom right of the page.
   
-![BuddyPress Example](infinity://admin:image/docs/bp-setup-3.jpg)  
+![BuddyPress Example](infinity://admin:image/docs/bp_setup_3.jpg)  
 
 #### Step 4:
 

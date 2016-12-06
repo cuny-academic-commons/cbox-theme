@@ -6,8 +6,8 @@ easily position them anywhere you want without having to jump through hoops.
 
 The illustration below gives you a quick overview of the main divs present in the templates. 
 
-<a href="infinity://admin:image/docs/HTML-overview.jpg" target="_blank">
-	<img src="infinity://admin:image/docs/HTML-overview-small.png" style="max-width: 90%;">
+<a href="infinity://admin:image/docs/HTML_overview.jpg" target="_blank">
+	<img src="infinity://admin:image/docs/HTML_overview_small.png" style="max-width: 90%;">
 </a>
 
 > The easiest way to get familiar with the template structure is to simply experiment
