@@ -80,7 +80,7 @@ div.icext-option.icext-colorpicker_launcher {
 #infinity-sidebar {
     padding: 10px;
     padding-left: 20px;
-    background: url("../images/texture.png") #FFF;
+    background: #FFF;
     border-left: 1px solid #DDDDDD;
 }
 .infinity-content { padding-right: 20px }
