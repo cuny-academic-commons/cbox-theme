@@ -83,10 +83,10 @@ if ( !function_exists( 'the_commenter_link' ) ) {
 	{
 		$commenter = get_comment_author_link();
 		
-		if ( ereg( ']* class=[^>]+>', $commenter ) ) {
-			$commenter = ereg_replace( '(]* class=[\'"]?)', '\\1url ' , $commenter );
+		if ( preg_match( '~]* class=[^>]+>~', $commenter ) ) {
+			$commenter = preg_replace( '~(]* class=[\'"]?)~', '\\1url ' , $commenter );
 		} else {
-			$commenter = ereg_replace( '(<a )/', '\\1class="url "' , $commenter );
+			$commenter = preg_replace( '~(\<a )~', '\\1class="url "' , $commenter );
 		}
 
 		print $commenter ;
