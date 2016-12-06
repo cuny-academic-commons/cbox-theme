@@ -8,7 +8,7 @@
  * @subpackage templates
  * @since 1.0
  */
- 
+
  // Do not delete these lines
 if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) { die ( __( 'Please do not load this page directly. Thanks!', infinity_text_domain ) ); }
 
@@ -20,17 +20,17 @@ if ( post_password_required() ) { ?><p class="nocomments"><?php _e('This post is
  *
  * This is where our comments display is generated.
  */
- 
+
  $comments_by_type = separate_comments( $comments );
- 
+
  // You can start editing here -- including this comment!
- 
+
 ?>
 <div id="comments">
 <?php
- 
+
  if ( have_comments() ) {
- 
+
  	if ( ! empty($comments_by_type['comment']) ) { ?>
 		<h3 id="comments-title"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number(), infinity_text_domain ), number_format_i18n( get_comments_number() ), '<em>' . get_the_title() . '</em>' ); ?></h3>
 		<ol class="commentlist">
@@ -72,9 +72,9 @@ if ( post_password_required() ) { ?><p class="nocomments"><?php _e('This post is
 
  } else {
 
- 
+
  } // End have_comments() IF Statement
- 
+
 ?>
 </div><!--/#comments-->
 
