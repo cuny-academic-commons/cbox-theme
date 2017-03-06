@@ -9,13 +9,11 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
 
 		<h4><?php printf( __( "Editing '%s' Profile Group", "buddypress" ), bp_get_the_profile_group_name() ); ?></h4>
 
-		<?php if ( cbox_profile_has_multiple_tabs() ) : ?>
 			<ul class="button-nav">
 
 				<?php bp_profile_group_tabs(); ?>
 
 			</ul>
-		<?php endif; ?>
 
 		<div class="clear"></div>
 
