@@ -75,6 +75,10 @@ function infinity_register_bp_menu( $menu_name )
  */
 function infinity_bp_nav_inject_options_setup()
 {
+	if ( ! bp_displayed_user_id() ) {
+		return;
+	}
+
 	$nav = bp_get_nav_menu_items();
 
 	foreach ( $nav as $user_nav_item ) {
