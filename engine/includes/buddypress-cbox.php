@@ -4,7 +4,7 @@
  */
 
 // abort if bp not active
-if ( false == function_exists( 'bp_is_member' ) ) {
+if ( false == function_exists( 'buddypress' ) ) {
 	// return to calling script
 	return;
 }
