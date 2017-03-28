@@ -1528,8 +1528,11 @@ class Textile
 // -------------------------------------------------------------
 	function footnoteRef($text)
 	{
-		return preg_replace('/(?<=\S)\[([0-9]+)([\!]?)\](\s)?/Ue',
-			'$this->footnoteID(\'\1\',\'\2\',\'\3\')', $text);
+		return preg_replace_callback( '/(?<=\S)\[([0-9]+)([\!]?)\](\s)?/U', array( $this, 'footnoteRefRegexCallback' ), $text );
+	}
+
+	function footnoteRefRegexCallback( $matches ) {
+		return $this->footnoteId( $matches[1], $matches[2], '' );
 	}
 
 // -------------------------------------------------------------
