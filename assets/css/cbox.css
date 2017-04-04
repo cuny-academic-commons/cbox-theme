@@ -371,9 +371,7 @@ ul.profile-subnav li a {
 }
 /* widgets */
 div.item-options {
-	float: right;
 	margin-right: 0px;
-	margin-top: -45px;
 	font-size: 70%;
 }
 /* Registration */
