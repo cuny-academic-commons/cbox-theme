@@ -7,6 +7,13 @@
 
 			<?php do_action( 'bp_members_directory_member_sub_types' ); ?>
 
+			<?php if ( is_user_logged_in() ) : ?>
+
+				<li class="groups-members-search last" role="search">
+					<?php bp_directory_members_search_form(); ?>
+				</li>
+
+			<?php endif; ?>
 		</ul>
 	</div>
 
