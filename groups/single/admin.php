@@ -4,6 +4,14 @@
 	</ul>
 </div><!-- .item-list-tabs -->
 
+<?php if ( bp_is_action_variable( 'manage-members' ) ) : ?>
+
+	<div id="members-dir-search" class="dir-search no-ajax" role="search" style="margin-top:0;">
+		<?php bp_directory_members_search_form(); ?>
+	</div>
+
+<?php endif; ?>
+
 <form action="<?php bp_group_admin_form_action(); ?>" name="group-settings-form" id="group-settings-form" class="standard-form" method="post" enctype="multipart/form-data" role="main">
 
 <?php do_action( 'bp_before_group_admin_content' ); ?>
