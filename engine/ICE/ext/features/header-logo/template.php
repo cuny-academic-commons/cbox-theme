@@ -20,6 +20,6 @@ $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div';
 ?>
 <<?php print $heading_tag; ?> <?php $this->render_attrs() ?>>
 	<a href="<?php echo home_url( '/'  ); ?>" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
-		<img src="<?php print $logo_url ?>">
+		<img src="<?php print $logo_url ?>" alt="<?php bloginfo('name'); ?>">
 	</a>
 </<?php print $heading_tag; ?>>
