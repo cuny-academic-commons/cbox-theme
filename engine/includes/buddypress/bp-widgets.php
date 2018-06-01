@@ -99,7 +99,7 @@ class CBox_BP_Blogs_Recent_Posts_Widget extends WP_Widget {
 		$max_posts  = strip_tags( $instance['max_posts'] );
 		$title      = strip_tags( $instance['title'] );
 		$link_title = (bool) $instance['link_title'];
-		$include_groupblog = (bool) $instance['include_groupblog'];
+		$include_groupblog = (bool) isset( $instance['include_groupblog'] ) ? $instance['include_groupblog'] : false;
 
 		?>
 
