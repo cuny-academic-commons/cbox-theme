@@ -558,6 +558,10 @@ body.wiki.single-bp_doc #subnav {
     width: 15%;
 }
 
+span.bbp-admin-links a {
+	color: #747474;
+}
+
 #bbpress-forums p.bbp-topic-meta img.avatar,#bbpress-forums ul.bbp-reply-revision-log img.avatar,#bbpress-forums ul.bbp-topic-revision-log img.avatar,#bbpress-forums div.bbp-template-notice img.avatar,#bbpress-forums .widget_display_topics img.avatar,#bbpress-forums .widget_display_replies img.avatar,#bbpress-forums p.bbp-topic-meta img.avatar {
     border: 0;
     float: none;

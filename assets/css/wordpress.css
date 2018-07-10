@@ -178,7 +178,7 @@ ul.page-numbers li { display: inline }
     height: 16px;
     padding-left: 0px;
     padding-bottom: 10px;
-    color: #888888;
+    color: #777772;
     font-size: 90%;
 }
 .pagination#user-pag,
@@ -382,7 +382,7 @@ color: #999;
     width: 380px;
 }
 #respond label {
-    color: #777777;
+    color: #777772;
     padding: 4px 0;
     font-size: 11px;
 }
@@ -414,7 +414,7 @@ li.bypostauthor { background: none repeat scroll 0 0 #F8FDFF !important }
 #commentform #submit { margin: 15px 0 0 0 }
 .form-allowed-tags {
 font-size: 90%;
-color: #777;
+color: #777772;
 }
 /* Pingsbacks */
 h3#pings { margin: 25px 0 10px 0 }
