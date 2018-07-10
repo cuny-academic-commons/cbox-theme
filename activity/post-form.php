@@ -19,11 +19,11 @@
 		</a>
 	</div>
 
-	<h5><?php if ( bp_is_group() )
+	<h5><label for="whats-new"><?php if ( bp_is_group() )
 			printf( __( "What's new in %s, %s?", 'buddypress' ), bp_get_group_name(), bp_get_user_firstname() );
 		else
 			printf( __( "What's new, %s?", 'buddypress' ), bp_get_user_firstname() );
-	?></h5>
+	?></label></h5>
 
 	<div id="whats-new-content">
 		<div id="whats-new-textarea">
@@ -39,7 +39,7 @@
 
 				<div id="whats-new-post-in-box">
 
-					<?php _e( 'Post in', 'buddypress' ); ?>:
+					<label for="whats-new-post-in"><?php _e( 'Post in', 'buddypress' ); ?>:</label>
 
 					<select id="whats-new-post-in" name="whats-new-post-in">
 						<option selected="selected" value="0"><?php _e( 'My Profile', 'buddypress' ); ?></option>

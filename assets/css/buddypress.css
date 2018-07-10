@@ -199,7 +199,7 @@ div.item-list-tabs ul li.last select {
     margin-left: 8px;
     margin-top: 4px;
 }
-li#activity-filter-select label { display: inline-block }
+li#activity-filter-select label, #blog-details-section label { display: inline-block }
 div.item-list-tabs ul li a, div.item-list-tabs ul li span {
     display: block;
     padding: 8px 10px;
@@ -497,6 +497,9 @@ table.forum th#th-freshness {
 }
 /* > Activity Stream Posting
 --------------------------------------------------------------*/
+#whats-new-form label {
+	text-transform: none;
+}
 #item-body form#whats-new-form {
     margin-top: 20px;
     border: none;
@@ -537,6 +540,9 @@ form#whats-new-form #whats-new-submit {
 #whats-new-options {
     height: 0;
     overflow: hidden;
+}
+#whats-new-post-in-box label {
+	display: inline-block;
 }
 /* > Activity Stream Listing
 --------------------------------------------------------------*/
