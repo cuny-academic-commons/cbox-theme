@@ -141,7 +141,7 @@ function cbox_theme_custom_buttons()
 			jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button,#bp-create-doc-button').addClass('<?php echo $cbox_button_color ?>');
 			jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
 			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
-			jQuery('#previous-next,#upload, div.submit,div,reply,#groups_search_submit').removeClass('<?php echo $cbox_button_color ?> button');
+			jQuery('#previous-next,#upload, div.submit,div.reply').removeClass('<?php echo $cbox_button_color ?> button');
 			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
 			jQuery('#upload').addClass('button green');
 	});
