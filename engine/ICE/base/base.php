@@ -243,8 +243,7 @@ abstract class ICE_Base
 				
 			// cast to unset
 			case 'unset' :
-				// this does NOT unset the value, but always returns NULL
-				return (unset) $value;
+				return null;
 
 			// cast to resource
 			case 'resource' :
