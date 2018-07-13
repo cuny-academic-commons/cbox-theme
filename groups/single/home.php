@@ -57,9 +57,6 @@
 						// Group Invitations
 						elseif ( bp_is_group_invites()    ) : locate_template( array( 'groups/single/send-invites.php' ), true );
 
-						// Old group forums
-						elseif ( bp_is_group_forum()      ) : locate_template( array( 'groups/single/forum.php'        ), true );
-
 						// Membership request
 						elseif ( bp_is_group_membership_request() ) : locate_template( array( 'groups/single/request-membership.php' ), true );
 
