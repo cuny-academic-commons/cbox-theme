@@ -72,7 +72,7 @@ function infinity_dashboard_support_info()
 	}
 
 	// get theme info
-	$theme = current_theme_info();
+	$theme = wp_get_theme();
 
 	// get plugin info
 	$active_plugins = array();
