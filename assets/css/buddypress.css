@@ -369,6 +369,21 @@ a.loading, li.loading a,#object-nav a.loading, #object-nav li.loading {
 }
 /* > Input Forms
 --------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.dir-search .screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
 form.standard-form #basic-details-section input[type=password], form.standard-form #blog-details-section input#signup_blog_url { width: 35% }
 form.standard-form#signup_form input[type=text], form.standard-form#signup_form textarea { width: 85% }
 form.standard-form#signup_form div.submit { float: right }

@@ -414,3 +414,36 @@ function cbox_dtheme_post_update() {
 }
 remove_action( 'wp_ajax_post_update', 'bp_dtheme_post_update' );
 add_action( 'wp_ajax_post_update', 'cbox_dtheme_post_update' );
+
+/*
+ * Adds proper <label> to directory search forms.
+ *
+ * Default BuddyPress directory search form labels uses the <label> element
+ * improperly.  Labels require some form of text for accessibility.
+ *
+ * @link https://github.com/cuny-academic-commons/cbox-theme/issues/261
+ *
+ * @param  string $retval Current directory search form HTML markup.
+ * @return string
+ */
+function cbox_theme_replace_directory_search_form_label( $retval ) {
+	// Get current component.
+	$component = str_replace( array( 'bp_directory_', '_search_form' ), '', current_filter() );
+
+	// Remove original closing </label> tag.
+	$retval = str_replace( '</label>', '', $retval );
+
+	// Default search text is our label.
+	$label = bp_get_search_default_text( $component );
+
+	// Remove ellipsis... eek.
+	$label = str_replace( '...', '', $label );
+
+	// Replace label in the directory search form.
+	$retval = str_replace( '<label for="' . $component . '_search">', '<label for="' . $component . '_search" class="screen-reader-text">' . $label . '</label>', $retval );
+
+	return $retval;
+}
+add_filter( 'bp_directory_members_search_form', 'cbox_theme_replace_directory_search_form_label' );
+add_filter( 'bp_directory_blogs_search_form',   'cbox_theme_replace_directory_search_form_label' );
+add_filter( 'bp_directory_groups_search_form',  'cbox_theme_replace_directory_search_form_label' );
