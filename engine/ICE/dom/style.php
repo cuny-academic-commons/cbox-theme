@@ -822,7 +822,7 @@ abstract class ICE_Style_Property extends ICE_Base
 	 * @param string $name Name of the property to create
 	 * @return ICE_Style_Property
 	 */
-	abstract static public function create( $name );
+	public static function create( $name ) {}
 
 	/**
 	 * Get the current style value object for this property
