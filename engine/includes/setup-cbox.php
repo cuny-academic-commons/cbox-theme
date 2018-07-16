@@ -128,7 +128,7 @@ add_action( 'admin_enqueue_scripts', 'cbox_jqueryui_hotfix', 20 );
 function cbox_theme_custom_buttons()
 {
 	// get button color option
-	$cbox_button_color = infinity_option_get( 'cbox_button_color' );
+	$cbox_button_color = esc_html( infinity_option_get( 'cbox_button_color' ) );
 
 	// render script tag ?>
 	<script>
@@ -138,11 +138,10 @@ function cbox_theme_custom_buttons()
 			jQuery('.bp-primary-action,div.group-button').addClass('button white');
 			jQuery('.generic-button .acomment-reply,div.not_friends').addClass('button white');
 			jQuery('.bp-secondary-action, .view-post,.comment-reply-link').addClass('button white');
-			jQuery('.standard-form .button,.not_friends,.group-button,.dir-form .button,.not-following,#item-buttons .group-button,#bp-create-doc-button').addClass('<?php echo $cbox_button_color ?>');
-			jQuery('input[type="submit"],.submit,#item-buttons .generic-button,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
-			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').removeClass('<?php echo $cbox_button_color ?>');
+			jQuery('.standard-form .button,.dir-form .button,#bp-create-doc-button').addClass('<?php echo $cbox_button_color ?>');
+			jQuery('input[type="submit"],.submit,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
+			jQuery('div.pending, .dir-search input[type="submit"]').removeClass('<?php echo $cbox_button_color ?>');
 			jQuery('#previous-next,#upload, div.submit,div.reply').removeClass('<?php echo $cbox_button_color ?> button');
-			jQuery('div.pending,.dir-list .group-button,.dir-list .friendship-button').addClass('white');
 			jQuery('#upload').addClass('button green');
 	});
 	</script><?php
