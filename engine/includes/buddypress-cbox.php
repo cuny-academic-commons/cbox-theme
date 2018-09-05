@@ -28,6 +28,21 @@ if ( !defined( 'BP_AVATAR_FULL_HEIGHT' ) ) {
 	define( 'BP_AVATAR_FULL_HEIGHT', 300 );
 }
 
+/*
+ * Tell BuddyPress to use bp-legacy template pack.
+ *
+ * Even though we are using a bp-default-derived theme, there are some places
+ * where theme compatibility creeps in, namely photo upload functionality.
+ * As of BuddyPress 3.0, bp-nouveau is the default template pack. However,
+ * photo uploads do not work with bp-nouveau and bp-default themes. So tell,
+ * BP to use bp-legacy.
+ *
+ * See https://buddypress.trac.wordpress.org/ticket/7905
+ *
+ * @todo Remove after BuddyPress 3.2.0 or 4.0.0, whichever comes first.
+ */
+add_theme_support( 'buddypress-use-legacy' );
+
 //
 // Actions
 //
