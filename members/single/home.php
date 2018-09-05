@@ -54,9 +54,6 @@ get_header( 'buddypress' ); ?>
 				elseif ( bp_is_user_profile() ) :
 					locate_template( array( 'members/single/profile.php'   ), true );
 
-				elseif ( bp_is_user_forums() ) :
-					locate_template( array( 'members/single/forums.php'    ), true );
-
 				elseif ( bp_is_user_settings() ) :
 					locate_template( array( 'members/single/settings.php'  ), true );
 
