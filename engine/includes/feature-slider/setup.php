@@ -80,15 +80,15 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 
 	$meta_boxes[] = array(
 		'id'         => 'cbox_slider_options',
-		'title'      => __( 'Slide Options', 'commons-in-a-box' ),
+		'title'      => __( 'Slide Options', 'cbox-theme' ),
 		'pages'      => array( $cbox_slider_type ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 			array(
-				'name' => __( 'Slide Caption', 'commons-in-a-box' ),
-				'desc' => __( 'Write down the text you would like to display in the slider. You can leave this empty if you want to show an excerpt of the post you have written above.', 'commons-in-a-box' ),
+				'name' => __( 'Slide Caption', 'cbox-theme' ),
+				'desc' => __( 'Write down the text you would like to display in the slider. You can leave this empty if you want to show an excerpt of the post you have written above.', 'cbox-theme' ),
 				'id'   => $prefix . 'slider_excerpt',
 				'type' => 'wysiwyg',
 					'options' => array(
@@ -96,8 +96,8 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 					),
 			),
 			array(
-				'name'    => __( 'Hide Caption?', 'commons-in-a-box' ),
-				'desc'    => __( 'Do you want to completely hide the caption for this slide? This will only display your slide image', 'commons-in-a-box' ),
+				'name'    => __( 'Hide Caption?', 'cbox-theme' ),
+				'desc'    => __( 'Do you want to completely hide the caption for this slide? This will only display your slide image', 'cbox-theme' ),
 				'id'      => $prefix . 'hide_caption',
 				'type'    => 'radio_inline',
 				'std' => 'no',
@@ -107,8 +107,8 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 				),
 			),
 			array(
-				'name' => __( 'Custom URL', 'commons-in-a-box' ),
-				'desc' => __( 'The full URL you would like the slide to point to. Example: http://www.google.com.  Leave this blank to use the regular slider post permalink.', 'commons-in-a-box' ),
+				'name' => __( 'Custom URL', 'cbox-theme' ),
+				'desc' => __( 'The full URL you would like the slide to point to. Example: http://www.google.com.  Leave this blank to use the regular slider post permalink.', 'cbox-theme' ),
 				'id'   => $prefix . 'custom_url',
 				'type' => 'text',
 			),
@@ -118,15 +118,15 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 	// Add other metaboxes as needed
 	$meta_boxes[] = array(
 			'id'         => 'cbox_video_options',
-			'title'      => __( 'Video Options', 'commons-in-a-box' ),
+			'title'      => __( 'Video Options', 'cbox-theme' ),
 			'pages'      => array( $cbox_slider_type ), // Post type
 			'context'    => 'normal',
 			'priority'   => 'high',
 			'show_names' => true, // Show field names on the left
 			'fields' => array(
 				array(
-					'name'    => __( 'Embed a Video?', 'commons-in-a-box' ),
-					'desc'    => __( 'Do you want to display a video inside your slide? Note: The video will replace your caption text and slide image.', 'commons-in-a-box' ),
+					'name'    => __( 'Embed a Video?', 'cbox-theme' ),
+					'desc'    => __( 'Do you want to display a video inside your slide? Note: The video will replace your caption text and slide image.', 'cbox-theme' ),
 					'id'      => $prefix . 'enable_custom_video',
 					'type'    => 'radio_inline',
 					'std' => 'no',
@@ -136,8 +136,8 @@ function cmb_sample_metaboxes( $meta_boxes = array() ) {
 					),
 				),
 				array(
-					'name' => __( 'Video URL', 'commons-in-a-box' ),
-					'desc' => __( 'Enter a Youtube or Vimeo URL. example: http://www.youtube.com/watch?v=iMuFYnvSsZg', 'commons-in-a-box' ),
+					'name' => __( 'Video URL', 'cbox-theme' ),
+					'desc' => __( 'Enter a Youtube or Vimeo URL. example: http://www.youtube.com/watch?v=iMuFYnvSsZg', 'cbox-theme' ),
 					'id'   => $prefix . 'video_url',
 					'type' => 'oembed',
 				),
@@ -163,7 +163,7 @@ function cbox_get_featured_slide( $post_ID ) {
  * Add new column to the Site Features index
  */
 function cbox_site_features_column( $defaults ) {
-	$defaults['featured_image'] = __( 'Slide Image', 'commons-in-a-box' );
+	$defaults['featured_image'] = __( 'Slide Image', 'cbox-theme' );
 	return $defaults;
 }
 

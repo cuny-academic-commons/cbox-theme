@@ -20,10 +20,10 @@
 
 			<?php if ( bp_is_active( 'settings' ) ) : ?>
 			<li id="edit-password">
-				<a class="button edit-password-button" href="<?php echo $userLink; ?>settings"><?php _e( 'Email/Password Settings', 'commons-in-a-box' ); ?></a>
+				<a class="button edit-password-button" href="<?php echo $userLink; ?>settings"><?php _e( 'Email/Password Settings', 'cbox-theme' ); ?></a>
 			</li>
 			<li id="edit-notifications">
-				<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/"><?php _e( 'Notification Settings', 'commons-in-a-box' ); ?></a>
+				<a class="button edit-notifications-button" href="<?php echo $userLink; ?>settings/notifications/"><?php _e( 'Notification Settings', 'cbox-theme' ); ?></a>
 			</li>
 			<?php endif; ?>
 		</ul>

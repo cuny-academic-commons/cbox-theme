@@ -4,8 +4,8 @@
 /**
  * Populates sidebars throughout the theme on activation
  *
- * When activating commons-in-a-box, this function is triggered. It checks each of
- * commons-in-a-box's sidebars, and for each one that is empty, it sets up a number
+ * When activating cbox-theme, this function is triggered. It checks each of
+ * cbox-theme's sidebars, and for each one that is empty, it sets up a number
  * of default widgets. Note that this will not override changes you've made
  * to any of these sidebars, unless you've cleared them out completely.
  *
@@ -17,17 +17,17 @@ function cbox_theme_populate_sidebars() {
 	// Homepage Top Right
 	if ( ! CBox_Widget_Setter::is_sidebar_populated( 'homepage-top-right' ) ) {
 
-		$welcome_text = sprintf( __( '<p><a class="button green" href="%s">Join us</a> or <a class="button white" href="%s">Login</a></p>', 'commons-in-a-box' ), bp_get_root_domain() . '/' . bp_get_signup_slug() . '/', wp_login_url() );
+		$welcome_text = sprintf( __( '<p><a class="button green" href="%s">Join us</a> or <a class="button white" href="%s">Login</a></p>', 'cbox-theme' ), bp_get_root_domain() . '/' . bp_get_signup_slug() . '/', wp_login_url() );
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$welcome_text = sprintf( __( '<p>To modify the text of this widget, and other widgets you see throughout the site, visit <a href="%s">Dashboard > Appearance > Widgets</a>.', 'commons-in-a-box' ), admin_url( 'widgets.php' ) ) . $welcome_text;
+			$welcome_text = sprintf( __( '<p>To modify the text of this widget, and other widgets you see throughout the site, visit <a href="%s">Dashboard > Appearance > Widgets</a>.', 'cbox-theme' ), admin_url( 'widgets.php' ) ) . $welcome_text;
 		}
 
 		CBox_Widget_Setter::set_widget( array(
 			'id_base'    => 'text',
 			'sidebar_id' => 'homepage-top-right',
 			'settings'   => array(
-				'title' => __( 'Welcome', 'commons-in-a-box' ),
+				'title' => __( 'Welcome', 'cbox-theme' ),
 				'text'  => $welcome_text,
 				'filter' => false,
 			),
@@ -41,11 +41,11 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'cac_featured_content_widget',
 			'sidebar_id' => 'homepage-top-right',
 			'settings'   => array(
-				'title' => __( 'Featured Member', 'commons-in-a-box' ),
+				'title' => __( 'Featured Member', 'cbox-theme' ),
 				'title_element' => 'h4',
 				'featured_content_type' => 'member',
 				'featured_member' => $username,
-				'custom_description' => __( 'Use the Featured Content widget to show off outstanding content from your community.', 'commons-in-a-box' ),
+				'custom_description' => __( 'Use the Featured Content widget to show off outstanding content from your community.', 'cbox-theme' ),
 				'display_images' => '1',
 				'crop_length' => '250',
 				'image_width' => '50',
@@ -64,7 +64,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'bp_core_recently_active_widget',
 			'sidebar_id' => 'homepage-center-widget',
 			'settings'   => array(
-				'title' => __( 'Recently Active Members', 'commons-in-a-box' ),
+				'title' => __( 'Recently Active Members', 'cbox-theme' ),
 				'max_members' => 15,
 				'filter' => false,
 			),
@@ -80,7 +80,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'bp_groups_widget',
 				'sidebar_id' => 'homepage-left',
 				'settings'   => array(
-					'title' => __( 'Groups', 'commons-in-a-box' ),
+					'title' => __( 'Groups', 'cbox-theme' ),
 					'max_groups'  => 20,
 					'link_title' => 1,
 					'group_default' => 'newest',
@@ -98,7 +98,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'bp_core_members_widget',
 			'sidebar_id' => 'homepage-middle',
 			'settings'   => array(
-				'title' => __( 'Members', 'commons-in-a-box' ),
+				'title' => __( 'Members', 'cbox-theme' ),
 				'max_members' => 20,
 				'link_title' => 1,
 				'member_default' => 'newest',
@@ -115,7 +115,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'cbox_bp_blogs_recent_posts_widget',
 				'sidebar_id' => 'homepage-right',
 				'settings'   => array(
-					'title' => __( 'Recent Blog Posts', 'commons-in-a-box' ),
+					'title' => __( 'Recent Blog Posts', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -124,7 +124,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'recent-posts',
 				'sidebar_id' => 'homepage-right',
 				'settings'   => array(
-					'title' => __( 'Recent Blog Posts', 'commons-in-a-box' ),
+					'title' => __( 'Recent Blog Posts', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -139,7 +139,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'cbox_bp_blogs_recent_posts_widget',
 				'sidebar_id' => 'blog-sidebar',
 				'settings'   => array(
-					'title' => __( 'Recent Blog Posts', 'commons-in-a-box' ),
+					'title' => __( 'Recent Blog Posts', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -149,7 +149,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'search',
 				'sidebar_id' => 'blog-sidebar',
 				'settings'   => array(
-					'title' => __( 'Search', 'commons-in-a-box' ),
+					'title' => __( 'Search', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -158,7 +158,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'archives',
 				'sidebar_id' => 'blog-sidebar',
 				'settings'   => array(
-					'title' => __( 'Archives', 'commons-in-a-box' ),
+					'title' => __( 'Archives', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -167,7 +167,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'recent-posts',
 				'sidebar_id' => 'blog-sidebar',
 				'settings'   => array(
-					'title' => __( 'Recent Blog Posts', 'commons-in-a-box' ),
+					'title' => __( 'Recent Blog Posts', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -182,7 +182,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'pages',
 			'sidebar_id' => 'page-sidebar',
 			'settings'   => array(
-				'title' => __( 'Pages', 'commons-in-a-box' ),
+				'title' => __( 'Pages', 'cbox-theme' ),
 				'filter' => false,
 			),
 		) );
@@ -196,8 +196,8 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'text',
 			'sidebar_id' => 'footer-left',
 			'settings'   => array(
-				'title' => __( 'Contact Us', 'commons-in-a-box' ),
-				'text'  => __( 'Put your contact information in this widget.', 'commons-in-a-box' ),
+				'title' => __( 'Contact Us', 'cbox-theme' ),
+				'text'  => __( 'Put your contact information in this widget.', 'cbox-theme' ),
 				'filter' => false,
 			),
 		) );
@@ -211,8 +211,8 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'text',
 			'sidebar_id' => 'footer-middle',
 			'settings'   => array(
-				'title' => __( 'About', 'commons-in-a-box' ),
-				'text'  => __( 'Some brief information about your site.', 'commons-in-a-box' ),
+				'title' => __( 'About', 'cbox-theme' ),
+				'text'  => __( 'Some brief information about your site.', 'cbox-theme' ),
 				'filter' => false,
 			),
 		) );
@@ -226,8 +226,8 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'pages',
 			'sidebar_id' => 'footer-right',
 			'settings'   => array(
-				'title' => __( 'Sitemap', 'commons-in-a-box' ),
-				'text'  => __( 'You might use this space to thank ', 'commons-in-a-box' ),
+				'title' => __( 'Sitemap', 'cbox-theme' ),
+				'text'  => __( 'You might use this space to thank ', 'cbox-theme' ),
 				'filter' => false,
 			),
 		) );
@@ -241,7 +241,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'bp_core_whos_online_widget',
 			'sidebar_id' => 'activity-sidebar',
 			'settings'   => array(
-				'title' => __( 'Who\'s Online', 'commons-in-a-box' ),
+				'title' => __( 'Who\'s Online', 'cbox-theme' ),
 				'max_members'  => 20,
 				'filter' => false,
 			),
@@ -256,7 +256,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'bp_core_whos_online_widget',
 			'sidebar_id' => 'member-sidebar',
 			'settings'   => array(
-				'title' => __( 'Who\'s Online', 'commons-in-a-box' ),
+				'title' => __( 'Who\'s Online', 'cbox-theme' ),
 				'max_members'  => 20,
 				'filter' => false,
 			),
@@ -266,7 +266,7 @@ function cbox_theme_populate_sidebars() {
 			'id_base'    => 'bp_core_recently_active_widget',
 			'sidebar_id' => 'member-sidebar',
 			'settings'   => array(
-				'title' => __( 'Recently Active Members', 'commons-in-a-box' ),
+				'title' => __( 'Recently Active Members', 'cbox-theme' ),
 				'max_members'  => 20,
 				'filter' => false,
 			),
@@ -282,7 +282,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'bp_groups_widget',
 				'sidebar_id' => 'groups-sidebar',
 				'settings'   => array(
-					'title' => __( 'Groups', 'commons-in-a-box' ),
+					'title' => __( 'Groups', 'cbox-theme' ),
 					'max_groups'  => 5,
 					'link_title' => '1',
 					'filter' => false,
@@ -300,7 +300,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'bbp_views_widget',
 				'sidebar_id' => 'forums-sidebar',
 				'settings'   => array(
-					'title' => __( 'Topic View List', 'commons-in-a-box' ),
+					'title' => __( 'Topic View List', 'cbox-theme' ),
 					'filter' => false,
 				),
 			) );
@@ -309,7 +309,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'bbp_topics_widget',
 				'sidebar_id' => 'forums-sidebar',
 				'settings'   => array(
-					'title' => __( 'Recent Topics', 'commons-in-a-box' ),
+					'title' => __( 'Recent Topics', 'cbox-theme' ),
 					'max_shown' => 6,
 					'filter' => false,
 				),
@@ -319,7 +319,7 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'bbp_replies_widget',
 				'sidebar_id' => 'forums-sidebar',
 				'settings'   => array(
-					'title' => __( 'Recent Replies', 'commons-in-a-box' ),
+					'title' => __( 'Recent Replies', 'cbox-theme' ),
 					'max_shown' => 6,
 					'filter' => false,
 				),
@@ -338,8 +338,8 @@ function cbox_theme_populate_sidebars() {
 				'id_base'    => 'text',
 				'sidebar_id' => 'wiki-sidebar',
 				'settings'   => array(
-					'title'  => __( 'Welcome To The Wiki', 'commons-in-a-box' ),
-					'text'   => '<p>' . sprintf( __( 'This sidebar appears on all Wiki pages. Use it to display content that you want your users to see whenever viewing the Wiki, such as a brief description of how wikis work, or a link to <a href="%s">create a new wiki page</a>.', 'commons-in-a-box' ), $create_url ) . '</p><p>' . sprintf( __( 'To edit this widget, or to add more widgets to the sidebar, visit <a href="%s">Dashboard > Appearance > Widgets</a> and look for the Wiki Sidebar.', 'commons-in-a-box' ), admin_url( 'widgets.php' ) ) . '</p>',
+					'title'  => __( 'Welcome To The Wiki', 'cbox-theme' ),
+					'text'   => '<p>' . sprintf( __( 'This sidebar appears on all Wiki pages. Use it to display content that you want your users to see whenever viewing the Wiki, such as a brief description of how wikis work, or a link to <a href="%s">create a new wiki page</a>.', 'cbox-theme' ), $create_url ) . '</p><p>' . sprintf( __( 'To edit this widget, or to add more widgets to the sidebar, visit <a href="%s">Dashboard > Appearance > Widgets</a> and look for the Wiki Sidebar.', 'cbox-theme' ), admin_url( 'widgets.php' ) ) . '</p>',
 					'filter' => false,
 				),
 			) );
@@ -349,7 +349,7 @@ function cbox_theme_populate_sidebars() {
 				'sidebar_id' => 'wiki-sidebar',
 				'settings'   => array(
 					'title'  => '',
-					'text'   => '<a href="' . $create_url . '" class="button">' . __( 'Create New Wiki Page', 'commons-in-a-box' ) . '</a>',
+					'text'   => '<a href="' . $create_url . '" class="button">' . __( 'Create New Wiki Page', 'cbox-theme' ) . '</a>',
 					'filter' => false,
 				),
 			) );
@@ -373,7 +373,7 @@ function cbox_theme_populate_sidebars() {
 				'sidebar_id' => 'wiki-top',
 				'settings'   => array(
 					'title'  => __( 'Welcome To The Wiki', 'bp-docs-wiki' ),
-					'text'   => '<p>' . __( 'This is a text widget that you can use to introduce your users to the wiki, and perhaps to feature some outstanding wiki content.', 'bp-docs-wiki' ) . '</p><p>' . sprintf( __( 'Edit this widget, or add others to the Wiki Top sidebar, at <a href="%s">Dashboard > Appearance > Widgets</a>.', 'commons-in-a-box' ), admin_url( 'widgets.php' ) ) . '</p>',
+					'text'   => '<p>' . __( 'This is a text widget that you can use to introduce your users to the wiki, and perhaps to feature some outstanding wiki content.', 'bp-docs-wiki' ) . '</p><p>' . sprintf( __( 'Edit this widget, or add others to the Wiki Top sidebar, at <a href="%s">Dashboard > Appearance > Widgets</a>.', 'cbox-theme' ), admin_url( 'widgets.php' ) ) . '</p>',
 					'filter' => false,
 				),
 			) );

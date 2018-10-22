@@ -11,27 +11,27 @@ function cbox_theme_add_default_sub_menu()
 	// setup pages
 	$pages = array(
 		array(
-			'title'        => _x( 'Home', 'the link in the header navigation bar', 'commons-in-a-box' ),
+			'title'        => _x( 'Home', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 0,
 			'url'          => home_url( '/' )
 		),
 		array(
-			'title'        => _x( 'People', 'the link in the header navigation bar', 'commons-in-a-box' ),
+			'title'        => _x( 'People', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 10,
 			'bp_directory' => 'members'
 		),
 		array(
-			'title'        => _x( 'Groups', 'the link in the header navigation bar', 'commons-in-a-box' ),
+			'title'        => _x( 'Groups', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 20,
 			'bp_directory' => 'groups'
 		),
 		array(
-			'title'        => _x( 'Blogs', 'the link in the header navigation bar', 'commons-in-a-box' ),
+			'title'        => _x( 'Blogs', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 30,
 			'bp_directory' => 'blogs'
 		),
 		array(
-			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'commons-in-a-box' ),
+			'title'        => _x( 'Activity', 'the link in the header navigation bar', 'cbox-theme' ),
 			'position'     => 50,
 			'bp_directory' => 'activity'
 		),
@@ -39,7 +39,7 @@ function cbox_theme_add_default_sub_menu()
 
 	// BuddyPress Docs Wiki
 	if ( defined( 'BP_DOCS_WIKI_SLUG' ) ) {
-		$pages[5]['title']    = _x( 'Wiki', 'the link in the header navigation bar', 'commons-in-a-box' );
+		$pages[5]['title']    = _x( 'Wiki', 'the link in the header navigation bar', 'cbox-theme' );
 		$pages[5]['position'] = 40;
 		$pages[5]['url']      = home_url( 'wiki' );
 	}
