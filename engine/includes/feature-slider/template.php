@@ -43,7 +43,7 @@ if ( ! empty( $posts_per_page ) ) {
 if ( $slider_type == 1 ) {
 	$query_args['post_type'] = 'features';
 
-	$no_slider_text = __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Featured Slide</strong>.', 'cbox-theme' );
+	$no_slider_text = __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new <strong>Featured Slide</strong>.', 'commons-in-a-box' );
 }
 
 // post category
@@ -53,7 +53,7 @@ if ( $slider_type == 2 ) {
 
 	$query_args['cat'] = $cat_id;
 
-	$no_slider_text = sprintf( __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new post in the <strong>%s</strong> category.', 'cbox-theme' ), $cat->name );
+	$no_slider_text = sprintf( __( 'Did you know you can easily add introduction slides to your homepage? Simply visit your admin panel and add a new post in the <strong>%s</strong> category.', 'commons-in-a-box' ), $cat->name );
 }
 
 // setup the slider query
@@ -124,7 +124,7 @@ if( $slider_query->have_posts() ) :
 		<li>
 			<img src="<?php echo $no_slides_url ?>" width="<?php echo esc_attr( $sliderwidth ) ?>" height="319" alt="" style="height:319px;" />
 				<div class="flex-caption">
-					<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+					<h3><?php _e( 'No slides added yet!', 'commons-in-a-box' ); ?></h3>
 					<p><?php echo $no_slider_text; ?></p>
 				</div>
 		</li>
@@ -141,7 +141,7 @@ else:
 			<img src="<?php echo $no_slides_url ?>" width="<?php echo esc_attr( $sliderwidth ) ?>" height="319" alt="" style="height:319px;" />
 
 			<div class="flex-caption">
-				<h3><?php _e( 'No slides added yet!', 'cbox-theme' ); ?></h3>
+				<h3><?php _e( 'No slides added yet!', 'commons-in-a-box' ); ?></h3>
 				<p><?php echo $no_slider_text; ?></p>
 			</div>
 		</li>
