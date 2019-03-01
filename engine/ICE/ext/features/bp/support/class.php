@@ -153,7 +153,6 @@ class ICE_Ext_Feature_Bp_Support
 			// group buttons
 			if ( bp_is_active( 'groups' ) ) {
 				add_action( 'bp_group_header_actions', 'bp_group_join_button' );
-				add_action( 'bp_group_header_actions', 'bp_group_new_topic_button' );
 				add_action( 'bp_directory_groups_actions', 'bp_group_join_button' );
 			}
 
