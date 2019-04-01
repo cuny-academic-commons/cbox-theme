@@ -437,17 +437,18 @@ function cbox_theme_replace_directory_search_form_label( $retval ) {
 	// Get current component.
 	$component = str_replace( array( 'bp_directory_', '_search_form' ), '', current_filter() );
 
-	// Remove original closing </label> tag.
-	$retval = str_replace( '</label>', '', $retval );
-
 	// Default search text is our label.
 	$label = bp_get_search_default_text( $component );
 
 	// Remove ellipsis... eek.
 	$label = str_replace( '...', '', $label );
 
-	// Replace label in the directory search form.
-	$retval = str_replace( '<label for="' . $component . '_search">', '<label for="' . $component . '_search" class="screen-reader-text">' . $label . '</label>', $retval );
+	// Add screen reader text.
+	$retval = str_replace(
+		'<label for="' . $component . '_search">',
+		'<label for="' . $component . '_search"><span class="screen-reader-text">' . $label . '</span>',
+		$retval
+	);
 
 	return $retval;
 }
