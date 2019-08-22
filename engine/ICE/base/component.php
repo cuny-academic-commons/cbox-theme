@@ -549,7 +549,7 @@ abstract class ICE_Component
 				case 'type':
 				case 'aname':
 				case 'hname':
-					continue;
+					break;
 			}
 
 			// set it
