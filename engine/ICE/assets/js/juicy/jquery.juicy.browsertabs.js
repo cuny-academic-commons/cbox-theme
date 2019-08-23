@@ -247,6 +247,24 @@ $.widget( 'juicy.browsertabs', $.ui.tabs, {
 		}
 	},
 
+	getTabIndex: function( target )
+	{
+		var index = null;
+
+		// Try and find our target against the existing tabs.
+		this.anchors.each( function( i, e ) {
+			item = $( 'li[aria-labelledby=' + $( e ).attr( 'id' ) + ']' );
+
+			// Found it!
+			if ( item.length && target === item.attr( 'aria-controls' ) ) {
+				index = i;
+				return false;
+			}
+		} );
+
+		return index;
+	},
+
 	loadTab: function ( anchor, selected )
 	{
 		var o = this.options,
@@ -260,7 +278,7 @@ $.widget( 'juicy.browsertabs', $.ui.tabs, {
 		}
 		
 		if ( target ) {
-			index = this._getIndex( target );
+			index = this.getTabIndex( target );
 		} else {
 			index = this.options.selected;
 		}
@@ -412,16 +430,24 @@ $.widget( 'juicy.browsertabs', $.ui.tabs, {
 
 	add: function( url, label, index )
 	{
-		$.ui.tabs.prototype.add.apply( this, arguments );
+		var self = this,
+			o = this.options,
+			anchor, panel, exists;
+
+		exists = this.getTabIndex( url.replace( '#', '') );
+
+		if ( null !== exists ) {
+			return this;
+		} else {
+			$.ui.tabs.prototype.add.apply( this, arguments );
+		}
 
 		if ( index === undefined ) {
 			index = this.anchors.length - 1;
 		}
 
-		var self = this,
-			o = this.options,
-			anchor = $( this.anchors[index] ),
-			panel = $( this.panels[index] );
+		anchor = $( this.anchors[index] );
+		panel = $( this.panels[index] );
 
 		// bind close tab click
 		if ( o.closeable == true ) {
