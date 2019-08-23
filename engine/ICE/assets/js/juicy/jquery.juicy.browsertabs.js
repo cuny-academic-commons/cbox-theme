@@ -287,7 +287,7 @@ $.widget( 'juicy.browsertabs', $.ui.tabs, {
 			// panel exists
 			this.select( index );
 			this.url( index, href );
-			this.load( index );
+
 		} else {
 			// the title
 			var title = o.availableTabs[ this._getTabKey( target ) ];
