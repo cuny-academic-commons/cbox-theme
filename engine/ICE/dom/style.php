@@ -146,7 +146,7 @@ class ICE_Style extends ICE_Asset
 		// fix if applicable
 		switch ( true ) {
 			// absolute path to doc root, leave alone
-			case ( $path{0} == '/' ):
+			case ( $path[0] === '/' ):
 				break;
 			// absolute URL, leave alone
 			case ( preg_match( '/^https?:\/\//', $path ) ):

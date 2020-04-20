@@ -90,10 +90,10 @@ final class ICE_Files extends ICE_Base
 		// be super strict about type to avoid accidental type juggling
 		if ( is_string( $path ) ) {
 			// perform common tests to avoid PREG until last resort
-			if ( '/' === $path{0} || '\\' === $path{0} ) {
+			if ( '/' === $path[0] || '\\' === $path[0] ) {
 				// leading slashes are always absolute
 				return true;
-			} elseif ( '' === $path || '.' === $path{0} ) {
+			} elseif ( '' === $path || '.' === $path[0] ) {
 				// empty string or leading dot are never absolute
 				return false;
 			} elseif ( 'dll' === PHP_SHLIB_SUFFIX && 1 === preg_match( '/^[a-z]:/i', $path ) ) {
@@ -228,7 +228,7 @@ final class ICE_Files extends ICE_Base
 		while ( false !== ( $file = @readdir( $dir ) ) ) {
 
 			// skip dot files
-			if ( $file{0} == '.' ) {
+			if ( $file[0] === '.' ) {
 				continue;
 			}
 
