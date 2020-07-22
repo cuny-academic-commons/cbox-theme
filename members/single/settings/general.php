@@ -52,19 +52,52 @@ get_header( 'buddypress' ); ?>
 
 				<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>" method="post" class="standard-form" id="settings-form">
 
-					<?php if ( !is_super_admin() ) : ?>
-
-						<label for="pwd"><?php _e( 'Current Password <span>(required to update email or change current password)</span>', 'buddypress' ); ?></label>
-						<input type="password" name="pwd" id="pwd" size="16" value="" class="settings-input small" /> &nbsp;<a href="<?php echo site_url( add_query_arg( array( 'action' => 'lostpassword' ), 'wp-login.php' ), 'login' ); ?>" title="<?php _e( 'Password Lost and Found', 'buddypress' ); ?>"><?php _e( 'Lost your password?', 'buddypress' ); ?></a>
-
-					<?php endif; ?>
-
 					<label for="email"><?php _e( 'Account Email', 'buddypress' ); ?></label>
 					<input type="text" name="email" id="email" value="<?php echo bp_get_displayed_user_email(); ?>" class="settings-input" />
 
-					<label for="pass1"><?php _e( 'Change Password <span>(leave blank for no change)</span>', 'buddypress' ); ?></label>
-					<input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small" /> &nbsp;<?php _e( 'New Password', 'buddypress' ); ?><br />
-					<input type="password" name="pass2" id="pass2" size="16" value="" class="settings-input small" /> &nbsp;<?php _e( 'Repeat New Password', 'buddypress' ); ?>
+					<h3>Password</h3>
+
+					<?php if ( ! is_super_admin() ) : ?>
+
+						<label for="pwd"><?php _e( 'Current Password <span>(required to update email or change current password)</span>', 'buddypress' ); ?></label>
+						<input type="password" name="pwd" id="pwd" size="16" value="" class="settings-input small" /> &nbsp;<a href="<?php echo wp_lostpassword_url(); ?>" title="<?php _e( 'Password Lost and Found', 'buddypress' ); ?>"><?php _e( 'Lost your password?', 'buddypress' ); ?></a>
+
+					<?php endif; ?>
+
+					<p class="text"><?php esc_html_e( 'Click on the "Generate Password" button to change your password.', 'buddypress' ); ?></p>
+
+					<div class="user-pass1-wrap">
+						<button type="button" class="button wp-generate-pw ignore-color">
+							<?php esc_html_e( 'Generate Password', 'buddypress' ); ?>
+						</button>
+
+						<div class="wp-pwd">
+							<label for="pass1"><?php esc_html_e( 'Add Your New Password', 'buddypress' ); ?></label>
+							<span class="password-input-wrapper">
+								<input type="password" name="pass1" id="pass1" size="24" class="settings-input small password-entry" value="" <?php bp_form_field_attributes( 'password', array( 'data-pw' => wp_generate_password( 24 ), 'aria-describedby' => 'pass-strength-result' ) ); ?> />
+							</span>
+							<button type="button" class="button wp-hide-pw ignore-color" data-toggle="0" aria-label="<?php esc_attr_e( 'Hide password', 'buddypress' ); ?>">
+								<span class="dashicons dashicons-hidden" aria-hidden="true"></span>
+								<span class="text bp-screen-reader-text"><?php esc_html_e( 'Hide', 'buddypress' ); ?></span>
+							</button>
+							<button type="button" class="button wp-cancel-pw ignore-color" data-toggle="0" aria-label="<?php esc_attr_e( 'Cancel password change', 'buddypress' ); ?>">
+								<span class="text"><?php esc_html_e( 'Cancel', 'buddypress' ); ?></span>
+							</button>
+							<div id="pass-strength-result" aria-live="polite"></div>
+						</div>
+					</div>
+
+					<div class="user-pass2-wrap">
+						<label class="label" for="pass2"><?php esc_html_e( 'Repeat Your New Password', 'buddypress' ); ?></label>
+						<input name="pass2" type="password" id="pass2" size="24" class="settings-input small password-entry-confirm" value="" <?php bp_form_field_attributes( 'password' ); ?> />
+					</div>
+
+					<div class="pw-weak">
+						<label>
+							<input type="checkbox" name="pw_weak" class="pw-checkbox" />
+							<span id="pw-weak-text-label"><?php esc_html_e( 'Confirm use of potentially weak password', 'buddypress' ); ?></span>
+						</label>
+					</div>
 
 					<?php do_action( 'bp_core_general_settings_before_submit' ); ?>
 

@@ -90,6 +90,15 @@ function cbox_theme_register_widgets()
 add_action( 'widgets_init', 'cbox_theme_register_widgets' );
 
 /**
+ * Enqueue scripts meant for certain BuddyPress pages.
+ */
+add_action( 'bp_enqueue_scripts', function() {
+	if ( bp_is_register_page() || bp_is_user_settings_general() ) {
+		wp_enqueue_script( 'user-profile' );
+	}
+} );
+
+/**
  * Add Activity Tabs on the Stream Directory
  */
 function cbox_theme_activity_tabs()

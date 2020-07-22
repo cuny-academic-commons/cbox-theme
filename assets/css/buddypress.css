@@ -964,3 +964,99 @@ div#new-topic-post {
 .jcrop-holder img, #avatar-crop-pane img {
     max-width: none;
 }
+/* > Password Meter
+--------------------------------------------------------------*/
+body.buddypress .wp-pwd button {
+	vertical-align: middle;
+}
+
+body.buddypress #pass1,
+body.buddypress #pass1-text,
+body.buddypress #pass-strength-result {
+	width: 16em;
+}
+
+body.buddypress.register #signup_form #pass1 {
+	width: 35%;
+}
+
+body.buddypress #pass1 {
+	display: inline-block;
+	margin-bottom: inherit;
+}
+
+body.buddypress #pass1-text,
+body.buddypress .pw-weak,
+body.buddypress #pass-strength-result {
+	display: none;
+}
+
+body.buddypress .show-password #pass1-text {
+	display: inline-block;
+	margin-bottom: inherit;
+}
+
+body.buddypress .show-password #pass1 {
+	display: none;
+}
+
+body.buddypress #pass-strength-result {
+	background-color: #eee;
+	border-color: #ddd;
+	border-style: solid;
+	border-width: 1px;
+	display: none;
+	font-weight: 700;
+	margin: 10px 0 10px 0;
+	padding: 0.5em;
+	text-align: center;
+}
+
+body.buddypress #pass-strength-result.show {
+	display: block;
+}
+
+body.buddypress #pass-strength-result.mismatch {
+	background-color: #333;
+	border-color: transparent;
+	color: #fff;
+}
+
+body.buddypress #pass-strength-result.error,
+body.buddypress #pass-strength-result.bad {
+	background-color: #ffb78c;
+	border-color: #ff853c;
+	color: #333;
+}
+
+body.buddypress #pass-strength-result.short {
+	background-color: #ffa0a0;
+	border-color: #f04040;
+	color: #333;
+}
+
+body.buddypress #pass-strength-result.good {
+	background-color: #ffec8b;
+	border-color: #fc0;
+	color: #333;
+}
+
+body.buddypress #pass-strength-result.strong {
+	background-color: #66d66e;
+	border-color: #438c48;
+	color: #333;
+}
+
+body.bp-user.settings.general #settings-form #submit:disabled,
+body.buddypress.registration #signup_form #submit:disabled {
+	color: #767676;
+	opacity: 0.4;
+}
+
+body.bp-user.settings.js .wp-pwd,
+body.bp-user.settings.js .user-pass2-wrap,
+body.bp-user.settings.no-js .wp-generate-pw,
+body.bp-user.settings.no-js .wp-cancel-pw,
+body.bp-user.settings.no-js .wp-hide-pw {
+	display: none;
+}

@@ -42,13 +42,31 @@
 					<?php do_action( 'bp_signup_email_errors' ); ?>
 					<input type="text" name="signup_email" id="signup_email" value="<?php bp_signup_email_value(); ?>" />
 
-					<label for="signup_password"><?php _e( 'Choose a Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
-					<?php do_action( 'bp_signup_password_errors' ); ?>
-					<input type="password" name="signup_password" id="signup_password" value="" />
+					<label for="pass1"><?php esc_html_e( 'Choose a Password (required)', 'buddypress' ); ?></label>
+					<div class="user-pass1-wrap">
+						<div class="wp-pwd">
+							<div class="password-input-wrapper">
+								<input type="password" data-reveal="1" name="signup_password" id="pass1" class="password-entry" size="24" value="" <?php bp_form_field_attributes( 'password', array( 'data-pw' => wp_generate_password( 16 ), 'aria-describedby' => 'pass-strength-result' ) ); ?> />
+								<button type="button" class="button wp-hide-pw ignore-color">
+									<span class="dashicons dashicons-hidden" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div id="pass-strength-result" aria-live="polite"><?php esc_html_e( 'Strength indicator', 'buddypress' ); ?></div>
+						</div>
+						<div class="pw-weak">
+							<label>
+								<input type="checkbox" name="pw_weak" class="pw-checkbox" />
+								<?php esc_html_e( 'Confirm use of weak password', 'buddypress' ); ?>
+							</label>
+						</div>
+					</div>
 
-					<label for="signup_password_confirm"><?php _e( 'Confirm Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
-					<?php do_action( 'bp_signup_password_confirm_errors' ); ?>
-					<input type="password" name="signup_password_confirm" id="signup_password_confirm" value="" />
+					<p class="user-pass2-wrap">
+						<label for="pass2"><?php esc_html_e( 'Confirm new password', 'buddypress' ); ?></label><br />
+						<input type="password" name="signup_password_confirm" id="pass2" class="password-entry-confirm" size="24" value="" <?php bp_form_field_attributes( 'password' ); ?> />
+					</p>
+
+					<p class="description indicator-hint"><?php echo wp_get_password_hint(); ?></p>
 
 					<?php do_action( 'bp_account_details_fields' ); ?>
 
@@ -253,7 +271,7 @@
 				<?php do_action( 'bp_before_registration_submit_buttons' ); ?>
 
 				<div class="submit">
-					<input type="submit" name="signup_submit" id="signup_submit" value="<?php esc_attr_e( 'Complete Sign Up', 'buddypress' ); ?>" />
+					<input type="submit" name="signup_submit" id="submit" value="<?php esc_attr_e( 'Complete Sign Up', 'buddypress' ); ?>" />
 				</div>
 
 				<?php do_action( 'bp_after_registration_submit_buttons' ); ?>

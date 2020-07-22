@@ -141,7 +141,7 @@ function cbox_theme_custom_buttons()
 			jQuery('.standard-form .button,.dir-form .button,#bp-create-doc-button').addClass('<?php echo $cbox_button_color ?>');
 			jQuery('input[type="submit"],.submit,#aw-whats-new-submit,.activity-comments submit').addClass('button <?php echo $cbox_button_color ?>');
 			jQuery('div.pending, .dir-search input[type="submit"]').removeClass('<?php echo $cbox_button_color ?>');
-			jQuery('#previous-next,#upload, div.submit,div.reply').removeClass('<?php echo $cbox_button_color ?> button');
+			jQuery('#previous-next,#upload, div.submit,div.reply,.ignore-color').removeClass('<?php echo $cbox_button_color ?> button');
 			jQuery('#upload').addClass('button green');
 	});
 	</script><?php
