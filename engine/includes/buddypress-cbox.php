@@ -379,58 +379,6 @@ if ( false == function_exists( 'is_activity_page' ) ) {
 	}
 }
 
-/**
- * Replace bp-default's post_update AJAX handler.
- *
- * Workaround for https://buddypress.trac.wordpress.org/ticket/7495#ticket. This function can be removed
- * once that BP ticket is resolved.
- *
- * @since 1.0.15
- */
-function cbox_dtheme_post_update() {
-	// Bail if not a POST action
-	if ( 'POST' !== strtoupper( $_SERVER['REQUEST_METHOD'] ) )
-		return;
-
-	// Check the nonce
-	check_admin_referer( 'post_update', '_wpnonce_post_update' );
-
-	if ( ! is_user_logged_in() )
-		exit( '-1' );
-
-	if ( empty( $_POST['content'] ) )
-		exit( '-1<div id="message" class="error"><p>' . __( 'Please enter some content to post.', 'buddypress' ) . '</p></div>' );
-
-	$activity_id = 0;
-	if ( empty( $_POST['object'] ) && bp_is_active( 'activity' ) ) {
-		$activity_id = bp_activity_post_update( array( 'content' => $_POST['content'], 'error_type' => 'wp_error' ) );
-
-	} elseif ( $_POST['object'] == 'groups' ) {
-		if ( ! empty( $_POST['item_id'] ) && bp_is_active( 'groups' ) )
-			$activity_id = groups_post_update( array( 'content' => $_POST['content'], 'group_id' => $_POST['item_id'], 'error_type' => 'wp_error' ) );
-
-	} else {
-		$activity_id = apply_filters( 'bp_activity_custom_update', $_POST['object'], $_POST['item_id'], $_POST['content'] );
-	}
-
-	if ( false === $activity_id ) {
-		exit( '-1<div id="message" class="error"><p>' . __( 'There was a problem posting your update, please try again.', 'buddypress' ) . '</p></div>' );
-	} elseif ( is_wp_error( $activity_id ) && $activity_id->get_error_code() ) {
-		exit( '-1<div id="message" class="error bp-ajax-message"><p>' . $activity_id->get_error_message() . '</p></div>' );
-	}
-
-	if ( bp_has_activities ( 'include=' . $activity_id ) ) {
-		while ( bp_activities() ) {
-			bp_the_activity();
-			locate_template( array( 'activity/entry.php' ), true );
-		}
-	}
-
-	exit;
-}
-remove_action( 'wp_ajax_post_update', 'bp_dtheme_post_update' );
-add_action( 'wp_ajax_post_update', 'cbox_dtheme_post_update' );
-
 /*
  * Adds proper <label> to directory search forms.
  *
