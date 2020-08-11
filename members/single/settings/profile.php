@@ -96,7 +96,7 @@ get_header( 'buddypress' ); ?>
 
 					<?php wp_nonce_field( 'bp_xprofile_settings' ); ?>
 
-					<input type="hidden" name="field_ids" id="field_ids" value="<?php cbox_theme_the_profile_group_field_ids(); ?>" />
+					<input type="hidden" name="field_ids" id="field_ids" value="<?php bp_the_profile_field_ids(); ?>" />
 
 				</form>
 
