@@ -123,6 +123,14 @@ function cbox_jqueryui_hotfix( $page ) {
 add_action( 'admin_enqueue_scripts', 'cbox_jqueryui_hotfix', 20 );
 
 /**
+ * Enqueue jquery-migrate.
+ */
+function cbox_enqueue_jquery_migrate() {
+	wp_enqueue_script( 'jquery-migrate' );
+}
+add_action( 'wp_enqueue_scripts', 'cbox_enqueue_jquery_migrate', 20 );
+
+/**
  * Custom jQuery Buttons
  */
 function cbox_theme_custom_buttons()
