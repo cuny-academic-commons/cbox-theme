@@ -54,7 +54,7 @@
 			var $a = $('a',this);
 			$a.each(function(i){
 				var $li = $a.eq(i).parents('li');
-				$a.eq(i).focus(function(){over.call($li);}).blur(function(){out.call($li);});
+				$a.eq(i).on('focus', function(){over.call($li);}).blur(function(){out.call($li);});
 			});
 			o.onInit.call(this);
 			
