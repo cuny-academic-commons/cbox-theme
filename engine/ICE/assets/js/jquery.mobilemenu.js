@@ -249,7 +249,7 @@
 		if(isList($(this))){
 			$menus = $(this);
 			runPlugin();
-			$(window).resize(function(){runPlugin();});
+			$(window).on('resize', function(){runPlugin();});
 		} else {
 			alert('mobileMenu only works with <ul>/<ol>');
 		}
