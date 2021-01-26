@@ -216,7 +216,7 @@
       }
 
       if (!settings.inline || !settings.cookieMonster || !$.cookie(settings.cookieName)) {
-        $(window).resize(function() {
+        $(window).on( 'resize', function() {
           var parentElementID = $(tipContent[prevCount]).data('id'),
           currentTipPosition = $('#' + parentElementID).offset(),
           currentParentHeight = $('#' + parentElementID).outerHeight(),
