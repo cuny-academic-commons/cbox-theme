@@ -236,7 +236,7 @@ function cbox_fix_bbp_new_topic_button() {
 	$is_group_topic = $is_group_forum && bp_is_action_variable( 'topic' );
 
 	// If these conditions are met, this button should not be displayed.
-	if ( ! is_user_logged_in() || ! $is_group_forum || $is_group_topic || bp_group_is_user_banned() ) {
+	if ( ! is_user_logged_in() || ! $is_group_forum || $is_group_topic || bp_group_is_user_banned( groups_get_current_group() ) ) {
 		return;
 	}
 
