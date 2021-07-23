@@ -280,6 +280,10 @@ body { min-width: inherit }
 		box-shadow: none;
 		width: 40%;
 	}
+
+	body.notifications table.notifications th.actions {
+		width: 52px;
+	}
 }
 
 /* --------------------------------------------------

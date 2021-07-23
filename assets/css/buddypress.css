@@ -31,6 +31,9 @@ span.activity {
     font-size: 85%;
 }
 .activity-read-more { margin-left: 5px }
+.bp-screen-reader-text {
+	display: none;
+}
 
 /* > Item Headers (Profiles, Groups)
 --------------------------------------------------------------*/
@@ -1059,4 +1062,47 @@ body.bp-user.settings.no-js .wp-generate-pw,
 body.bp-user.settings.no-js .wp-cancel-pw,
 body.bp-user.settings.no-js .wp-hide-pw {
 	display: none;
+}
+/* > Notifications
+--------------------------------------------------------------*/
+table.notifications th.icon,
+table.notifications td:first-child {
+	display: none;
+}
+
+table.notifications thead:first-child tr th,
+table.notifications thead:first-child tr td {
+    width: auto;
+}
+
+body.notifications table.notifications th.bulk-select-all {
+	width: 40px;
+}
+
+body.notifications.unread th.actions {
+	width: 104px;
+}
+
+body.notifications.read th.actions {
+	width: 117px;
+}
+
+.notifications-options-nav {
+	margin: 1em 0;
+}
+
+#notification-bulk-manage {
+	margin-top: 0;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	vertical-align: top;
+}
+
+#notification-bulk-manage[disabled="disabled"] {
+	opacity: .6;
+}
+
+body.notifications #item-body .notification-filter h3,
+body.notifications #item-body .notification-filter span {
+	margin-bottom: 1em;
 }
