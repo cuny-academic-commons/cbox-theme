@@ -168,6 +168,7 @@ class ICE_Stack
 	 *
 	 * @return integer
 	 */
+	#[\ReturnTypeWillChange]
 	public function count()
 	{
 		return $this->count;
@@ -178,6 +179,7 @@ class ICE_Stack
 	 *
 	 * @return Iterator An iterator for traversing the items in the stack.
 	 */
+	#[\ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new ICE_Stack_Iterator( $this->data );

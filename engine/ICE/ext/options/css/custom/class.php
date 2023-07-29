@@ -37,7 +37,10 @@ class ICE_Ext_Option_Css_Custom
 	public function inject_css( $style )
 	{
 		// get value
-		$value = trim( $this->get() );
+		$value = false;
+		if ( ! empty( $this->get() ) ) {
+			$value = trim( $this->get() );
+		}
 
 		// did we get anything?
 		if ( !empty( $value ) ) {
