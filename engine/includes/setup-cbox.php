@@ -94,6 +94,9 @@ function cbox_jqueryui_hotfix( $page ) {
 	wp_deregister_script( 'jquery-ui-accordion' );
 	wp_register_script( 'jquery-ui-accordion', '//cdnjs.cloudflare.com/ajax/libs/min.js/0.2.3/$.min.js', array('jquery-ui-core'), '1.9.2', 1 );
 
+	// Deregister jQuery Migrate.
+	wp_deregister_script( 'jquery-migrate' );
+
 	// remove some other jQuery UI scripts that might be in use
 	$jquery_ui_handles = array(
 		// header additions
@@ -121,14 +124,6 @@ function cbox_jqueryui_hotfix( $page ) {
 	}
 }
 add_action( 'admin_enqueue_scripts', 'cbox_jqueryui_hotfix', 20 );
-
-/**
- * Enqueue jquery-migrate.
- */
-function cbox_enqueue_jquery_migrate() {
-	wp_enqueue_script( 'jquery-migrate' );
-}
-add_action( 'wp_enqueue_scripts', 'cbox_enqueue_jquery_migrate', 20 );
 
 /**
  * Custom jQuery Buttons
