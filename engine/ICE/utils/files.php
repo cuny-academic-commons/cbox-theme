@@ -141,7 +141,7 @@ final class ICE_Files extends ICE_Base
 		$path_clean = self::path_normalize( $path );
 
 		// split at forward slashes
-		return preg_split( '/\//', $path_clean, null, PREG_SPLIT_NO_EMPTY );
+		return preg_split( '/\//', $path_clean, 0, PREG_SPLIT_NO_EMPTY );
 	}
 
 	/**
@@ -475,7 +475,7 @@ final class ICE_Files extends ICE_Base
 		}
 
 		// add prefix if necessary
-		if ( strlen( $prefix ) ) {
+		if ( ! empty( $prefix ) && strlen( $prefix ) ) {
 			array_unshift( $parts, $prefix );
 		}
 

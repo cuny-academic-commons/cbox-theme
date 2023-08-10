@@ -62,6 +62,7 @@ class ICE_Map_Iterator
 	/**
 	 * Rewinds internal array pointer.
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind()
 	{
 		$this->key = reset( $this->keys );
@@ -72,6 +73,7 @@ class ICE_Map_Iterator
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function key()
 	{
 		return $this->key;
@@ -82,6 +84,7 @@ class ICE_Map_Iterator
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function current()
 	{
 		return $this->data[$this->key];
@@ -90,6 +93,7 @@ class ICE_Map_Iterator
 	/**
 	 * Moves the internal pointer to the next array element.
 	 */
+	#[\ReturnTypeWillChange]
 	public function next()
 	{
 		$this->key = next( $this->keys );
@@ -100,6 +104,7 @@ class ICE_Map_Iterator
 	 *
 	 * @return boolean
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid()
 	{
 		return $this->key !== false;

@@ -114,7 +114,9 @@ add_action( 'open_sidebar', 'cbox_theme_activity_tabs' );
  */
 function cbox_theme_group_navigation()
 {
-	if ( bp_is_group() ) :
+	global $groups_template;
+
+	if ( bp_is_group() && ! empty( $groups_template ) ) :
 		cbox_populate_group_global();
 		infinity_get_template_part( 'templates/parts/group-navigation' );
 	endif;

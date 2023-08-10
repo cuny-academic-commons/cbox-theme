@@ -86,6 +86,7 @@ class ICE_Map
 	 *
 	 * @return integer
 	 */
+	#[\ReturnTypeWillChange]
 	public function count()
 	{
 		return count( $this->__data__ );
@@ -301,6 +302,7 @@ class ICE_Map
 	 * @param mixed $offset The offset to check on
 	 * @return boolean
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetExists( $offset )
 	{
 		return $this->contains( $offset );
@@ -312,6 +314,7 @@ class ICE_Map
 	 * @param integer $offset The offset to retrieve element.
 	 * @return mixed The element at the offset, null if no element is found at the offset
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetGet( $offset )
 	{
 		return $this->item_at( $offset );
@@ -323,6 +326,7 @@ class ICE_Map
 	 * @param integer $offset The offset to set element
 	 * @param mixed $item The element value
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetSet( $offset, $item )
 	{
 		$this->add( $offset, $item );
@@ -333,6 +337,7 @@ class ICE_Map
 	 *
 	 * @param mixed $offset The offset to unset element
 	 */
+	#[\ReturnTypeWillChange]
 	public function offsetUnset( $offset )
 	{
 		$this->remove( $offset );
@@ -343,6 +348,7 @@ class ICE_Map
 	 *
 	 * @return ICE_Map_Iterator An iterator for traversing the items in the list.
 	 */
+	#[\ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new ICE_Map_Iterator( $this->__data__ );

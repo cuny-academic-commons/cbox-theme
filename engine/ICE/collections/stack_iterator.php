@@ -63,6 +63,7 @@ class ICE_Stack_Iterator
 	/**
 	 * Rewinds internal array pointer.
 	 */
+	#[\ReturnTypeWillChange]
 	public function rewind()
 	{
 		$this->index = 0;
@@ -73,6 +74,7 @@ class ICE_Stack_Iterator
 	 *
 	 * @return integer
 	 */
+	#[\ReturnTypeWillChange]
 	public function key()
 	{
 		return $this->index;
@@ -83,6 +85,7 @@ class ICE_Stack_Iterator
 	 *
 	 * @return mixed
 	 */
+	#[\ReturnTypeWillChange]
 	public function current()
 	{
 		return $this->data[$this->index];
@@ -91,6 +94,7 @@ class ICE_Stack_Iterator
 	/**
 	 * Moves the internal pointer to the next array item.
 	 */
+	#[\ReturnTypeWillChange]
 	public function next()
 	{
 		$this->index++;
@@ -101,6 +105,7 @@ class ICE_Stack_Iterator
 	 *
 	 * @return boolean
 	 */
+	#[\ReturnTypeWillChange]
 	public function valid()
 	{
 		return $this->index < $this->count;

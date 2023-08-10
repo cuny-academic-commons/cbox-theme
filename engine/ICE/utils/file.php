@@ -82,6 +82,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isDir()
 	{
 		if ( null === $this->d ) {
@@ -93,6 +94,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isFile()
 	{
 		if ( null === $this->f ) {
@@ -104,6 +106,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isLink()
 	{
 		if ( null === $this->l ) {
@@ -115,6 +118,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isReadable()
 	{
 		if ( null === $this->r ) {
@@ -126,6 +130,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isWritable()
 	{
 		if ( null === $this->w ) {
@@ -137,6 +142,7 @@ final class ICE_File extends SplFileInfo
 
 	/**
 	 */
+	#[\ReturnTypeWillChange]
 	public function isExecutable()
 	{
 		if ( null === $this->x ) {
@@ -239,6 +245,7 @@ final class ICE_File extends SplFileInfo
 	 *
 	 * @return string
 	 */
+	#[\ReturnTypeWillChange]
 	public function getExtension()
 	{
 		// does SPL version support this method already?

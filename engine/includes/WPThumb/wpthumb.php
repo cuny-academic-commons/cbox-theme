@@ -58,6 +58,8 @@ class WP_Thumb {
 	 */
 	private $file_path;
 
+	private $_file_path;
+
 	private static $wp_upload_dir;
 
 	private static function uploadDir() {
