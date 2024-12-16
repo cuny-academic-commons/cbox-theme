@@ -280,7 +280,7 @@ class lessc {
 
 			$hidden = true;
 			if (!isset($block->args)) foreach ($block->tags as $tag) {
-				if ($tag{0} != $this->mPrefix) {
+				if ($tag[0] != $this->mPrefix) {
 					$hidden = false;
 					break;
 				}
@@ -315,7 +315,7 @@ class lessc {
 	function fixTags($tags) {
 		// move @ tags out of variable namespace
 		foreach ($tags as &$tag) {
-			if ($tag{0} == $this->vPrefix) $tag[0] = $this->mPrefix;
+			if ($tag[0] == $this->vPrefix) $tag[0] = $this->mPrefix;
 		}
 		return $tags;
 	}
@@ -383,7 +383,7 @@ class lessc {
 		// the operator for it to be a mathematical operator.
 
 		$needWhite = false;
-		if (!$this->inParens && preg_match('/\s/', $this->buffer{$this->count - 1})) {
+		if (!$this->inParens && preg_match('/\s/', $this->buffer[$this->count - 1])) {
 			$needWhite = true;
 		}
 
@@ -427,7 +427,7 @@ class lessc {
 			$ss = $this->seek();
 
 			$needWhite = false;
-			if (!$this->inParens && preg_match('/\s/', $this->buffer{$this->count - 1})) {
+			if (!$this->inParens && preg_match('/\s/', $this->buffer[$this->count - 1])) {
 				$needWhite = true;
 			}
 		}
@@ -470,7 +470,7 @@ class lessc {
 			$value = null;
 			if ($this->variable($var)) {
 				$value = array('variable', $var);
-			} elseif ($this->buffer{$this->count} == "(" && $this->expression($exp)) {
+			} elseif ($this->buffer[$this->count] == "(" && $this->expression($exp)) {
 				$value = $exp;
 			} else {
 				$this->seek($s);
@@ -904,7 +904,7 @@ class lessc {
 	function end() {
 		if ($this->literal(';'))
 			return true;
-		elseif ($this->count == strlen($this->buffer) || $this->buffer{$this->count} == '}') {
+		elseif ($this->count == strlen($this->buffer) || $this->buffer[$this->count] == '}') {
 			// if there is end of file or a closing block next then we don't need a ;
 			return true;
 		}
@@ -2146,7 +2146,7 @@ class lessc {
 
 		// shortcut on single letter
 		if (!$eatWhitespace && strlen($what) == 1) {
-			if ($this->buffer{$this->count} == $what) {
+			if ($this->buffer[$this->count] == $what) {
 				$this->count++;
 				return true;
 			}
@@ -2250,7 +2250,7 @@ class lessc {
 		$this->pushEnv();
 		$parser = new lessc();
 		foreach ($args as $name => $str_value) {
-			if ($name{0} != '@') $name = '@'.$name;
+			if ($name[0] != '@') $name = '@'.$name;
 			$parser->count = 0;
 			$parser->buffer = (string)$str_value;
 			if (!$parser->propertyValue($value)) {
