@@ -429,6 +429,9 @@ form.standard-form input:focus, form.standard-form textarea:focus, form.standard
     color: #555;
 }
 form#send-invite-form { margin-top: 20px }
+#send-invite-form div.submit {
+	clear: both;
+}
 div#invite-list {
     height: 400px;
     overflow: scroll;
@@ -444,9 +447,53 @@ div#invite-list {
 #invite-list ul li {
 	list-style: none;
 }
+#create-group-form ul.first,
+#item-body #send-invite-form ul.first {
+	padding-left: 0;
+}
 .action .button {
 	padding: 3px 8px;
 	font-size: 75%;
+}
+#invite-anyone-by-email #invite-anyone-steps {
+	padding-left: 0;
+}
+#invite-anyone-by-email #invite-anyone-steps li {
+	list-style-position: outside;
+}
+#invite-anyone-by-email textarea,
+#create-group-form ul.first li input,
+#item-body #send-invite-form ul.first li input {
+	width: 100%;
+}
+#invite-anyone-steps legend {
+	font-size: 80%;
+	text-transform: uppercase;
+}
+#invite-anyone-steps #invite-anyone-group-list {
+	margin-top: 1em;
+}
+#settings-form #email {
+	margin-bottom: 2em;
+	width: 280px;
+}
+.user-pass1-wrap button {
+	margin-top: 0;
+}
+.user-pass1-wrap .wp-pwd {
+	margin-top: 1em;
+}
+#pass-strength-result {
+	margin-top: 0;
+}
+#pass-strength-result:empty {
+	display: none !important;
+}
+button.wp-hide-pw {
+	padding-bottom: 7px;
+	padding-top: 7px;
+	position: relative;
+	top: 3px;
 }
 /* > Data Tables
 --------------------------------------------------------------*/
