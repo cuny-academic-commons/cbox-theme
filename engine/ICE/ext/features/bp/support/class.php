@@ -101,7 +101,10 @@ class ICE_Ext_Feature_Bp_Support
 		$version = '20120110';
 
 		// the global BuddyPress JS - Ajax will not work without it
-		wp_enqueue_script( 'dtheme-ajax-js', BP_PLUGIN_URL . '/bp-themes/bp-default/_inc/global.js', array( 'jquery' ), bp_get_version() );
+		$bp_default = $this->get_bp_default_directory_uri();
+		if ( $bp_default ) {
+			wp_enqueue_script( 'dtheme-ajax-js', $bp_default . '_inc/global.js', array( 'jquery' ), bp_get_version() );
+		}
 
 		// Add words that we need to use in JS to the end of the page so they can be translated and still used.
 		$params = array(
@@ -123,11 +126,66 @@ class ICE_Ext_Feature_Bp_Support
 	}
 
 	/**
+	 * Returns bp-default directory in use.
+	 *
+	 * @return mixed string|bool Path of bp-default directory on success. False on failure.
+	 */
+	public function get_bp_default_directory() {
+		if ( function_exists( 'bp_classic' ) ) {
+			return bp_classic_get_themes_dir() . '/bp-default/';
+		}
+
+		$theme_dirs = [
+			// Future proof.
+			get_theme_root() . '/bp-default/',
+
+			// Old BuddyPress versions.
+			BP_PLUGIN_DIR . '/bp-themes/bp-default/'
+		];
+
+		foreach ( $theme_dirs as $dir ) {
+			if ( is_dir( $dir ) ) {
+				return $dir;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Returns bp-default directory URL.
+	 *
+	 * @return mixed string|bool URL of bp-default directory on success. False on failure.
+	 */
+	public function get_bp_default_directory_uri() {
+		if ( function_exists( 'bp_classic' ) ) {
+			return bp_classic_get_themes_url() . '/bp-default/';
+		}
+
+		// Future proof.
+		$url = get_theme_root_uri( 'bp-default' );
+		if ( false !== strpos( $url, '/bp-default' ) ) {
+			return trailingslashit( $url );
+		}
+
+		// Old BuddyPress versions.
+		if ( $this->get_bp_default_directory() ) {
+			return trailingslashit( BP_PLUGIN_URL ) . 'bp-themes/bp-default/';
+		}
+
+		return false;
+	}
+
+	/**
 	 * @internal copied from bp-default/functions.php
 	 */
 	protected function setup_theme()
 	{
-		require_once BP_PLUGIN_DIR . '/bp-themes/bp-default/_inc/ajax.php';
+		$bp_default = $this->get_bp_default_directory();
+
+		if ( $bp_default ) {
+			require_once $bp_default . '_inc/ajax.php';
+		}
 
 		// tell BuddyPress that Infinity supports it
 		add_theme_support( 'buddypress' );
