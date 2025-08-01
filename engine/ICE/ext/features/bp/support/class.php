@@ -131,7 +131,7 @@ class ICE_Ext_Feature_Bp_Support
 	 * @return mixed string|bool Path of bp-default directory on success. False on failure.
 	 */
 	public function get_bp_default_directory() {
-		if ( function_exists( 'bp_classic' ) ) {
+		if ( function_exists( 'bp_classic_get_themes_dir' ) ) {
 			return bp_classic_get_themes_dir() . '/bp-default/';
 		}
 
@@ -158,7 +158,7 @@ class ICE_Ext_Feature_Bp_Support
 	 * @return mixed string|bool URL of bp-default directory on success. False on failure.
 	 */
 	public function get_bp_default_directory_uri() {
-		if ( function_exists( 'bp_classic' ) ) {
+		if ( function_exists( 'bp_classic_get_themes_url' ) ) {
 			return bp_classic_get_themes_url() . '/bp-default/';
 		}
 
