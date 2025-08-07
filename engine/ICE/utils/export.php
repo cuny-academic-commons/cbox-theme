@@ -176,13 +176,23 @@ class ICE_Export extends ICE_Base
 			// make sure we didn't get an error
 			if ( $upload_dir['error'] == false ) {
 				// set upload dir path and url
-				self::$upload_dir = realpath( $upload_dir['basedir'] );
+
+				// Do not use realpath() if Amazon S3 is in use
+				if ( 0 === strpos( $upload_dir['basedir'], 's3:' ) ) {
+					self::$upload_dir = $upload_dir['basedir'];
+				} else {
+					self::$upload_dir = realpath( $upload_dir['basedir'] );
+				}
+
 				self::$upload_url = set_url_scheme( $upload_dir['baseurl'] );
+
 				// determine export path and url
 				self::$export_dir = sprintf( '%s/%s/%s', self::$upload_dir, ICE_EXPORTS_SUBDIR, ICE_ACTIVE_THEME );
 				self::$export_url = sprintf( '%s/%s/%s', self::$upload_url, ICE_EXPORTS_SUBDIR, ICE_ACTIVE_THEME );
+
 				// don't try to set these twice
 				self::$populated = true;
+
 				// yay
 				return true;
 			}
